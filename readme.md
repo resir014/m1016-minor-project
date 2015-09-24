@@ -1,27 +1,71 @@
-## Laravel PHP Framework
+# m1016-laravel-test
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+### Requirements
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+* Latest version of [XAMPP](https://www.apachefriends.org/).
+* Latest version of [Composer](https://getcomposer.org/).
 
-## Official Documentation
+For now, this guide is only for Windows.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+* Install XAMPP, prefereably in `C:\xampp`.
+* Download the Windows installer for Composer, install it. Make sure to point to the `php.exe` located in the XAMPP installation directory when prompted.
+
+Now, check if you have both `php` and `composer` on the command line.
+
+### Setting up our development environment
+
+After both XAMPP and Composer are installed, clone this repository to the XAMPP `htdocs` directory.
+
+```
+C:\Users\user> cd C:\xampp\htdocs
+C:\xampp\htdocs> git clone https://github.com/resir014/m1016-laravel-test.git
+```
+
+Next, navigate to the working directory and create an application key using the following command:
+
+```
+C:\xampp\htdocs> cd m1016-laravel-test
+C:\xampp\htdocs\m1016-laravel-test> php artisan key:generate
+```
+
+Finally, run Composer to install the dependencies required for this project.
+
+```
+> composer install
+```
+
+To update the dependencies at any time, run this command:
+
+```
+> composer update
+```
+
+## Running locally
+
+### Through XAMPP
+
+Open the XAMPP Control Panel and activate both Apache and MySQL, then navigate to `localhost/m1016-laravel-test/public`.
+
+### Through PHP
+
+Open the XAMPP Control Panel and activate MySQL. Then, open a command prompt and `cd` to the project directory, and run the following command:
+
+```
+> php -S localhost:8888 -t public
+```
+
+Then, navigate to `localhost:8888` to load the page.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+1. [Fork it](https://github.com/resir014/m1016-laravel-test/fork)
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Create a new Pull Request
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
+## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
