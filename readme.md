@@ -23,17 +23,17 @@ C:\Users\user> cd C:\xampp\htdocs
 C:\xampp\htdocs> git clone https://github.com/resir014/m1016-laravel-test.git
 ```
 
-Next, navigate to the working directory and create an application key using the following command:
+Next, navigate to the working directory and run Composer to install the dependencies required for this project.
 
 ```
 C:\xampp\htdocs> cd m1016-laravel-test
-C:\xampp\htdocs\m1016-laravel-test> php artisan key:generate
+C:\xampp\htdocs\m1016-laravel-test> composer install
 ```
 
-Finally, run Composer to install the dependencies required for this project.
+Finally, create an application key using the following command:
 
 ```
-> composer install
+> php artisan key:generate
 ```
 
 To update the dependencies at any time, run this command:
