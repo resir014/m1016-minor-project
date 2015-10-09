@@ -11,6 +11,10 @@ var elixir = require('laravel-elixir');
  |
  */
 
+var paths = {
+    'jquery': './bower_components/jquery/'
+}
+
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.sass('app.scss').scripts(paths.jquery + 'dist/jquery.js');
 });
