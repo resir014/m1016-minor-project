@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "m1016-laravel-test",
+  "version": "0.0.0",
   "ignore": [
     "**/.*",
     "node_modules",
