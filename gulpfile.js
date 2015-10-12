@@ -17,9 +17,11 @@ var paths = {
 }
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.sass([
+        'app.scss'
+    ], 'public/css/app.css');
     mix.scripts([
         paths.jquery + 'dist/jquery.js',
         paths.js + 'scripts.js'
-    ]);
+    ], 'public/js/app.js');
 });
