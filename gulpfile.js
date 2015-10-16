@@ -11,6 +11,9 @@ var elixir = require('laravel-elixir');
  |
  */
 
+// Elixir configs
+elixir.config.sourcemaps = false;
+
 var paths = {
     'jquery': './bower_components/jquery/',
     'js': './resources/assets/js/'
