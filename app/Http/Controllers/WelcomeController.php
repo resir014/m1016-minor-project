@@ -26,5 +26,6 @@ class WelcomeController extends Controller
     public function index()
     {
         return view('welcome');
+        // ini berarti dia nge-load template di folder resources/views template 'welcome'
     }
 }
