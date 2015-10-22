@@ -17,4 +17,11 @@ class ProfileController extends Controller
 
         return View::make('profile.blade.php', $data);
     }
+
+    public function profile()
+    {
+        $name = "Noor";
+
+        return view('profile')->with('name', $name);
+    }
 }
