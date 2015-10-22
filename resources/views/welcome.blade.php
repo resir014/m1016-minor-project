@@ -1,8 +1,8 @@
-@extends('master')
-
-@include('includes.navbar')
+@extends('layouts.master')
 
 @section('content')
+@include('includes.navbar')
+
 <div class="jumbotron">
   <div class="container">
     <h1>Your school life, organized.</h1>
