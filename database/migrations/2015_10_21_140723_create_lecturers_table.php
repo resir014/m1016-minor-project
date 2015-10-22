@@ -17,7 +17,7 @@ class CreateLecturersTable extends Migration
             $table->string('lecturer_id');
             $table->string('beban_jabatan');
             $table->string('jabatan');
-            $table->string('spesialisasi')
+            $table->string('spesialisasi');
             $table->timestamps();
         });
     }
