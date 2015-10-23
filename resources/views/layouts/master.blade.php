@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
-    @include('includes.head')
+    <head>
+        @include('includes.head')
+    </head>
 
     <body>
-        @yield('content')
+        @include('includes.navbar')
 
-        <script src="js/app.js" charset="utf-8"></script>
+        <main>
+            @yield('content')
+        </main>
+
+        @include('includes.scripts')
     </body>
 </html>

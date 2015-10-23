@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-@include('includes.navbar')
 
 <div class="jumbotron">
   <div class="container">

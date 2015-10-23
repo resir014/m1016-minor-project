@@ -1,9 +1,18 @@
-@extends('layouts.master')
+<!DOCTYPE html>
+<html>
+    <head>
+        @include('includes.head')
+    </head>
 
-@section('content')
-@include('includes.navbar')
+    <body>
+        @include('includes.navbar')
 
-<div class="container">
-    @yield('content')
-</div>
-@endsection
+        <div class="container">
+            <main>
+                @yield('content')
+            </main>
+        </div>
+
+        @include('includes.scripts')
+    </body>
+</html>
