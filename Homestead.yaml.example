@@ -21,6 +21,7 @@ sites:
 
 databases:
     - homestead
+    - m1016-staging
 
 variables:
     - key: APP_ENV
