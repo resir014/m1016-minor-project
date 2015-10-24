@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>503: Service Unavailable.</h2>
+    <h1>503: Service Unavailable.</h1>
     <p>
         Be right back.
     </p>
