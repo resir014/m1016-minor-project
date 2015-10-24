@@ -26,7 +26,12 @@
 // terus dia nge-load method 'index'
 Route::get('/', 'WelcomeController@index');
 
-Route::get('/profile', 'ProfileContoller@profile');
+Route::get('profile', 'ProfileContoller@profile');
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
-Route::get('/about', 'PagesController@about');
+Route::get('about', 'PagesController@about');
+
+// mockups
+Route::get('mockups', function() {
+    return "test";
+});
