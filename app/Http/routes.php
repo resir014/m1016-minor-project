@@ -35,3 +35,6 @@ Route::get('about', 'PagesController@about');
 Route::get('mockups', function() {
     return "test";
 });
+Route::get('mockups/input-nilai', function() {
+    return view('mockups.input-nilai');
+});
