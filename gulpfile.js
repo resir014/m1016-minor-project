@@ -16,6 +16,7 @@ elixir.config.sourcemaps = false;
 
 var paths = {
     'jquery': './bower_components/jquery/',
+    'bootstrap': './bower_components/bootstrap-sass/',
     'js': './resources/assets/js/'
 }
 
@@ -25,6 +26,7 @@ elixir(function(mix) {
     ], 'public/css/app.css');
     mix.scripts([
         paths.jquery + 'dist/jquery.js',
+        paths.bootstrap + 'assets/javascripts/bootstrap.js',
         paths.js + 'scripts.js'
     ], 'public/js/app.js');
 });
