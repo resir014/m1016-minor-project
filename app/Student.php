@@ -6,10 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    /** Load the Students table. */
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
     protected $table = 'students';
 
-    /** Allow the following columns to be mass-assignable. */
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['student_id', 'tahun_masuk', 'status'];
 
     public function user()
