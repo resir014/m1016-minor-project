@@ -26,17 +26,16 @@
 // terus dia nge-load method 'index'
 Route::get('/', 'WelcomeController@index');
 
-Route::resource('/users', 'UsersContoller');
-
-Route::resource('/rooms', 'RoomsContoller');
+Route::resource('users', 'UsersController');
+Route::resource('rooms', 'RoomsController');
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
-Route::get('/about', 'PagesController@about');
+Route::get('about', 'PagesController@about');
 
 // mockups
-Route::get('/mockups', function() {
+Route::get('mockups', function() {
     return "test";
 });
-Route::get('/mockups/input-nilai', function() {
+Route::get('mockups/input-nilai', function() {
     return view('mockups.input-nilai');
 });
