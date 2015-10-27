@@ -26,7 +26,8 @@
 // terus dia nge-load method 'index'
 Route::get('/', 'WelcomeController@index');
 
-Route::get('profile', 'ProfileContoller@profile');
+Route::resource('users', 'UsersController');
+Route::resource('rooms', 'RoomsController');
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
 Route::get('about', 'PagesController@about');
