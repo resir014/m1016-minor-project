@@ -18,7 +18,7 @@ class CreateRoomsTable extends Migration
             $table->string('room_id');
             $table->string('room_type');
             $table->string('location');
-            $table->string('status');
+            $table->boolean('available');
         });
     }
 

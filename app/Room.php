@@ -23,6 +23,6 @@ class Room extends Model
         'room_name',
         'room_type',
         'location',
-        'status'
+        'available'
     ];
 }
