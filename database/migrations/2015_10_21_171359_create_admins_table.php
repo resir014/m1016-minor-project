@@ -15,7 +15,7 @@ class CreateAdminsTable extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('nomor_induk');
+            $table->string('nomor_induk')->unique();
             $table->string('jabatan');
         });
     }
