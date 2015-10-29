@@ -40,3 +40,8 @@ Route::get('mockups', function() {
 Route::get('mockups/input-nilai', function() {
     return view('mockups.input-nilai');
 });
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);

@@ -1,6 +1,7 @@
-@extends('layouts.page')
+@extends('app')
 
 @section('content')
+<div class="container">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Input Nilai</h3>
@@ -88,4 +89,5 @@
             </div>
         </div>
     </div>
+</div>
 @stop
