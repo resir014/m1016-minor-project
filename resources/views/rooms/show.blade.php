@@ -1,7 +1,7 @@
 @extends('layouts.page')
 
 @section('content')
-<h1>{{ $room->room_id }} - {{ $room->room_name }}</h1>
+<h1>{{ $room->room_number }} - {{ $room->room_name }}</h1>
 <p class="lead">{{ $room->room_type }}</p>
 
 <hr>
@@ -14,6 +14,11 @@
 <a href="{{ route('rooms.edit', $room->id) }}" class="btn btn-primary">Edit Room</a>
 
 <div class="pull-right">
-    <a href="#" class="btn btn-danger">Delete this room?</a>
+    {!! Form::open([
+        'method' => 'DELETE',
+        'route' => ['rooms.destroy', $room->id]
+    ]) !!}
+        {!! Form::submit('Delete this room?', ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
 </div>
 @stop

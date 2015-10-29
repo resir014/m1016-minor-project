@@ -26,27 +26,7 @@
     'route' => 'rooms.store'
 ]) !!}
 
-<div class="form-group">
-    {!! Form::label('room_id', 'Room ID', ['class' => 'control-label']) !!}
-    {!! Form::text('room_id', null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('room_name', 'Name', ['class' => 'control-label']) !!}
-    {!! Form::text('room_name', null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('room_type', 'Type', ['class' => 'control-label']) !!}
-    {!! Form::text('room_type', null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('location', 'Location', ['class' => 'control-label']) !!}
-    {!! Form::text('location', null, ['class' => 'form-control']) !!}
-</div>
-
-{!! Form::submit('Create New Room', ['class' => 'btn btn-primary']) !!}
+@include('rooms.partials.form', ['buttonText' => 'Create New Room'])
 
 {!! Form::close() !!}
 
