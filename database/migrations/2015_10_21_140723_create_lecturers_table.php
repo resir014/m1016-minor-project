@@ -14,11 +14,11 @@ class CreateLecturersTable extends Migration
     {
         Schema::create('lecturers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('lecturer_id');
+            $table->timestamps();
+            $table->string('nomor_induk')->unique();
             $table->string('beban_jabatan');
             $table->string('jabatan');
             $table->string('spesialisasi');
-            $table->timestamps();
         });
     }
 

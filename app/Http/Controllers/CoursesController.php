@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Room;
+use App\Course;
 use App\Http\Requests;
-use App\Http\Requests\RoomRequest;
 use App\Http\Controllers\Controller;
 
-class RoomsController extends Controller
+class CoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,9 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
+        $courses = Course::all();
 
-        return view('rooms.index')->with('rooms', $rooms);
+        return $courses;
     }
 
     /**
@@ -29,24 +28,18 @@ class RoomsController extends Controller
      */
     public function create()
     {
-        return view('rooms.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\RoomRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RoomRequest $request)
+    public function store(Request $request)
     {
-        $input = $request->all();
-
-        Room::create($input);
-
-        $request->session()->flash('flash_message', 'Room successfully added!');
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -57,9 +50,9 @@ class RoomsController extends Controller
      */
     public function show($id)
     {
-        $room = Room::findOrFail($id);
+        $course = Course::findOrFail($id);
 
-        return view('rooms.show')->with('room', $room);
+        return $course;
     }
 
     /**
@@ -70,29 +63,19 @@ class RoomsController extends Controller
      */
     public function edit($id)
     {
-        $room = Room::findOrFail($id);
-
-        return view('rooms.edit')->with('room', $room);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\RoomRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RoomRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $room = Room::findOrFail($id);
-
-        $input = $request->all();
-
-        $room->fill($input)->save();
-
-        $request->session()->flash('flash_message', 'Room successfully updated!');
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -103,12 +86,6 @@ class RoomsController extends Controller
      */
     public function destroy($id)
     {
-        $room = Room::findOrFail($id);
-
-        $room->delete();
-
-        //Session::flash('flash_message', 'Room successfully deleted!');
-
-        return redirect()->route('rooms.index');
+        //
     }
 }

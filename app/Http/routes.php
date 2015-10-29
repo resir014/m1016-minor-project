@@ -28,6 +28,7 @@ Route::get('/', 'WelcomeController@index');
 
 Route::resource('users', 'UsersController');
 Route::resource('rooms', 'RoomsController');
+Route::resource('courses', 'CoursesController');
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
 Route::get('about', 'PagesController@about');
@@ -39,3 +40,8 @@ Route::get('mockups', function() {
 Route::get('mockups/input-nilai', function() {
     return view('mockups.input-nilai');
 });
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);

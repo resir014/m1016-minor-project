@@ -14,10 +14,11 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('student_id');
-            $table->string('tahun_masuk');
-            $table->string('status');
             $table->timestamps();
+            $table->string('nomor_induk')->unique();
+            $table->integer('tahun_masuk');
+            $table->date('tanggal_lahir');
+            $table->string('status');
         });
     }
 
