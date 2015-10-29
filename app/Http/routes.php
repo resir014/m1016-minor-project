@@ -25,6 +25,9 @@
 // jadi dia bakal nyari file di app/http/controller dengan class 'WelcomeController'
 // terus dia nge-load method 'index'
 Route::get('/', 'WelcomeController@index');
+Route::get('home', function() {
+    return view('home');
+});
 
 Route::resource('users', 'UsersController');
 Route::resource('rooms', 'RoomsController');
