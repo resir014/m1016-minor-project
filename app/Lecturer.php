@@ -13,6 +13,13 @@ class Lecturer extends Model
      */
     protected $table = 'lecturers';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['nomor_induk', 'beban_jabatan', 'jabatan', 'spesialisasi'];
+
     public function user()
     {
         return $this->morphOne('User', 'userable');

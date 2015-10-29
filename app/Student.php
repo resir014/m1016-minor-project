@@ -18,7 +18,7 @@ class Student extends Model
      *
      * @var array
      */
-    protected $fillable = ['student_id', 'tahun_masuk', 'status'];
+    protected $fillable = ['nomor_induk', 'tahun_masuk', 'tanggal_lahir', 'status'];
 
     public function user()
     {
