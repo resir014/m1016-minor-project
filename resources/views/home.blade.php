@@ -8,7 +8,22 @@
                 <div class="panel-heading">Home</div>
 
                 <div class="panel-body">
-                    Welcome, {{ Auth::user()->name }} ({{ Auth::user()->userable->nomor_induk }})! You are logged in as {{ Auth::user()->userable_type }}.
+                    <p>
+                        Welcome, {{ Auth::user()->name }}!
+                        @if (Auth::user()->userable_id !== 0)
+                            ({{ Auth::user()->userable->nomor_induk }})
+                        @endif
+                    </p>
+
+                    @if (Auth::user()->userable_id)
+                        <p class="text-info">
+                            You are logged in as {{ Auth::user()->userable_type }}.
+                        </p>
+                    @else
+                        <p class="text-danger">
+                            Your role is not yet set. Please check with your admin.
+                        </p>
+                    @endif
                 </div>
             </div>
         </div>
