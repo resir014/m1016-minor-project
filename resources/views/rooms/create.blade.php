@@ -1,11 +1,11 @@
-@extends('layouts.page')
+@extends('app')
 
 @section('content')
 <div class="container">
     <a href="{{ route('rooms.index') }}">&larr; Go back to all rooms</a>
 
     <h1>Create a New Room</h1>
-    <p class="lead">Create a new Master Room data.</p>
+    <p class="lead">Create a new Room master data.</p>
     <hr>
 
     @if($errors->any())

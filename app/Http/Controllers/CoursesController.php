@@ -18,7 +18,7 @@ class CoursesController extends Controller
     {
         $courses = Course::all();
 
-        return $courses;
+        return view('courses.index')->with('courses', $courses);
     }
 
     /**
@@ -28,7 +28,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        //
+        return view('courses.create');
     }
 
     /**
@@ -39,7 +39,13 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        Course::create($input);
+
+        $request->session()->flash('flash_message', 'Course successfully added!');
+
+        return redirect()->back();
     }
 
     /**
@@ -52,7 +58,7 @@ class CoursesController extends Controller
     {
         $course = Course::findOrFail($id);
 
-        return $course;
+        return view('courses.show')->with('course', $course);
     }
 
     /**
@@ -63,7 +69,9 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::findOrFail($id);
+
+        return view('courses.edit')->with('course', $course);
     }
 
     /**
@@ -75,7 +83,15 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $course = Course::findOrFail($id);
+
+        $input = $request->all();
+
+        $course->fill($input)->save();
+
+        $request->session()->flash('flash_message', 'Course successfully updated!');
+
+        return redirect()->back();
     }
 
     /**

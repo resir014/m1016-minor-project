@@ -8,7 +8,7 @@
                 <div class="panel-heading">Home</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    Welcome, {{ Auth::user()->name }} ({{ Auth::user()->userable->nomor_induk }})! You are logged in as {{ Auth::user()->userable_type }}.
                 </div>
             </div>
         </div>

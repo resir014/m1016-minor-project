@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('course_code')->unique();
             $table->string('course_name');
             $table->integer('credits');
-            $table->string('status');
+            $table->boolean('active')->default(false);
         });
     }
 

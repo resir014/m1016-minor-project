@@ -197,6 +197,11 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
 
+        // Custom aliases
+        'Admin'     => App\Admin::class,
+        'Course'    => App\Course::class,
+        'Lecturer'  => App\Lecturer::class,
+
     ],
 
 ];

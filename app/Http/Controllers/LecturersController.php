@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UsersController extends Controller
+class LecturersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +15,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $data = array(
-            'user'  =>    \Auth::user(),
-            'type'  =>    get_class(\Auth::user()->userable)
-        );
+        $lecturers = Lecturer::all();
 
-        return view('users.index')->with($data);
+        return view('lecturers.index')->with('students', $students);
     }
 
     /**
@@ -31,7 +27,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        //
     }
 
     /**
@@ -42,11 +38,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-
-        User::create($input);
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -57,9 +49,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-
-        return $user;
+        //
     }
 
     /**

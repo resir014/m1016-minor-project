@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h1>Editing {{ $room->room_number }}</h1>
-    <p class="lead">Edit the Master Room data below, or <a href="{{ route('rooms.index') }}">go back to all rooms</a>.</p>
+    <a href="{{ route('courses.index') }}">&larr; Go back to all courses</a>
+
+    <h1>Create a New Course</h1>
+    <p class="lead">Create a new Course master data.</p>
     <hr>
 
     @if($errors->any())
@@ -20,12 +22,11 @@
         </div>
     @endif
 
-    {!! Form::model($room, [
-        'method' => 'PATCH',
-        'route' => ['rooms.update', $room->id]
+    {!! Form::open([
+        'route' => 'courses.store'
     ]) !!}
 
-    @include('rooms.partials.form', ['buttonText' => 'Update Room'])
+    @include('courses.partials.form', ['buttonText' => 'Create New course'])
 
     {!! Form::close() !!}
 </div>

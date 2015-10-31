@@ -16,7 +16,7 @@ class CreateLecturersTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('nomor_induk')->unique();
-            $table->string('beban_jabatan');
+            $table->integer('beban_jabatan');
             $table->string('jabatan');
             $table->string('spesialisasi');
         });

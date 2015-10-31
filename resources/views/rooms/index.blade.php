@@ -5,12 +5,6 @@
     <h1>All Rooms</h1>
     <hr>
 
-    @if(Session::has('flash_message'))
-        <div class="alert alert-success">
-            {{ Session::get('flash_message') }}
-        </div>
-    @endif
-
     @foreach($rooms as $room)
         <h3>{{ $room->room_number }} - {{ $room->room_name }}</h3>
         <p>{{ $room->room_type }}</p>
