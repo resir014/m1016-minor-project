@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <p>
                         Welcome, {{ Auth::user()->name }}!
-                        @if (Auth::user()->userable_id !== 0)
+                        @if (Auth::user()->userable_id)
                             ({{ Auth::user()->userable->nomor_induk }})
                         @endif
                     </p>
