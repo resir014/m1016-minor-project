@@ -51,6 +51,9 @@ Route::get('mockups/draft-jadwal', function() {
 Route::get('mockups/kesediaan-mengajar', function() {
     return view('mockups.kesedian-mengajar');
 });
+Route::get('mockups/input-mata-kuliah-aktif', function() {
+    return view('mockups.input-mata-kuliah-aktif');
+});
 Route::get('mockups/perubahan-nilai', function() {
     return view('mockups.perubahan-nilai');
 });
