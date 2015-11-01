@@ -32,6 +32,8 @@ Route::get('home', function() {
 Route::resource('users', 'UsersController');
 Route::resource('rooms', 'RoomsController');
 Route::resource('courses', 'CoursesController');
+Route::resource('lecturers', 'LecturersController');
+Route::resource('students', 'StudentsController');
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
 Route::get('about', 'PagesController@about');

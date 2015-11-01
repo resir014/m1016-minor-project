@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'userable_type', 'password'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -41,4 +41,15 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->morphTo();
     }
+
+    /**
+     * Sets the default values for the userable_type attribute
+     *
+     * @param  string  $value
+     * @return string
+     */
+     public function setUserableTypeAttribute($value)
+     {
+         $this->attributes['userable_type'] = 'App\\' . $value;
+     }
 }

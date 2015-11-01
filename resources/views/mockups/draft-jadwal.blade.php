@@ -60,7 +60,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('lecturer-id', 'Tanggal') !!}
-                {!! Form::input('date', 'name', Carbon\Carbon::now(), ['class' => 'form-control']) !!}
+                {!! Form::input('date', 'lecturer-id', null, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('test', 'Shift') !!}

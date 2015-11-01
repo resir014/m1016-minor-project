@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Lecturer;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +18,7 @@ class LecturersController extends Controller
     {
         $lecturers = Lecturer::all();
 
-        return view('lecturers.index')->with('students', $students);
+        return view('lecturers.index')->with('lecturers', $lecturers);
     }
 
     /**
@@ -27,7 +28,7 @@ class LecturersController extends Controller
      */
     public function create()
     {
-        //
+        return view('lecturers.create');
     }
 
     /**
@@ -38,7 +39,13 @@ class LecturersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        Lecturer::create($input);
+
+        $request->session()->flash('flash_message', 'Lecturer successfully added!');
+
+        return redirect()->back();
     }
 
     /**
@@ -49,7 +56,9 @@ class LecturersController extends Controller
      */
     public function show($id)
     {
-        //
+        $lecturer = Lecturer::findOrFail($id);
+
+        return view('lecturers.show')->with('lecturer', $lecturer);
     }
 
     /**
@@ -60,7 +69,9 @@ class LecturersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lecturer = Lecturer::findOrFail($id);
+
+        return view('lecturers.edit')->with('lecturer', $lecturer);
     }
 
     /**

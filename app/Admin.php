@@ -21,8 +21,8 @@ class Admin extends Model
      */
     protected $fillable = ['nomor_induk', 'jabatan'];
 
-    public function users()
+    public function user()
     {
-        return $this->morphOne('User', 'userable');
+        return $this->morphOne('App\User', 'userable');
     }
 }

@@ -201,6 +201,7 @@ return [
         'Admin'     => App\Admin::class,
         'Course'    => App\Course::class,
         'Lecturer'  => App\Lecturer::class,
+        'Student'   => App\Student::class,
 
     ],
 
