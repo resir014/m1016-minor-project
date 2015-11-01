@@ -6,7 +6,7 @@
         <div class="col-sm-12">
             <legend>Mr. Sosa:</legend>
         </div>
-        <!-- panel preview -->
+        
         <div class="col-sm-10">
             <h4>Kesedian Mengajar:</h4>
             <div class="panel panel-default">
@@ -23,9 +23,10 @@
                         <label for="status" class="col-sm-3 control-label">Status</label>
                         <div class="col-sm-9">
                             <select class="form-control" id="status" name="status">
-                                <option>Paid</option>
-                                
-                                <option>Unpaid</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
                             </select>
                         </div>
                     </div> 
