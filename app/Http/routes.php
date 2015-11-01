@@ -52,6 +52,9 @@ Route::get('mockups/kesediaan-mengajar', function() {
 Route::get('mockups/perubahan-nilai', function() {
     return view('mockups.perubahan-nilai');
 });
+Route::get('mockups/pembahasan', function() {
+    return view('mockups.pembahasan');
+});
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
