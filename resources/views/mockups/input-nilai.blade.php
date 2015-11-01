@@ -15,7 +15,7 @@
                 </div>
             {!! Form::close() !!}
 
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>No.</th>

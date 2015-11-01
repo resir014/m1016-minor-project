@@ -46,6 +46,12 @@ Route::get('mockups/input-nilai', function() {
 Route::get('mockups/draft-jadwal', function() {
     return view('mockups.draft-jadwal');
 });
+Route::get('mockups/kesediaan-mengajar', function() {
+    return view('mockups.kesedian-mengajar');
+});
+Route::get('mockups/perubahan-nilai', function() {
+    return view('mockups.perubahan-nilai');
+});
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
