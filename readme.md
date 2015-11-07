@@ -1,4 +1,6 @@
-# m1016-laravel-test
+# m1016-minor-project
+
+> IS Minor Project
 
 ## Installation
 
