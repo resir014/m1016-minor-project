@@ -6,13 +6,11 @@
         <div class="col-sm-12">
             <legend>Mr. Sosa:</legend>
         </div>
-        
+
         <div class="col-sm-10">
             <h4>Kesedian Mengajar:</h4>
             <div class="panel panel-default">
-                <div class="panel-body form-    horizontal payment-form">
-                    
-                    
+                <div class="panel-body form-horizontal payment-form">
                     <div class="form-group">
                         <label for="amount" class="col-sm-3 control-label">ID Dosen</label>
                         <div class="col-sm-9">
@@ -20,7 +18,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="status" class="col-sm-3 control-label">Status</label>
+                        <label for="status" class="col-sm-3 control-label">Tanggal</label>
                         <div class="col-sm-9">
                             <select class="form-control" id="status" name="status">
                                 <option>1</option>
@@ -29,13 +27,13 @@
                                 <option>4</option>
                             </select>
                         </div>
-                    </div> 
+                    </div>
                     <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Date</label>
                         <div class="col-sm-9">
                             <input type="date" class="form-control" id="date" name="date">
                         </div>
-                    </div>   
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-12 text-right">
                             <button type="button" class="btn btn-default preview-add-button">
@@ -47,8 +45,8 @@
                         </div>
                     </div>
                 </div>
-            </div>            
-        
+            </div>
+
     </div>
 </div>
 @stop

@@ -9,8 +9,8 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('room_type', 'Type', ['class' => 'control-label']) !!}
-    {!! Form::text('room_type', null, ['class' => 'form-control']) !!}
+    {!! Form::label('type', 'Type', ['class' => 'control-label']) !!}
+    {!! Form::text('type', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

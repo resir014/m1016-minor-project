@@ -7,7 +7,7 @@
 
     @foreach($rooms as $room)
         <h3>{{ $room->room_number }} - {{ $room->room_name }}</h3>
-        <p>{{ $room->room_type }}</p>
+        <p>{{ $room->type }}</p>
         <p>
             <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-info">View</a>
             <a href="{{ route('rooms.edit', $room->id) }}" class="btn btn-primary">Edit Room</a>

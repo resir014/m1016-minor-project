@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>{{ $room->room_number }} - {{ $room->room_name }}</h1>
-    <p class="lead">{{ $room->room_type }}</p>
+    <p class="lead">{{ $room->type }}</p>
 
     <hr>
 

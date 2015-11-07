@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $lecturer->nomor_induk }} - {{ $lecturer->room_name }}</h1>
-    <p class="lead">{{ $lecturer->room_type }}</p>
+    <h1>{{ $lecturer->nomor_induk }} - {{ $lecturer->user->name }}</h1>
+    <p class="lead">{{ $lecturer->spesialisasi }}</p>
 
     <hr>
 

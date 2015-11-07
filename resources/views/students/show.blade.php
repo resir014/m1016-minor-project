@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <h1>{{ $student->nomor_induk }} - {{ $student->room_name }}</h1>
-    <p class="lead">{{ $student->room_type }}</p>
+    <p class="lead">Student</p>
 
     <hr>
 
     <p>
-        Student
+        Tahun Masuk: {{ $student->tahun_masuk }}
     </p>
 
     <a href="{{ route('students.index') }}" class="btn btn-info">Back to all students</a>
