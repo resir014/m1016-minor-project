@@ -4,19 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class FixedSchedule extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'courses';
+    protected $table = 'fixed_schedules';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['code', 'name', 'credits', 'available'];
+     protected $fillable = [];
 }

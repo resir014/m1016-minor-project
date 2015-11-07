@@ -24,4 +24,20 @@ class Lecturer extends Model
     {
         return $this->morphOne('App\User', 'userable');
     }
+
+    /**
+     * Get the lecturer's schedule drafts.
+     */
+    public function scheduleDrafts()
+    {
+        return $this->hasMany('App\ScheduleDraft');
+    }
+
+    /**
+     * Get the lecturer's fixed schedules.
+     */
+    public function fixedSchedules()
+    {
+        return $this->hasMany('App\FixedSchedule');
+    }
 }

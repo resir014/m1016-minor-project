@@ -24,4 +24,12 @@ class Student extends Model
     {
         return $this->morphOne('App\User', 'userable');
     }
+
+    /**
+     * Get all student's fixed schedules
+     */
+    public function fixedSchedules()
+    {
+        return $this->hasMany('App\FixedSchedule');
+    }
 }
