@@ -24,9 +24,9 @@ class RoomRequest extends Request
     public function rules()
     {
         return [
-            'room_number' => 'required',
-            'room_name' => 'required',
-            'room_type' => 'required',
+            'number' => 'required',
+            'name' => 'required',
+            'type' => 'required',
             'location' => 'required'
         ];
     }
@@ -39,9 +39,9 @@ class RoomRequest extends Request
     public function messages()
     {
         return [
-            'room_number.required' => 'Room number is required.',
-            'room_name.required'  => 'Room name is required.',
-            'room_type.required'  => 'Room type is required.',
+            'number.required' => 'Room number is required.',
+            'name.required'  => 'Room name is required.',
+            'type.required'  => 'Room type is required.',
             'location.required'  => 'Location is required.',
         ];
     }
