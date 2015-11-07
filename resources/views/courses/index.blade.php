@@ -6,7 +6,7 @@
     <hr>
 
     @foreach($courses as $course)
-        <h3>{{ $course->course_code }} - {{ $course->course_name }}</h3>
+        <h3>{{ $course->code }} - {{ $course->name }}</h3>
         <p> Course Credits: {{ $course->credits }}</p>
         <p>
             <a href="{{ route('courses.show', $course->id) }}" class="btn btn-info">View</a>

@@ -1,11 +1,11 @@
 <div class="form-group">
-    {!! Form::label('course_Code', 'Course Code', ['class' => 'control-label']) !!}
-    {!! Form::text('course_Code', null, ['class' => 'form-control']) !!}
+    {!! Form::label('code', 'Course Code', ['class' => 'control-label']) !!}
+    {!! Form::text('code', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('course_name', 'Name', ['class' => 'control-label']) !!}
-    {!! Form::text('course_name', null, ['class' => 'form-control']) !!}
+    {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+    {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

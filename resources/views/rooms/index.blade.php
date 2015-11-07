@@ -6,7 +6,7 @@
     <hr>
 
     @foreach($rooms as $room)
-        <h3>{{ $room->room_number }} - {{ $room->room_name }}</h3>
+        <h3>{{ $room->number }} - {{ $room->name }}</h3>
         <p>{{ $room->type }}</p>
         <p>
             <a href="{{ route('rooms.show', $room->id) }}" class="btn btn-info">View</a>

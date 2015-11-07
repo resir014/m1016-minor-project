@@ -1,11 +1,11 @@
 <div class="form-group">
-    {!! Form::label('room_number', 'Room Number', ['class' => 'control-label']) !!}
-    {!! Form::text('room_number', null, ['class' => 'form-control']) !!}
+    {!! Form::label('number', 'Room Number', ['class' => 'control-label']) !!}
+    {!! Form::text('number', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('room_name', 'Name', ['class' => 'control-label']) !!}
-    {!! Form::text('room_name', null, ['class' => 'form-control']) !!}
+    {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+    {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

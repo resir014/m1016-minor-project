@@ -13,7 +13,7 @@ class AddRoomNameColumn extends Migration
     public function up()
     {
         Schema::table('rooms', function (Blueprint $table) {
-            $table->string('room_name');
+            $table->string('name');
         });
     }
 
@@ -25,7 +25,7 @@ class AddRoomNameColumn extends Migration
     public function down()
     {
         Schema::table('rooms', function (Blueprint $table) {
-            $table->dropColumn(['room_name']);
+            $table->dropColumn(['name']);
         });
     }
 }
