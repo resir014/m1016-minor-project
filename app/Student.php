@@ -33,6 +33,6 @@ class Student extends Model
      */
     public function fixedSchedules()
     {
-        return $this->hasMany('App\FixedSchedule');
+        return $this->belongsToMany('App\FixedSchedule');
     }
 }
