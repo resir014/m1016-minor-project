@@ -19,6 +19,10 @@ class CreateStudentsTable extends Migration
             $table->integer('tahun_masuk');
             $table->date('tanggal_lahir');
             $table->string('status');
+            $table->integer('nilai_tugas')->unsigned();
+            $table->integer('nilai_uts')->unsigned();
+            $table->integer('nilai_uas')->unsigned();
+            $table->integer('nilai_sumatif')->unsigned();
         });
     }
 
