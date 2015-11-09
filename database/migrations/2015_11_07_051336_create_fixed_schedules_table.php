@@ -15,7 +15,7 @@ class CreateFixedSchedulesTable extends Migration
         Schema::create('fixed_schedules', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('schedule_draft_id')->unsigned();
+            $table->integer('schedule_draft_id')->unsigned();
             $table->integer('course_id')->unsigned();
             $table->integer('lecturer_id')->unsigned();
             $table->integer('room_id')->unsigned();
