@@ -20,6 +20,9 @@ class Student extends Model
      */
     protected $fillable = ['nomor_induk', 'tahun_masuk', 'tanggal_lahir', 'status'];
 
+    /**
+     * Get the user that this model is related to.
+     */
     public function user()
     {
         return $this->morphOne('App\User', 'userable');

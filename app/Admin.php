@@ -21,6 +21,9 @@ class Admin extends Model
      */
     protected $fillable = ['nomor_induk', 'jabatan'];
 
+    /**
+     * Get the user that this model is related to.
+     */
     public function user()
     {
         return $this->morphOne('App\User', 'userable');

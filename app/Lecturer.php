@@ -20,6 +20,9 @@ class Lecturer extends Model
      */
     protected $fillable = ['nomor_induk', 'beban_jabatan', 'jabatan', 'spesialisasi'];
 
+    /**
+     * Get the user that this model is related to.
+     */
     public function user()
     {
         return $this->morphOne('App\User', 'userable');
