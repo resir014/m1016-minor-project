@@ -15,7 +15,7 @@ class CreateScheduleDraftsTable extends Migration
         Schema::create('schedule_drafts', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('user_id')->unsigned();
+            $table->integer('course_id')->unsigned();
             $table->integer('lecturer_id')->unsigned();
             $table->integer('room_id')->unsigned();
             $table->date('date');

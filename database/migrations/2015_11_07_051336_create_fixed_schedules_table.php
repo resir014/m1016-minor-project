@@ -16,7 +16,7 @@ class CreateFixedSchedulesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('schedule_draft_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('course_id')->unsigned();
             $table->integer('lecturer_id')->unsigned();
             $table->integer('room_id')->unsigned();
             $table->date('date');
