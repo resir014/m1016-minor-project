@@ -18,5 +18,14 @@ class Course extends Model
      *
      * @var array
      */
-    protected $fillable = ['code', 'name', 'credits', 'available'];
+    protected $fillable = ['code', 'name', 'credits', 'active'];
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'active' => 'boolean',
+    ];
 }
