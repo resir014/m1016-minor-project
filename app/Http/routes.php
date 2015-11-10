@@ -34,6 +34,7 @@ Route::resource('rooms', 'RoomsController');
 Route::resource('courses', 'CoursesController');
 Route::resource('lecturers', 'LecturersController');
 Route::resource('students', 'StudentsController');
+Route::resource('schedule-drafts', 'ScheduleDraftsController');
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
 Route::get('about', 'PagesController@about');
