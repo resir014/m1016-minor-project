@@ -55,4 +55,12 @@ class User extends Model implements AuthenticatableContract,
      {
          $this->attributes['userable_type'] = 'App\\' . $value;
      }
+
+     /**
+      * Strips the 'App\' out of the userable_type attribute when calling it
+      */
+     public function getUserableTypeAttribute($value)
+     {
+         return substr($value, 4);
+     }
 }
