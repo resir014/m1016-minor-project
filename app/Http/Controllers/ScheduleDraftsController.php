@@ -50,7 +50,9 @@ class ScheduleDraftsController extends Controller
      */
     public function show($id)
     {
-        //
+        $scheduleDraft = ScheduleDraft::findOrFail($id);
+
+        return view('schedule-drafts.show')->with('scheduleDraft', $scheduleDraft);
     }
 
     /**
@@ -61,7 +63,9 @@ class ScheduleDraftsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $scheduleDraft = ScheduleDraft::findOrFail($id);
+
+        return view('schedule-drafts.edit')->with('scheduleDraft', $scheduleDraft);
     }
 
     /**
@@ -84,6 +88,10 @@ class ScheduleDraftsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $scheduleDraft = ScheduleDraft::findOrFail($id);
+
+        $scheduleDraft->delete();
+
+        return redirect()->route('schedule-drafts.index');
     }
 }
