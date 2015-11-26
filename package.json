@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "m1016-laravel-test",
+  "name": "m1016-minor-project",
   "version": "0.0.0",
   "devDependencies": {
     "gulp": "^3.9.0"
