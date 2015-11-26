@@ -7,7 +7,14 @@
 
     @foreach($scheduleDrafts as $scheduleDraft)
         <h3>{{ $scheduleDraft->course_id }} - {{ $scheduleDraft->course->name }}</h3>
-        <p>{{ $scheduleDraft->type }}</p>
+        <p>
+            Added by: {{ $scheduleDraft->lecturer->name }}
+        </p>
+        <p>
+            Type: {{ $scheduleDraft->type }}<br/>
+            Date: {{ $scheduleDraft->date }}<br/>
+            Shift: {{ $scheduleDraft->shift }}
+        </p>
         <p>
             <a href="{{ route('schedule-drafts.show', $scheduleDraft->id) }}" class="btn btn-info">View</a>
             <a href="{{ route('schedule-drafts.edit', $scheduleDraft->id) }}" class="btn btn-primary">Edit Room</a>
@@ -16,7 +23,7 @@
     @endforeach
 
     <!--div class="pull-right"-->
-        <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Create a Room</a>
+        <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add Schedule Draft</a>
     <!--/div-->
 </div>
 @stop
