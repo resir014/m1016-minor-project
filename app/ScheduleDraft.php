@@ -18,7 +18,21 @@ class ScheduleDraft extends Model
      *
      * @var array
      */
-     protected $fillable = ['course_id', 'lecturer_id', 'room_id'];
+     protected $fillable = [
+         'course_id',
+         'lecturer_id',
+         'room_id',
+         'date',
+         'shift'
+     ];
+
+     /**
+      * Get the schedule's available courses.
+      */
+      public function course()
+      {
+          return $this->hasMany('App\Course');
+      }
 
      /**
       * Get the schedule's lecturer.

@@ -28,4 +28,12 @@ class Course extends Model
     protected $casts = [
         'active' => 'boolean',
     ];
+
+    /**
+     * Get the course's available schedule.
+     */
+    public function scheduleDraft()
+    {
+        return $this->belongsTo('App\ScheduleDraft');
+    }
 }
