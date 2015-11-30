@@ -39,7 +39,15 @@ class ScheduleDraftsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        ScheduleDraft::create($input);
+
+        $request
+            ->session()
+            ->flash('flash_message', 'Schedule draft successfully added!');
+
+        return redirect()->back();
     }
 
     /**
@@ -77,7 +85,15 @@ class ScheduleDraftsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $scheduleDraft = ScheduleDraft::findOrFail($id);
+
+        $input = $request->all();
+
+        $room->fill($input)->save();
+
+        $request->session()->flash('flash_message', 'Room successfully updated!');
+
+        return redirect()->back();
     }
 
     /**

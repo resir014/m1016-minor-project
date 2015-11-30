@@ -18,27 +18,52 @@ class ScheduleDraft extends Model
      *
      * @var array
      */
-     protected $fillable = [
-         'course_id',
-         'lecturer_id',
-         'room_id',
-         'date',
-         'shift'
-     ];
+    protected $fillable = [
+        'course_id',
+        'lecturer_id',
+        'room_id',
+        'day',
+        'shift'
+    ];
 
-     /**
-      * Get the schedule's available courses.
-      */
-      public function course()
-      {
-          return $this->hasMany('App\Course');
-      }
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'day' => 'string',
+    ];
 
-     /**
-      * Get the schedule's lecturer.
-      */
-     public function lecturer()
+    /**
+     * Get the schedule's available courses.
+     */
+     public function course()
      {
-         return $this->belongsTo('App\Lecturer');
+         return $this->hasMany('App\Course');
      }
+
+    /**
+     * Get the schedule's lecturer.
+     */
+    public function lecturer()
+    {
+        return $this->belongsTo('App\Lecturer');
+    }
+
+    public function setDayAttribute($value)
+    {
+        switch ($value) {
+            case 'Monday':
+                return 1;
+                break;
+
+            case 'Tuesday':
+                return 2;
+
+            default:
+                # code...
+                break;
+        }
+    }
 }

@@ -52,9 +52,11 @@ Route::get('mockups/input-nilai', function() {
 Route::get('mockups/draft-jadwal', function() {
     return view('mockups.draft-jadwal');
 });
+
 Route::get('mockups/kesediaan-mengajar', function() {
     return view('mockups.kesedian-mengajar');
 });
+
 Route::get('mockups/input-mata-kuliah-aktif', function() {
     return view('mockups.input-mata-kuliah-aktif');
 });
@@ -64,6 +66,14 @@ Route::get('mockups/perubahan-nilai', function() {
 Route::get('mockups/pembahasan', function() {
     return view('mockups.pembahasan');
 });
+Route::get('mockups/update-jadwal-kuliah', function() {
+    return view('mockups.update-jadwal-kuliah');
+});
+
+Route::get('mockups/update-final-jadwal-kuliah', function() {
+    return view('mockups.update-final-jadwal-kuliah');
+});
+
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

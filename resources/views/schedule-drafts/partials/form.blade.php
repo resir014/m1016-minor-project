@@ -13,9 +13,14 @@
     {!! Form::text('room_id', null, ['class' => 'form-control']) !!}
 </div>
 
-<div class="form-group">
+<!--div class="form-group">
     {!! Form::label('date', 'Tanggal') !!}
     {!! Form::input('date', 'date', null, ['class' => 'form-control']) !!}
+</div-->
+
+<div class="form-group">
+    {!! Form::label('day', 'Hari') !!}
+    {!! Form::select('day', ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
