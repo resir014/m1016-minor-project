@@ -38,6 +38,9 @@ Route::resource('schedule-drafts', 'ScheduleDraftsController');
 Route::resource('profile', 'ProfilesController', [
     'only' => ['show', 'edit', 'update']
 ]);
+Route::resource('course-status', 'CourseStatusController', [
+    'only' => ['show', 'edit', 'update']
+]);
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
 Route::get('about', 'PagesController@about');

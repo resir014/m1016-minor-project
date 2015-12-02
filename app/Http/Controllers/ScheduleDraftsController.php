@@ -87,9 +87,9 @@ class ScheduleDraftsController extends Controller
 
         $input = $request->all();
 
-        $room->fill($input)->save();
+        $scheduleDraft->fill($input)->save();
 
-        $request->session()->flash('flash_message', 'Room successfully updated!');
+        $request->session()->flash('flash_message', 'Schedule draft successfully updated!');
 
         return redirect()->back();
     }

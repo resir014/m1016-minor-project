@@ -9,8 +9,7 @@
         <h3>{{ $course->code }} - {{ $course->name }}</h3>
         <p> Course Credits: {{ $course->credits }}</p>
         <p>
-            <a href="{{ route('courses.show', $course->id) }}" class="btn btn-info">View</a>
-            <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-primary">Edit course</a>
+            <a href="{{ route('courses.show', $course->id) }}" class="btn btn-info">View course</a>
         </p>
         <hr>
     @endforeach

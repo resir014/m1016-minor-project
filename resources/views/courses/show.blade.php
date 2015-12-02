@@ -11,7 +11,8 @@
         Course Credits: {{ $course->credits }}
     </p>
 
-    <a href="{{ route('courses.index') }}" class="btn btn-info">Back to all courses</a>
+    <a href="{{ route('courses.index') }}" class="btn btn-default">Back to all courses</a>
+    <a href="{{ route('course-status.show', $course->id) }}" class="btn btn-info">Update status</a>
     <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-primary">Edit course</a>
 
     <div class="pull-right">

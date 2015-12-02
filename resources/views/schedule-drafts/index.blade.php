@@ -10,7 +10,7 @@
             <h3 class="panel-title">Update Schedule</h3>
         </div>
         <div class="panel-body">
-            {!! Form::open(array('method' =>'GET', 'url'=>action('ScheduleDraftsController@show'))) !!}
+            {!! Form::open() !!}
                 <div class="form-group text-center">
                     {!! Form::label('id', 'Draft ID', ['class' => 'control-label']) !!}
                     {!! Form::text('id', null) !!}
