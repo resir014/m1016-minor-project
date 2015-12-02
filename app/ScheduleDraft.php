@@ -38,10 +38,10 @@ class ScheduleDraft extends Model
     /**
      * Get the schedule's available courses.
      */
-     public function course()
-     {
-         return $this->hasMany('App\Course');
-     }
+    public function course()
+    {
+        return $this->hasMany('App\Course');
+    }
 
     /**
      * Get the schedule's lecturer.
