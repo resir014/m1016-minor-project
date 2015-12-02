@@ -2,28 +2,29 @@
 
 @section('content')
 <div class="container">
-    <h1>View Your Schedule Drafts</h1>
+    <h1>View/Update Your Schedule Drafts</h1>
     <hr>
 
-    @foreach($scheduleDrafts as $scheduleDraft)
-        <h3>{{ $scheduleDraft->course_id }} - {{ $scheduleDraft->course->name }}</h3>
-        <p>
-            Added by: {{ $scheduleDraft->lecturer->name }}
-        </p>
-        <p>
-            Type: {{ $scheduleDraft->type }}<br/>
-            Date: {{ $scheduleDraft->date }}<br/>
-            Shift: {{ $scheduleDraft->shift }}
-        </p>
-        <p>
-            <a href="{{ route('schedule-drafts.show', $scheduleDraft->id) }}" class="btn btn-info">View</a>
-            <a href="{{ route('schedule-drafts.edit', $scheduleDraft->id) }}" class="btn btn-primary">Edit Room</a>
-        </p>
-        <hr>
-    @endforeach
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Update Schedule</h3>
+        </div>
+        <div class="panel-body">
+            {!! Form::open() !!}
+                <div class="form-group text-center">
+                    {!! Form::label('id', 'Draft ID:') !!}
+                    {!! Form::text('id', '') !!}
+                    {!! Form::submit('Show', ['class' => 'btn btn-sm btn-primary']) !!}
+                </div>
+            {!! Form::close() !!}
 
-    <!--div class="pull-right"-->
-        <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add Schedule Draft</a>
-    <!--/div-->
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="pull-right">
+        <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add New Schedule</a>
+    </div>
 </div>
 @stop

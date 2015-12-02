@@ -6,7 +6,7 @@
     <hr>
 
     @foreach($students as $student)
-        <h3>{{ $student->id }} - {{ $user->name }}</h3>
+        <h3>{{ $student->nomor_induk }} - {{ $student->user->name }}</h3>
         <p>Student</p>
         <p>
             <a href="{{ route('students.show', $student->id) }}" class="btn btn-info">View</a>

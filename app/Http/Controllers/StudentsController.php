@@ -39,7 +39,13 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        Student::create($input);
+
+        $request->session()->flash('flash_message', 'Student successfully added!');
+
+        return redirect()->back();
     }
 
     /**
@@ -50,7 +56,9 @@ class StudentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        return view('students.show')->with('student', $student);
     }
 
     /**
@@ -61,7 +69,9 @@ class StudentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        return view('students.edit')->with('student', $student);
     }
 
     /**
@@ -73,7 +83,15 @@ class StudentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        $input = $request->all();
+
+        $student->fill($input)->save();
+
+        $request->session()->flash('flash_message', 'Student successfully updated!');
+
+        return redirect()->back();
     }
 
     /**
@@ -84,6 +102,12 @@ class StudentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        $student->delete();
+
+        // Session::flash('flash_message', 'Student successfully deleted!');
+
+        return redirect()->route('rooms.index');
     }
 }
