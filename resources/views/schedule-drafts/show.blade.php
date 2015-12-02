@@ -1,13 +1,13 @@
 @extends('app')
 
 @section('content')
-<h1>{{ $scheduleDraft->course_id }} - {{ $scheduleDraft->course->name }}</h1>
+<h1>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</h1>
 <p class="lead">Added by: {{ $scheduleDraft->lecturer->name }}</p>
 <hr>
 
 <p>
     Type: {{ $scheduleDraft->type }}<br/>
-    Date: {{ $scheduleDraft->date }}<br/>
+    Date: {{ $scheduleDraft->day }}<br/>
     Shift: {{ $scheduleDraft->shift }}
 </p>
 

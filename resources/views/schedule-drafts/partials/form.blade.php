@@ -25,7 +25,12 @@
 
 <div class="form-group">
     {!! Form::label('shift', 'Shift') !!}
-    {!! Form::select('shift', [1, 2, 3, 4], null, ['class' => 'form-control']) !!}
+    {!! Form::select('shift', [
+        '1 (07:00-09:00)',
+        '2 (09:00-11:00)',
+        '3 (13:00-15:00)',
+        '4 (15:00-17:00)'
+    ], null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>View/Update Your Schedule Drafts</h1>
+    <h1>Your Schedule Drafts</h1>
     <hr>
 
     <div class="panel panel-primary">

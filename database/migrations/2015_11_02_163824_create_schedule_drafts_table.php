@@ -18,13 +18,22 @@ class CreateScheduleDraftsTable extends Migration
             $table->integer('course_id')->unsigned();
             $table->integer('lecturer_id')->unsigned();
             $table->integer('room_id')->unsigned();
-            $table->integer('day');
+            $table->string('day');
             $table->integer('shift');
 
             $table->foreign('course_id')->references('id')->on('courses');
             $table->foreign('lecturer_id')->references('id')->on('lecturers');
             $table->foreign('room_id')->references('id')->on('users');
         });
+
+        // Create the dummy data.
+        DB::table('schedule_drafts')->insert([
+            'course_id' => 1,
+            'lecturer_id' => 1,
+            'room_id' => 1,
+            'day' => 'Monday',
+            'shift' => 1
+        ]);
     }
 
     /**

@@ -16,19 +16,21 @@ class CreateFixedSchedulesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('schedule_draft_id')->unsigned();
-            $table->integer('course_id')->unsigned();
-            $table->integer('lecturer_id')->unsigned();
-            $table->integer('room_id')->unsigned();
-            $table->date('date');
+            $table->string('day');
             $table->integer('shift');
             $table->integer('student_id')->unsigned();
 
             $table->foreign('schedule_draft_id')->references('id')->on('schedule_drafts');
-            $table->foreign('course_id')->references('id')->on('courses');
-            $table->foreign('lecturer_id')->references('id')->on('lecturers');
-            $table->foreign('room_id')->references('id')->on('users');
             $table->foreign('student_id')->references('id')->on('students');
         });
+
+        // Create the dummy data.
+        DB::table('fixed_schedules')->insert([
+            'schedule_draft_id' => 1,
+            'day' => 'Monday',
+            'shift' => 1,
+            'student_id' => 1
+        ]);
     }
 
     /**

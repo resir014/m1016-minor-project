@@ -40,7 +40,7 @@ class ScheduleDraft extends Model
      */
     public function course()
     {
-        return $this->hasMany('App\Course');
+        return $this->belongsTo('App\Course');
     }
 
     /**
@@ -49,21 +49,5 @@ class ScheduleDraft extends Model
     public function lecturer()
     {
         return $this->belongsTo('App\Lecturer');
-    }
-
-    public function setDayAttribute($value)
-    {
-        switch ($value) {
-            case 'Monday':
-                return 1;
-                break;
-
-            case 'Tuesday':
-                return 2;
-
-            default:
-                # code...
-                break;
-        }
     }
 }

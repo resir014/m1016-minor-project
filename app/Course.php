@@ -34,6 +34,6 @@ class Course extends Model
      */
     public function scheduleDraft()
     {
-        return $this->belongsTo('App\ScheduleDraft');
+        return $this->hasOne('App\ScheduleDraft');
     }
 }
