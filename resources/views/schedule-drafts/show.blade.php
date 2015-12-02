@@ -2,16 +2,32 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $scheduleDraft->course->code }} - {{ $scheduleDraft->course->name }}</h1>
-    <p class="lead">CID: {{ $scheduleDraft->course->id }}</p>
+    <h1>Viewing Schedule Draft</h1>
+    <p class="lead">Draft ID: {{ $scheduleDraft->id }}</p>
     <hr>
 
-    <p>
-        Lecturer: {{ $scheduleDraft->lecturer->nomor_induk }} - {{ $scheduleDraft->lecturer->user->name }}<br>
-        Room: {{ $scheduleDraft->room->number }}<br>
-        Day: {{ $scheduleDraft->day }}<br/>
-        Shift: {{ $scheduleDraft->shift }}
-    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Lecturer</th>
+                <th>Room</th>
+                <th>Day</th>
+                <th>Shift</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $scheduleDraft->course->code }}</td>
+                <td>{{ $scheduleDraft->lecturer->nomor_induk }} - {{ $scheduleDraft->lecturer->user->name }}</td>
+                <td>{{ $scheduleDraft->room->number }} ({{ $scheduleDraft->room->id }})</td>
+                <td>{{ $scheduleDraft->day }}</td>
+                <td>{{ $scheduleDraft->shift }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
 
     <a href="{{ route('schedule-drafts.index') }}" class="btn btn-info">Back to index</a>
     <a href="{{ route('schedule-drafts.edit', $scheduleDraft->id) }}" class="btn btn-primary">Make revision</a>

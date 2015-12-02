@@ -2,16 +2,59 @@
 
 @section('content')
 <div class="container">
-    <h1>Edit Schedule Draft</h1>
+    <h1>Updating Schedule Draft</h1>
+    <p class="lead">Draft ID: {{ $scheduleDraft->id }}</p>
     <hr>
 
-    {!! Form::model($room, [
-        'method' => 'PATCH',
-        'route' => ['schedule-drafts.update', $scheduleDraft->id]
-    ]) !!}
+<div class="row">
 
-    @include('schedule-drafts.partials.form', ['buttonText' => 'Save'])
+    <div class="col-sm-12">
 
-    {!! Form::close() !!}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Lecturer</th>
+                <th>Room</th>
+                <th>Day</th>
+                <th>Shift</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $scheduleDraft->course->code }}</td>
+                <td>{{ $scheduleDraft->lecturer->nomor_induk }} - {{ $scheduleDraft->lecturer->user->name }}</td>
+                <td>{{ $scheduleDraft->room->number }} ({{ $scheduleDraft->room->id }})</td>
+                <td>{{ $scheduleDraft->day }}</td>
+                <td>{{ $scheduleDraft->shift }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="col-sm-10 col-sm-push-1">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {!! Form::model($scheduleDraft, [
+                    'method' => 'PATCH',
+                    'route' => ['schedule-drafts.update', $scheduleDraft->id]
+                ]) !!}
+
+                @include('schedule-drafts.partials.form')
+
+                <hr>
+
+                <div class="form-group">
+                    <a href="#" class="btn btn-default"></a>
+                    <div class="pull-right">
+                        {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                    </div>
+                </div>
+
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 @stop

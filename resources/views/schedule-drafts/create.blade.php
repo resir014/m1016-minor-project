@@ -9,7 +9,15 @@
         'route' => 'schedule-drafts.store'
     ]) !!}
 
-    @include('schedule-drafts.partials.form', ['buttonText' => 'Save'])
+    @include('schedule-drafts.partials.form')
+
+    <hr>
+
+    <div class="form-group">
+        <div class="pull-right">
+            {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+        </div>
+    </div>
 
     {!! Form::close() !!}
 </div>

@@ -5,18 +5,13 @@
 
 <div class="form-group">
     {!! Form::label('lecturer_id', 'Lecturer ID', ['class' => 'control-label']) !!}
-    {!! Form::text('lectrer_id', null, ['class' => 'form-control']) !!}
+    {!! Form::text('lecturer_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
     {!! Form::label('room_id', 'Room Number', ['class' => 'control-label']) !!}
     {!! Form::text('room_id', null, ['class' => 'form-control']) !!}
 </div>
-
-<!--div class="form-group">
-    {!! Form::label('date', 'Tanggal') !!}
-    {!! Form::input('date', 'date', null, ['class' => 'form-control']) !!}
-</div-->
 
 <div class="form-group">
     {!! Form::label('day', 'Hari') !!}
@@ -31,8 +26,4 @@
         '3 (13:00-15:00)',
         '4 (15:00-17:00)'
     ], null, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::submit($buttonText, ['class' => 'btn btn-primary form-control']) !!}
 </div>
