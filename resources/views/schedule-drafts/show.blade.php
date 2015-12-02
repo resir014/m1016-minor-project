@@ -1,25 +1,28 @@
 @extends('app')
 
 @section('content')
-<h1>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</h1>
-<p class="lead">Added by: {{ $scheduleDraft->lecturer->name }}</p>
-<hr>
+<div class="container">
+    <h1>{{ $scheduleDraft->course->code }} - {{ $scheduleDraft->course->name }}</h1>
+    <p class="lead">CID: {{ $scheduleDraft->course->id }}</p>
+    <hr>
 
-<p>
-    Type: {{ $scheduleDraft->type }}<br/>
-    Date: {{ $scheduleDraft->day }}<br/>
-    Shift: {{ $scheduleDraft->shift }}
-</p>
+    <p>
+        Lecturer: {{ $scheduleDraft->lecturer->nomor_induk }} - {{ $scheduleDraft->lecturer->user->name }}<br>
+        Room: {{ $scheduleDraft->room->number }}<br>
+        Day: {{ $scheduleDraft->day }}<br/>
+        Shift: {{ $scheduleDraft->shift }}
+    </p>
 
-<a href="{{ route('rooms.index') }}" class="btn btn-info">Back to all rooms</a>
-<a href="{{ route('rooms.edit', $room->id) }}" class="btn btn-primary">Edit Room</a>
+    <a href="{{ route('schedule-drafts.index') }}" class="btn btn-info">Back to index</a>
+    <a href="{{ route('schedule-drafts.edit', $scheduleDraft->id) }}" class="btn btn-primary">Make revision</a>
 
-<div class="pull-right">
-    {!! Form::open([
-        'method' => 'DELETE',
-        'route' => ['rooms.destroy', $room->id]
-    ]) !!}
-        {!! Form::submit('Delete this room?', ['class' => 'btn btn-danger']) !!}
-    {!! Form::close() !!}
+    <div class="pull-right">
+        {!! Form::open([
+            'method' => 'DELETE',
+            'route' => ['schedule-drafts.destroy', $scheduleDraft->id]
+        ]) !!}
+            {!! Form::submit('Delete this draft?', ['class' => 'btn btn-danger']) !!}
+        {!! Form::close() !!}
+    </div>
 </div>
 @stop

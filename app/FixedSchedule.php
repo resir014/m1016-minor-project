@@ -29,11 +29,11 @@ class FixedSchedule extends Model
     ];
 
      /**
-      * Get the lecturer of this schedule entry.
+      * Get the Schedule Draft that inherits this fixed schedule.
       */
-     public function lecturer()
+     public function scheduleDraft()
      {
-         return $this->belongsTo('App\Lecturer');
+         return $this->belongsTo('App\ScheduleDraft');
      }
 
      /**

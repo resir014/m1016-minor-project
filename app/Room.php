@@ -34,4 +34,12 @@ class Room extends Model
     protected $casts = [
         'available' => 'boolean',
     ];
+
+    /**
+     * Get the schedules that are in this room
+     */
+    public function scheduleDraft()
+    {
+        return $this->hasMany('App\ScheduleDraft');
+    }
 }

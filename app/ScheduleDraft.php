@@ -50,4 +50,20 @@ class ScheduleDraft extends Model
     {
         return $this->belongsTo('App\Lecturer');
     }
+
+    /**
+     * Get the Fixed Schedule associated with this draft.
+     */
+    public function fixedSchedule()
+    {
+        return $this->hasOne('App\FixedSchedule');
+    }
+
+    /**
+     * Get the schedule's room.
+     */
+    public function room()
+    {
+        return $this->belongsTo('App\Room');
+    }
 }

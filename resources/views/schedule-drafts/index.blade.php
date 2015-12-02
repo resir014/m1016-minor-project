@@ -10,10 +10,10 @@
             <h3 class="panel-title">Update Schedule</h3>
         </div>
         <div class="panel-body">
-            {!! Form::open() !!}
+            {!! Form::open(array('method' =>'GET')) !!}
                 <div class="form-group text-center">
-                    {!! Form::label('id', 'Draft ID:') !!}
-                    {!! Form::text('id', '') !!}
+                    {!! Form::label('id', 'Draft ID', ['class' => 'control-label']) !!}
+                    {!! Form::text('id', null) !!}
                     {!! Form::submit('Show', ['class' => 'btn btn-sm btn-primary']) !!}
                 </div>
             {!! Form::close() !!}

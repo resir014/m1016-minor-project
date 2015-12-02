@@ -16,9 +16,7 @@ class ScheduleDraftsController extends Controller
      */
     public function index()
     {
-        $scheduleDrafts = ScheduleDraft::all();
-
-        return view('schedule-drafts.index')->with('scheduleDrafts', $scheduleDrafts);
+        return view('schedule-drafts.index');
     }
 
     /**
