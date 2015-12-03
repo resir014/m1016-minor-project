@@ -35,7 +35,7 @@ Route::resource('courses', 'CoursesController');
 Route::resource('lecturers', 'LecturersController');
 Route::resource('students', 'StudentsController');
 Route::resource('schedule-drafts', 'ScheduleDraftsController');
-Route::resource('schedule-approvals', 'ScheduleApprovalsController')
+Route::resource('schedule-approvals', 'ScheduleApprovalsController');
 Route::resource('profile', 'ProfilesController', [
     'only' => ['show', 'edit', 'update']
 ]);
