@@ -35,6 +35,7 @@ Route::resource('courses', 'CoursesController');
 Route::resource('lecturers', 'LecturersController');
 Route::resource('students', 'StudentsController');
 Route::resource('schedule-drafts', 'ScheduleDraftsController');
+Route::resource('schedule-approvals', 'ScheduleApprovalsController')
 Route::resource('profile', 'ProfilesController', [
     'only' => ['show', 'edit', 'update']
 ]);
@@ -52,17 +53,11 @@ Route::get('mockups', function() {
 Route::get('mockups/input-nilai', function() {
     return view('mockups.input-nilai');
 });
-Route::get('mockups/draft-jadwal', function() {
-    return view('mockups.draft-jadwal');
-});
 
 Route::get('mockups/kesediaan-mengajar', function() {
     return view('mockups.kesedian-mengajar');
 });
 
-Route::get('mockups/input-mata-kuliah-aktif', function() {
-    return view('mockups.input-mata-kuliah-aktif');
-});
 Route::get('mockups/perubahan-nilai', function() {
     return view('mockups.perubahan-nilai');
 });

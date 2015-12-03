@@ -14,7 +14,8 @@
                 <div class="form-group text-center">
                     {!! Form::label('id', 'Draft ID', ['class' => 'control-label']) !!}
                     {!! Form::text('id', null) !!}
-                    {!! Form::submit('Show', ['class' => 'btn btn-sm btn-primary']) !!}
+                    <!--{!! Form::submit('Show', ['class' => 'btn btn-sm btn-primary']) !!}-->
+                    <a href="#"></a>
                 </div>
             {!! Form::close() !!}
 

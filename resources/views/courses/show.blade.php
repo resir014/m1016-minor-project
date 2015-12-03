@@ -2,13 +2,18 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $course->code }} - {{ $course->name }}</h1>
-    <p class="lead">Course details</p>
+    <h1>Viewing Course</h1>
+    <p class="lead">{{ $course->code }} - {{ $course->name }}</p>
 
     <hr>
 
     <p>
-        Course Credits: {{ $course->credits }}
+        Course Credits: {{ $course->credits }}<br>
+        @if($course->active)
+            Status: <span class="text-success">Active</span>
+        @else
+            Status: <span class="text-danger">Inactive</span>
+        @endif
     </p>
 
     <a href="{{ route('courses.index') }}" class="btn btn-default">Back to all courses</a>

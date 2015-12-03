@@ -43,4 +43,9 @@ class Lecturer extends Model
     {
         return $this->hasMany('App\FixedSchedule');
     }
+
+    public function scheduleApproval()
+    {
+        return $this->belongsTo('App\ScheduleApproval');
+    }
 }
