@@ -15,7 +15,7 @@
                     {!! Form::label('id', 'Draft ID', ['class' => 'control-label']) !!}
                     {!! Form::text('id', null) !!}
                     <!--{!! Form::submit('Show', ['class' => 'btn btn-sm btn-primary']) !!}-->
-                    <a href="#"></a>
+                    <a href="{{ url('/schedule-drafts/1') }}" class="btn btn-primary">Show</a>
                 </div>
             {!! Form::close() !!}
 
