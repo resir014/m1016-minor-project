@@ -14,11 +14,18 @@ class Admin extends Model
     protected $table = 'admins';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['nomor_induk', 'jabatan'];
+    protected $fillable = ['id', 'jabatan'];
 
     /**
      * Get the user that this model is related to.

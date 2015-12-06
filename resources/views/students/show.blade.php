@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $student->nomor_induk }} - {{ $student->name }}</h1>
+    <h1>{{ $student->id }} - {{ $student->name }}</h1>
     <p class="lead">Student</p>
 
     <hr>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Editing {{ $room->room_number }}</h1>
+    <h1>Editing {{ $room->id }}</h1>
     <p class="lead">Edit the Master Room data below, or <a href="{{ route('rooms.index') }}">go back to all rooms</a>.</p>
     <hr>
 

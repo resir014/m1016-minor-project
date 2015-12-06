@@ -13,25 +13,18 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->unique();
             $table->timestamps();
-            $table->string('nomor_induk')->unique();
             $table->integer('tahun_masuk');
             $table->date('tanggal_lahir');
-            $table->string('status');
+            $table->boolean('active')->default(false);
             $table->integer('nilai_tugas')->unsigned();
             $table->integer('nilai_uts')->unsigned();
             $table->integer('nilai_uas')->unsigned();
             $table->integer('nilai_sumatif')->unsigned();
-        });
 
-        // Create the dummy data.
-        DB::table('students')->insert([
-            'nomor_induk' => 'S0001',
-            'tahun_masuk' => 2012,
-            'tanggal_lahir' => '1995-01-12',
-            'status' => 'Available'
-        ]);
+            $table->primary('id');
+        });
     }
 
     /**

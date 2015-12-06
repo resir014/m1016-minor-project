@@ -14,12 +14,19 @@ class Room extends Model
     protected $table = 'rooms';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'number',
+        'id',
         'name',
         'type',
         'location',

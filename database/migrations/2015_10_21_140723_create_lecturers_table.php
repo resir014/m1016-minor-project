@@ -13,21 +13,14 @@ class CreateLecturersTable extends Migration
     public function up()
     {
         Schema::create('lecturers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->unique();
             $table->timestamps();
-            $table->string('nomor_induk')->unique();
             $table->integer('beban_jabatan');
             $table->string('jabatan');
             $table->string('spesialisasi');
-        });
 
-        // Create the dummy data.
-        DB::table('lecturers')->insert([
-            'nomor_induk' => 'D0001',
-            'beban_jabatan' => 6,
-            'jabatan' => 'Dosen',
-            'spesialisasi' => 'Teknik'
-        ]);
+            $table->primary('id');
+        });
     }
 
     /**

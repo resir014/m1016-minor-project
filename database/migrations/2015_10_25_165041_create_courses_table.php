@@ -13,20 +13,14 @@ class CreateCoursesTable extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->unique();
             $table->timestamps();
-            $table->string('code')->unique();
             $table->string('name');
             $table->integer('credits');
             $table->boolean('active')->default(false);
-        });
 
-        // Create the dummy data.
-        DB::table('courses')->insert([
-            'code' => 'ENTR0002',
-            'name' => 'Entrepreneurship 2',
-            'credits' => 2
-        ]);
+            $table->primary('id');
+        });
     }
 
     /**

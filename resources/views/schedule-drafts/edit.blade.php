@@ -22,9 +22,9 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ $scheduleDraft->course->code }}</td>
-                <td>{{ $scheduleDraft->lecturer->nomor_induk }} - {{ $scheduleDraft->lecturer->user->name }}</td>
-                <td>{{ $scheduleDraft->room->number }} ({{ $scheduleDraft->room->id }})</td>
+                <td>{{ $scheduleDraft->course->id }}</td>
+                <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
+                <td>{{ $scheduleDraft->room->id }} ({{ $scheduleDraft->room->id }})</td>
                 <td>{{ $scheduleDraft->day }}</td>
                 <td>{{ $scheduleDraft->shift }}</td>
             </tr>

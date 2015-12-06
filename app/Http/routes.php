@@ -16,7 +16,7 @@
 // bakal load parameter kedua (display kata "hello world"
 // di halamannya)
 //Route::get('/', function () {
-  //  return "welcome";
+//  return "welcome";
 //});
 
 // yang ini berarti dia ngeload parameter kedua di url http://domain/welcome

@@ -11,7 +11,7 @@
                     <p>
                         Welcome, {{ Auth::user()->name }}!
                         @if (Auth::user()->userable_id)
-                            ({{ Auth::user()->userable->nomor_induk }})
+                            ({{ Auth::user()->userable->id }})
                         @endif
                     </p>
 
