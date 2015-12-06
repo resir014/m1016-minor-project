@@ -81,43 +81,21 @@ class DatabaseSeeder extends Seeder
             $lecturer->save();
         }
 
+        // Create a sample Course dataset
+        for ($i = 1; $i <= 2; $i++) {
+            // Student
+            $course = new App\Course;
+
+            $course->code = 'ENTR'.sprintf("%04d", $i);
+            $course->name = 'Entrepreneurship '.$i;
+            $course->credits = 2;
+            $course->active = false;
+            $course->save();
+        }
+
         Model::reguard();
 
         /*
-        DB::table('users')->insert([
-            'name' => 'Test Lecturer',
-            'email' => 'test.lecturer@example.com',
-            'password' => bcrypt('password'),
-            'userable_id' => 1,
-            'userable_type' => 'App\Lecturer'
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Test Student',
-            'email' => 'test.student@example.com',
-            'password' => bcrypt('password'),
-            'userable_id' => 1,
-            'userable_type' => 'App\Student'
-        ]);
-
-        DB::table('students')->insert([
-            'nomor_induk' => 'S0001',
-            'tahun_masuk' => 2012,
-            'tanggal_lahir' => '1995-01-12',
-            'status' => 'Available'
-        ]);
-
-        DB::table('lecturers')->insert([
-            'nomor_induk' => 'D0001',
-            'beban_jabatan' => 6,
-            'jabatan' => 'Dosen',
-            'spesialisasi' => 'Teknik'
-        ]);
-
-        DB::table('admins')->insert([
-            'nomor_induk' => 'A0001',
-            'jabatan' => 'Admin'
-        ]);
 
         DB::table('courses')->insert([
             'code' => 'ENTR0002',
