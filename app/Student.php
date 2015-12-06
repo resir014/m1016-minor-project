@@ -21,6 +21,13 @@ class Student extends Model
     protected $fillable = ['nomor_induk', 'tahun_masuk', 'tanggal_lahir', 'status'];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['created_at', 'updated_at', 'tanggal_lahir'];
+
+    /**
      * Get the user that this model is related to.
      */
     public function user()

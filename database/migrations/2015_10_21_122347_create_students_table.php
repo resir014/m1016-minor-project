@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('nomor_induk')->unique();
             $table->integer('tahun_masuk');
             $table->date('tanggal_lahir');
-            $table->string('status');
+            $table->boolean('active')->default(false);
             $table->integer('nilai_tugas')->unsigned();
             $table->integer('nilai_uts')->unsigned();
             $table->integer('nilai_uas')->unsigned();

@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             // Admin
             $admin = new App\Admin;
 
-            $admin->nomor_induk = 'A000'.$i;
+            $admin->nomor_induk = 'A'.sprintf("%04d", $i);
             $admin->jabatan = 'Admin';
             $admin->save();
         }
@@ -52,10 +52,32 @@ class DatabaseSeeder extends Seeder
             // Admin
             $lecturer = new App\Lecturer;
 
-            $lecturer->nomor_induk = 'D000'.$i;
+            $lecturer->nomor_induk = 'D'.sprintf("%04d", $i);
             $lecturer->beban_jabatan = 6;
             $lecturer->jabatan = 'Dosen';
             $lecturer->spesialisasi = 'Teknik';
+            $lecturer->save();
+        }
+
+        // Create a sample Student userset
+        for ($i = 1; $i <= 15; $i++) {
+            // User
+            $user = new App\User;
+
+            $user->name = $faker->name;
+            $user->email = 'test.student'.$i.'@example.com';
+            $user->password = bcrypt('password');
+            $user->userable_id = $i;
+            $user->userable_type = 'Student';
+            $user->save();
+
+            // Student
+            $lecturer = new App\Student;
+
+            $lecturer->nomor_induk = 'S'.sprintf("%04d", $i);
+            $lecturer->tahun_masuk = 2012;
+            $lecturer->tanggal_lahir= $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years');
+            $lecturer->active = true;
             $lecturer->save();
         }
 
