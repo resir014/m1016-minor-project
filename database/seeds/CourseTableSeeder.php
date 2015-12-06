@@ -17,13 +17,13 @@ class CourseTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         for ($i = 1; $i <= 2; $i++) {
-            // Student
             $course = new App\Course;
 
             $course->code = 'ENTR'.sprintf("%04d", $i);
             $course->name = 'Entrepreneurship '.$i;
             $course->credits = 2;
             $course->active = false;
+
             $course->save();
         }
     }

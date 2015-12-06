@@ -26,6 +26,7 @@ class UserTableSeeder extends Seeder
             $user->password = bcrypt('password');
             $user->userable_id = $i;
             $user->userable_type = 'Admin';
+
             $user->save();
 
             // Admin
@@ -33,6 +34,7 @@ class UserTableSeeder extends Seeder
 
             $admin->nomor_induk = 'A'.sprintf("%04d", $i);
             $admin->jabatan = 'Admin';
+
             $admin->save();
         }
 
@@ -46,6 +48,7 @@ class UserTableSeeder extends Seeder
             $user->password = bcrypt('password');
             $user->userable_id = $i;
             $user->userable_type = 'Lecturer';
+
             $user->save();
 
             // Admin
@@ -55,6 +58,7 @@ class UserTableSeeder extends Seeder
             $lecturer->beban_jabatan = 6;
             $lecturer->jabatan = 'Dosen';
             $lecturer->spesialisasi = 'Teknik';
+
             $lecturer->save();
         }
 
@@ -68,6 +72,7 @@ class UserTableSeeder extends Seeder
             $user->password = bcrypt('password');
             $user->userable_id = $i;
             $user->userable_type = 'Student';
+
             $user->save();
 
             // Student
@@ -77,6 +82,7 @@ class UserTableSeeder extends Seeder
             $lecturer->tahun_masuk = 2012;
             $lecturer->tanggal_lahir= $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years');
             $lecturer->active = true;
+
             $lecturer->save();
         }
     }
