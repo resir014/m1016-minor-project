@@ -9,6 +9,16 @@ use App\Http\Controllers\Controller;
 
 class CourseStatusController extends Controller
 {
+    /**
+     * Create a new course status controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show($id)
     {
         $course = Course::findOrFail($id);

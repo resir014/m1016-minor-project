@@ -10,16 +10,27 @@ use App\Http\Controllers\Controller;
 class ProfilesController extends Controller
 {
     /**
-     * Display the specified resource.
+     * Create a new profiles controller instance.
      *
-     * @param  int  $id
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function index()
     {
-        $user = User::findOrFail($id);
+        $data = array(
+            'user' => \Auth::user()
+        );
 
-        return view('profiles.show')->with('user', $user);
+        return view('profile.index')->with($data);
     }
 
     /**
@@ -32,7 +43,7 @@ class ProfilesController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('profiles.edit')->with('user', $user);
+        return view('profile.edit')->with('user', $user);
     }
 
     /**

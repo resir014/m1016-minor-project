@@ -56,6 +56,13 @@
 
     @yield('content')
 
+    <footer>
+        <div class="container">
+            <hr>
+            <small>Copyright &copy; 2015. All rights reserved.</small>
+        </div>
+    </footer>
+
     <!-- Scripts -->
     <script src="{{ asset('/js/app.js') }}" charset="utf-8"></script>
 </body>

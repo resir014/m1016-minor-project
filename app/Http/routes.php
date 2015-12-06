@@ -25,20 +25,20 @@
 // jadi dia bakal nyari file di app/http/controller dengan class 'WelcomeController'
 // terus dia nge-load method 'index'
 Route::get('/', 'WelcomeController@index');
-Route::get('home', function() {
-    return view('home');
-});
 
-Route::resource('users', 'UsersController');
+Route::get('home', ['middleware' => 'auth', function() {
+    return view('home');
+}]);
+Route::resource('profile', 'ProfilesController', [
+    'only' => ['index', 'show', 'edit', 'update']
+]);
+
 Route::resource('rooms', 'RoomsController');
 Route::resource('courses', 'CoursesController');
 Route::resource('lecturers', 'LecturersController');
 Route::resource('students', 'StudentsController');
 Route::resource('schedule-drafts', 'ScheduleDraftsController');
 Route::resource('schedule-approvals', 'ScheduleApprovalsController');
-Route::resource('profile', 'ProfilesController', [
-    'only' => ['show', 'edit', 'update']
-]);
 Route::resource('course-status', 'CourseStatusController', [
     'only' => ['show', 'edit', 'update']
 ]);
