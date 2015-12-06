@@ -22,14 +22,6 @@ class CreateScheduleApprovalsTable extends Migration
 
             $table->foreign('lecturer_id')->references('id')->on('lecturers');
         });
-
-        // Create the dummy data.
-        DB::table('schedule_approvals')->insert([
-            'lecturer_id' => 1,
-            'day' => 'Monday',
-            'shift' => 1,
-            'cleared' => true
-        ]);
     }
 
     /**

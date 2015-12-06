@@ -20,14 +20,6 @@ class CreateLecturersTable extends Migration
             $table->string('jabatan');
             $table->string('spesialisasi');
         });
-
-        // Create the dummy data.
-        DB::table('lecturers')->insert([
-            'nomor_induk' => 'D0001',
-            'beban_jabatan' => 6,
-            'jabatan' => 'Dosen',
-            'spesialisasi' => 'Teknik'
-        ]);
     }
 
     /**

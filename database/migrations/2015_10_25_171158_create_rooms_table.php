@@ -21,14 +21,6 @@ class CreateRoomsTable extends Migration
             $table->string('location');
             $table->boolean('available')->default(true);
         });
-
-        // Create the dummy data.
-        DB::table('rooms')->insert([
-            'number' => 'CC101',
-            'name' => 'Classroom 101',
-            'type' => 'Classroom',
-            'location' => 'Gedung A'
-        ]);
     }
 
     /**

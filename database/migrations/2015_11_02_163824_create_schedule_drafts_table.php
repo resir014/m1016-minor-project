@@ -25,15 +25,6 @@ class CreateScheduleDraftsTable extends Migration
             $table->foreign('lecturer_id')->references('id')->on('lecturers');
             $table->foreign('room_id')->references('id')->on('users');
         });
-
-        // Create the dummy data.
-        DB::table('schedule_drafts')->insert([
-            'course_id' => 1,
-            'lecturer_id' => 1,
-            'room_id' => 1,
-            'day' => 'Monday',
-            'shift' => 1
-        ]);
     }
 
     /**

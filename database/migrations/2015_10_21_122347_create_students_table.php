@@ -24,14 +24,6 @@ class CreateStudentsTable extends Migration
             $table->integer('nilai_uas')->unsigned();
             $table->integer('nilai_sumatif')->unsigned();
         });
-
-        // Create the dummy data.
-        DB::table('students')->insert([
-            'nomor_induk' => 'S0001',
-            'tahun_masuk' => 2012,
-            'tanggal_lahir' => '1995-01-12',
-            'status' => 'Available'
-        ]);
     }
 
     /**

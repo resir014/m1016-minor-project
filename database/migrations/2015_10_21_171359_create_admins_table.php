@@ -18,12 +18,6 @@ class CreateAdminsTable extends Migration
             $table->string('nomor_induk')->unique();
             $table->string('jabatan');
         });
-
-        // Create the dummy data.
-        DB::table('admins')->insert([
-            'nomor_induk' => 'A0001',
-            'jabatan' => 'Admin'
-        ]);
     }
 
     /**
