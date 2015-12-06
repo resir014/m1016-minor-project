@@ -13,9 +13,8 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->unique();
             $table->timestamps();
-            $table->string('nomor_induk')->unique();
             $table->integer('tahun_masuk');
             $table->date('tanggal_lahir');
             $table->boolean('active')->default(false);
@@ -23,6 +22,8 @@ class CreateStudentsTable extends Migration
             $table->integer('nilai_uts')->unsigned();
             $table->integer('nilai_uas')->unsigned();
             $table->integer('nilai_sumatif')->unsigned();
+
+            $table->primary('id');
         });
     }
 

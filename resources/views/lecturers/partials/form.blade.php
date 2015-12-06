@@ -1,6 +1,6 @@
 <div class="form-group">
-    {!! Form::label('nomor_induk', 'Nomor Induk', ['class' => 'control-label']) !!}
-    {!! Form::text('nomor_induk', null, ['class' => 'form-control']) !!}
+    {!! Form::label('id', 'Nomor Induk', ['class' => 'control-label']) !!}
+    {!! Form::text('id', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

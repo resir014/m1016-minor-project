@@ -14,11 +14,18 @@ class Student extends Model
     protected $table = 'students';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['nomor_induk', 'tahun_masuk', 'tanggal_lahir', 'status'];
+    protected $fillable = ['id', 'tahun_masuk', 'tanggal_lahir', 'status'];
 
     /**
      * The attributes that should be mutated to dates.

@@ -14,11 +14,18 @@ class Lecturer extends Model
     protected $table = 'lecturers';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['nomor_induk', 'beban_jabatan', 'jabatan', 'spesialisasi'];
+    protected $fillable = ['id', 'beban_jabatan', 'jabatan', 'spesialisasi'];
 
     /**
      * Get the user that this model is related to.

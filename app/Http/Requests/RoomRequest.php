@@ -24,7 +24,7 @@ class RoomRequest extends Request
     public function rules()
     {
         return [
-            'number' => 'required',
+            'id' => 'required',
             'name' => 'required',
             'type' => 'required',
             'location' => 'required'
@@ -39,7 +39,7 @@ class RoomRequest extends Request
     public function messages()
     {
         return [
-            'number.required' => 'Room number is required.',
+            'id.required' => 'Room number is required.',
             'name.required'  => 'Room name is required.',
             'type.required'  => 'Room type is required.',
             'location.required'  => 'Location is required.',

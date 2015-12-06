@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
             $user->name = $faker->name;
             $user->email = 'test.admin'.$i.'@example.com';
             $user->password = bcrypt('password');
-            $user->userable_id = $i;
+            $user->userable_id = 'A'.sprintf("%04d", $i);
             $user->userable_type = 'Admin';
 
             $user->save();
@@ -32,7 +32,7 @@ class UserTableSeeder extends Seeder
             // Admin
             $admin = new App\Admin;
 
-            $admin->nomor_induk = 'A'.sprintf("%04d", $i);
+            $admin->id = 'A'.sprintf("%04d", $i);
             $admin->jabatan = 'Admin';
 
             $admin->save();
@@ -46,7 +46,7 @@ class UserTableSeeder extends Seeder
             $user->name = $faker->name;
             $user->email = 'test.lecturer'.$i.'@example.com';
             $user->password = bcrypt('password');
-            $user->userable_id = $i;
+            $user->userable_id = 'D'.sprintf("%04d", $i);
             $user->userable_type = 'Lecturer';
 
             $user->save();
@@ -54,7 +54,7 @@ class UserTableSeeder extends Seeder
             // Admin
             $lecturer = new App\Lecturer;
 
-            $lecturer->nomor_induk = 'D'.sprintf("%04d", $i);
+            $lecturer->id = 'D'.sprintf("%04d", $i);
             $lecturer->beban_jabatan = 6;
             $lecturer->jabatan = 'Dosen';
             $lecturer->spesialisasi = 'Teknik';
@@ -70,7 +70,7 @@ class UserTableSeeder extends Seeder
             $user->name = $faker->name;
             $user->email = 'test.student'.$i.'@example.com';
             $user->password = bcrypt('password');
-            $user->userable_id = $i;
+            $user->userable_id = 'S'.sprintf("%04d", $i);
             $user->userable_type = 'Student';
 
             $user->save();
@@ -78,7 +78,7 @@ class UserTableSeeder extends Seeder
             // Student
             $lecturer = new App\Student;
 
-            $lecturer->nomor_induk = 'S'.sprintf("%04d", $i);
+            $lecturer->id = 'S'.sprintf("%04d", $i);
             $lecturer->tahun_masuk = 2012;
             $lecturer->tanggal_lahir= $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years');
             $lecturer->active = true;

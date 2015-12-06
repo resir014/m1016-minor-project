@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Viewing Course</h1>
-    <p class="lead">{{ $course->code }} - {{ $course->name }}</p>
+    <p class="lead">{{ $courseid }} - {{ $course->name }}</p>
 
     <hr>
 

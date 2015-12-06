@@ -15,7 +15,7 @@ class CreateScheduleApprovalsTable extends Migration
         Schema::create('schedule_approvals', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->integer('lecturer_id')->unsigned();
+            $table->string('lecturer_id');
             $table->string('day');
             $table->integer('shift');
             $table->boolean('cleared')->default(false);

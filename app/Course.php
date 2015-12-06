@@ -14,11 +14,18 @@ class Course extends Model
     protected $table = 'courses';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['code', 'name', 'credits', 'active'];
+    protected $fillable = ['id', 'name', 'credits', 'active'];
 
     /**
      * The attributes that should be casted to native types.

@@ -13,15 +13,15 @@ class RoomTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        for ($i = 1; $i <= 2; $i++) {
+        for ($i = 1; $i <= 3; $i++) {
             $room = new App\Room;
 
-            $room->number = 'CC101';
-            $room->name = 'Classroom 101';
+            $room->id = 'CC10'.$i;
+            $room->name = 'Classroom 10'.$i;
             $room->type = 'Classroom';
             $room->location = 'Gedung A';
 
             $room->save();
-        ]);
+        }
     }
 }

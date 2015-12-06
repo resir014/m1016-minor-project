@@ -13,10 +13,11 @@ class CreateAdminsTable extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id')->unique();
             $table->timestamps();
-            $table->string('nomor_induk')->unique();
             $table->string('jabatan');
+
+            $table->primary('id');
         });
     }
 
