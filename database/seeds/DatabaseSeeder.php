@@ -13,96 +13,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        $faker = Faker\Factory::create();
 
-        // $this->call(UserTableSeeder::class);
-
-        // Create a sample Admin userset
-        for ($i = 1; $i <= 2; $i++) {
-            // User
-            $user = new App\User;
-
-            $user->name = $faker->name;
-            $user->email = 'test.admin'.$i.'@example.com';
-            $user->password = bcrypt('password');
-            $user->userable_id = $i;
-            $user->userable_type = 'Admin';
-            $user->save();
-
-            // Admin
-            $admin = new App\Admin;
-
-            $admin->nomor_induk = 'A'.sprintf("%04d", $i);
-            $admin->jabatan = 'Admin';
-            $admin->save();
-        }
-
-        // Create a sample Lecturer userset
-        for ($i = 1; $i <= 5; $i++) {
-            // User
-            $user = new App\User;
-
-            $user->name = $faker->name;
-            $user->email = 'test.lecturer'.$i.'@example.com';
-            $user->password = bcrypt('password');
-            $user->userable_id = $i;
-            $user->userable_type = 'Lecturer';
-            $user->save();
-
-            // Admin
-            $lecturer = new App\Lecturer;
-
-            $lecturer->nomor_induk = 'D'.sprintf("%04d", $i);
-            $lecturer->beban_jabatan = 6;
-            $lecturer->jabatan = 'Dosen';
-            $lecturer->spesialisasi = 'Teknik';
-            $lecturer->save();
-        }
-
-        // Create a sample Student userset
-        for ($i = 1; $i <= 15; $i++) {
-            // User
-            $user = new App\User;
-
-            $user->name = $faker->name;
-            $user->email = 'test.student'.$i.'@example.com';
-            $user->password = bcrypt('password');
-            $user->userable_id = $i;
-            $user->userable_type = 'Student';
-            $user->save();
-
-            // Student
-            $lecturer = new App\Student;
-
-            $lecturer->nomor_induk = 'S'.sprintf("%04d", $i);
-            $lecturer->tahun_masuk = 2012;
-            $lecturer->tanggal_lahir= $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years');
-            $lecturer->active = true;
-            $lecturer->save();
-        }
-
-        // Create a sample Course dataset
-        for ($i = 1; $i <= 2; $i++) {
-            // Student
-            $course = new App\Course;
-
-            $course->code = 'ENTR'.sprintf("%04d", $i);
-            $course->name = 'Entrepreneurship '.$i;
-            $course->credits = 2;
-            $course->active = false;
-            $course->save();
-        }
+        $this->call(UserTableSeeder::class);
+        $this->call(CourseTableSeeder::class);
 
         Model::reguard();
 
         /*
-
-        DB::table('courses')->insert([
-            'code' => 'ENTR0002',
-            'name' => 'Entrepreneurship 2',
-            'credits' => 2
-        ]);
-
         DB::table('rooms')->insert([
             'number' => 'CC101',
             'name' => 'Classroom 101',
