@@ -5,9 +5,10 @@
     <div class="row">
         <div class="col-md-3">
             <ul class="nav nav-pills nav-stacked">
-              <li role="presentation" class="active"><a href="#">Home</a></li>
               <li role="presentation"><a href="{{ URL::route('profile.index') }}">Profile</a></li>
-              <li role="presentation"><a href="#">Messages</a></li>
+              <li role="presentation"><a href="{{ URL::route('courses.index') }}">Courses</a></li>
+              <li role="presentation"><a href="{{ URL::route('rooms.index') }}">Rooms</a></li>
+              <li role="presentation"><a href="{{ URL::route('students.index') }}">Students</a></li>
             </ul>
         </div>
         <div class="col-md-9">

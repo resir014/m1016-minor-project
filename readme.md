@@ -139,6 +139,12 @@ Then go to `192.168.10.10` on your browser, and voila!
 We use Gulp and `laravel-elixir` to compile our CSS and JS files. `cd` to `C:\xampp\htdocs\m1016-laravel-test` and run the following command:
 
 ```
+> npm install
+```
+
+Then use the following command to build the SCSS and JS files:
+
+```
 > gulp
 ```
 
