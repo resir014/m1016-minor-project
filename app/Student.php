@@ -25,14 +25,19 @@ class Student extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'tahun_masuk', 'tanggal_lahir', 'status'];
+    protected $fillable = ['id', 'admission_year', 'birth_date', 'status'];
 
     /**
      * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $dates = ['created_at', 'updated_at', 'tanggal_lahir'];
+    protected $dates = ['created_at', 'updated_at', 'birth_date'];
+
+    public function setBirthDateAttribute($date)
+    {
+        $this->attributes['birth_date'] = Carbon::parse($date);
+    }
 
     /**
      * Get the user that this model is related to.

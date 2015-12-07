@@ -8,7 +8,7 @@
     <hr>
 
     <p>
-        Tahun Masuk: {{ $student->tahun_masuk }}
+        Tahun Masuk: {{ $student->admission_year }}
     </p>
 
     <a href="{{ route('students.index') }}" class="btn btn-info">Back to all students</a>

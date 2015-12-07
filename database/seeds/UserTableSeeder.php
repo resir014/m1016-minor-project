@@ -76,14 +76,14 @@ class UserTableSeeder extends Seeder
             $user->save();
 
             // Student
-            $lecturer = new App\Student;
+            $student = new App\Student;
 
-            $lecturer->id = 'S'.sprintf("%04d", $i);
-            $lecturer->tahun_masuk = 2012;
-            $lecturer->tanggal_lahir= $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years');
-            $lecturer->active = true;
+            $student->id = 'S'.sprintf("%04d", $i);
+            $student->admission_year = 2012;
+            $student->birth_date = $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years');
+            $student->active = true;
 
-            $lecturer->save();
+            $student->save();
         }
     }
 }

@@ -9,13 +9,13 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('tahun_masuk', 'Tahun masuk', ['class' => 'control-label']) !!}
-    {!! Form::text('tahun_masuk', null, ['class' => 'form-control']) !!}
+    {!! Form::label('admission_year', 'Tahun masuk', ['class' => 'control-label']) !!}
+    {!! Form::text('admission_year', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
-    {!! Form::label('tanggal_lahir', 'Tanggal Lahir', ['class' => 'control-label']) !!}
-    {!! Form::input('date', 'tanggal_lahir', null, ['class' => 'form-control']) !!}
+    {!! Form::label('birth_date', 'Tanggal Lahir', ['class' => 'control-label']) !!}
+    {!! Form::input('date', 'birth_date', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
