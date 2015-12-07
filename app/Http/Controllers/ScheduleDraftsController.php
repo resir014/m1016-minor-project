@@ -26,7 +26,13 @@ class ScheduleDraftsController extends Controller
      */
     public function index()
     {
-        return view('schedule-drafts.index');
+        if (\Auth::user()->userable_type == 'Admin') {
+            $scheduleDrafts = ScheduleDraft::all();
+        } else {
+            $scheduleDrafts = \Auth::user()->userable->scheduleDrafts->all();
+        }
+
+        return view('schedule-drafts.index')->with('scheduleDrafts', $scheduleDrafts);
     }
 
     /**

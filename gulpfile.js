@@ -30,7 +30,7 @@ elixir(function(mix) {
         paths.jquery + 'dist/jquery.js',
         paths.jquery_ui + 'jquery-ui.js',
         paths.bootstrap + 'assets/javascripts/bootstrap.js',
-        paths.typeahead + 'dist/typeahead.bundle.min.js',
+        paths.typeahead + 'dist/typeahead.bundle.js',
         paths.js + 'scripts.js'
     ], 'public/js/app.js');
 });

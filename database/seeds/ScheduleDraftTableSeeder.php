@@ -24,5 +24,29 @@ class ScheduleDraftTableSeeder extends Seeder
 
             $scheduleDraft->save();
         }
+
+        for ($i = 1; $i <= 1; $i++) {
+            $scheduleDraft = new App\ScheduleDraft;
+
+            $scheduleDraft->course_id = 'ENTR0001';
+            $scheduleDraft->lecturer_id = 'D0004';
+            $scheduleDraft->room_id = 'CC102';
+            $scheduleDraft->day = 'Monday';
+            $scheduleDraft->shift = 2;
+
+            $scheduleDraft->save();
+        }
+
+        for ($i = 1; $i <= 3; $i++) {
+            $scheduleDraft = new App\ScheduleDraft;
+
+            $scheduleDraft->course_id = 'ENTR0001';
+            $scheduleDraft->lecturer_id = 'D0001';
+            $scheduleDraft->room_id = 'CC101';
+            $scheduleDraft->day = 'Tuesday';
+            $scheduleDraft->shift = $i;
+
+            $scheduleDraft->save();
+        }
     }
 }

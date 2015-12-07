@@ -45,7 +45,7 @@
                 <hr>
 
                 <div class="form-group">
-                    <a href="#" class="btn btn-default"></a>
+                    <a href="{{ route('schedule-drafts.show', $scheduleDraft->id) }}" class="btn btn-default">Back</a>
                     <div class="pull-right">
                         {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                     </div>

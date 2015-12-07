@@ -9,8 +9,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Course ID</th>
                 <th>Lecturer</th>
+                <th>Course</th>
                 <th>Room</th>
                 <th>Day</th>
                 <th>Shift</th>
@@ -18,8 +18,8 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ $scheduleDraft->course->id }}</td>
                 <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
+                <td>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</td>
                 <td>{{ $scheduleDraft->room->id }}</td>
                 <td>{{ $scheduleDraft->day }}</td>
                 <td>{{ $scheduleDraft->shift }}</td>

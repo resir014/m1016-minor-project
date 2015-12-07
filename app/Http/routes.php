@@ -42,8 +42,6 @@ Route::resource('schedule-approvals', 'ScheduleApprovalsController');
 Route::resource('course-status', 'CourseStatusController', [
     'only' => ['show', 'edit', 'update']
 ]);
-Route::get('search', 'SearchController@searchUsers');
-Route::get('search/autocomplete', 'SearchController@autocomplete');
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
 Route::get('about', 'PagesController@about');

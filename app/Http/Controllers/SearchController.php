@@ -3,37 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ScheduleDraft;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-
-    public function autocomplete(Request $request)
+    /**
+     * Create a new search controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $term = $request->input('term');
-
-        $results = array();
-
-        $queries = DB::table('users')
-            ->where('name', 'LIKE', '%'.$term.'%')
-            ->orWhere('userable_type', 'LIKE', '%'.$term.'%')
-            ->take(5)->get();
-
-        foreach ($queries as $query)
-        {
-            $results[] = [
-                'id' => $query->id,
-                'value' => $query->name,
-                'userable_type' => $query->userable_type
-            ];
-        }
-
-        return Response::json($results);
+        $this->middleware('auth');
     }
 
-    public function searchUsers()
+    public function index()
     {
-        return view('search');
+        return view('schedule-drafts.index');
+    }
+
+    public function query(Request $request)
+    {
+        $query = $request->id;
+        $res = ScheduleDraft::where('id', 'LIKE', "%$query%")->get();
+
+        return response()->json($res);
     }
 }

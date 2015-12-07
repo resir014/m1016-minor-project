@@ -2,25 +2,39 @@
 
 @section('content')
 <div class="container">
+    @if(Auth::user()->userable_type === 'Admin')
+    <h1>View Schedule Drafts</h1>
+    @else
     <h1>Your Schedule Drafts</h1>
+    @endif
     <hr>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Update Schedule</h3>
-        </div>
-        <div class="panel-body">
-            {!! Form::open() !!}
-                <div class="form-group text-center">
-                    {!! Form::label('id', 'Draft ID', ['class' => 'control-label']) !!}
-                    {!! Form::text('id', null) !!}
-                    <!--{!! Form::submit('Show', ['class' => 'btn btn-sm btn-primary']) !!}-->
-                    <a href="{{ url('/schedule-drafts/1') }}" class="btn btn-primary">Show</a>
-                </div>
-            {!! Form::close() !!}
-
-        </div>
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Draft ID</th>
+                <th>Lecturer</th>
+                <th>Course</th>
+                <th>Room</th>
+                <th>Day</th>
+                <th>Shift</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($scheduleDrafts as $scheduleDraft)
+            <tr>
+                <td>{{ $scheduleDraft->id }}</td>
+                <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
+                <td>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</td>
+                <td>{{ $scheduleDraft->room->id }}</td>
+                <td>{{ $scheduleDraft->day }}</td>
+                <td>{{ $scheduleDraft->shift }}</td>
+                <td><a href="{{ route('schedule-drafts.show', $scheduleDraft->id) }}">View</a></td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 
     <hr>
 

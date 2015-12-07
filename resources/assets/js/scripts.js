@@ -1,11 +1,9 @@
 jQuery(document).ready(function($) {
     var engine = new Bloodhound({
+        remote: '/schedule-drafts/query?id=%QUERY%',
+        // '...' = displayKey: '...'
         datumTokenizer: Bloodhound.tokenizers.whitespace('id'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        remote: {
-            url: '/query?user=%QUERY',
-            wildcard: '%QUERY'
-        }
+        queryTokenizer: Bloodhound.tokenizers.whitespace
     });
 
     engine.initialize();
@@ -17,19 +15,13 @@ jQuery(document).ready(function($) {
     }, {
         source: engine.ttAdapter(),
         // This will be appended to "tt-dataset-" to form the class name of the suggestion menu.
-        name: 'Draft_list',
+        name: 'ScheduleDraft_list',
         // the key from the array we want to display (name,id,email,etc...)
-        displayKey: 'username',
+        displayKey: 'id',
         templates: {
             empty: [
-                        '<div class="empty-message">unable to find any</div>'
-                    ].join('\n'),
-
-                    suggestion: function (data) {
-                        return '<div class="user-search-result"><h3>'
-                            + data.id + '</h3></div>'
-                    }
-        },
-        engine: Hogan
+                '<div class="empty-message">unable to find any</div>'
+            ]
+        }
     });
 });

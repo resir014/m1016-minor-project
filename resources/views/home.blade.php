@@ -4,12 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <ul class="nav nav-pills nav-stacked">
-              <li role="presentation"><a href="{{ URL::route('profile.index') }}">Profile</a></li>
-              <li role="presentation"><a href="{{ URL::route('courses.index') }}">Courses</a></li>
-              <li role="presentation"><a href="{{ URL::route('rooms.index') }}">Rooms</a></li>
-              <li role="presentation"><a href="{{ URL::route('students.index') }}">Students</a></li>
-            </ul>
+            @include('_sidebar')
         </div>
         <div class="col-md-9">
             <div class="panel panel-default">
