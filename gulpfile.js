@@ -18,6 +18,7 @@ var paths = {
     'jquery': './bower_components/jquery/',
     'jquery_ui': './bower_components/jquery-ui/',
     'bootstrap': './bower_components/bootstrap-sass/',
+    'typeahead': './bower_components/typeahead.js/',
     'js': './resources/assets/js/'
 }
 
@@ -29,6 +30,7 @@ elixir(function(mix) {
         paths.jquery + 'dist/jquery.js',
         paths.jquery_ui + 'jquery-ui.js',
         paths.bootstrap + 'assets/javascripts/bootstrap.js',
+        paths.typeahead + 'dist/typeahead.bundle.min.js',
         paths.js + 'scripts.js'
     ], 'public/js/app.js');
 });
