@@ -34,11 +34,6 @@ class Student extends Model
      */
     protected $dates = ['created_at', 'updated_at', 'birth_date'];
 
-    public function setBirthDateAttribute($date)
-    {
-        $this->attributes['birth_date'] = Carbon::parse($date);
-    }
-
     /**
      * Get the user that this model is related to.
      */
