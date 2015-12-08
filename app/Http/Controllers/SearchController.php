@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Course;
 use App\Lecturer;
 use App\Http\Requests;
@@ -10,10 +11,9 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-    public function getLecturers($query)
+    public function getLecturers()
     {
-        // $results = Lecturer::select('id')->where('id', 'LIKE', '%' . $query . '%')->get();
-        $results = Lecturer::with('user')->where('id', 'LIKE', '%' . 'd' . '%');
+        $results = Lecturer::with('user')->get();
 
         return \Response::json($results);
     }

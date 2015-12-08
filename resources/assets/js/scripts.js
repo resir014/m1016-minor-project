@@ -1,12 +1,8 @@
 jQuery(document).ready(function($) {
     var lecturersTypeahead = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: '/data/lecturers',
-        remote: {
-            url: '/data/lecturers/%QUERY',
-            wildcard: '%QUERY'
-        }
+        prefetch: '/data/lecturers'
     });
     var coursesTypeahead = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
