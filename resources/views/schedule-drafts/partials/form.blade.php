@@ -5,7 +5,12 @@
 
 <div class="form-group" id="bloodhound-lecturers">
     {!! Form::label('lecturer_id', 'Lecturer ID', ['class' => 'control-label']) !!}
-    {!! Form::text('lecturer_id', null, ['class' => 'form-control typeahead']) !!}
+    @if(Auth::user()->userable_type == 'Lecturer')
+        {!! Form::hidden('lecturer_id', Auth::user()->userable_id) !!}
+        <p class="form-control-static">{{ Auth::user()->userable_id }}</p>
+    @else
+        {!! Form::text('lecturer_id', null, ['class' => 'form-control typeahead']) !!}
+    @endif
 </div>
 
 <div class="form-group" id="bloodhound-rooms">
@@ -15,15 +20,22 @@
 
 <div class="form-group">
     {!! Form::label('day', 'Hari') !!}
-    {!! Form::select('day', ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], null, ['class' => 'form-control']) !!}
+    {!! Form::select('day', [
+        'Monday' => 'Monday',
+        'Tuesday' => 'Tuesday',
+        'Wednesday' => 'Wednesday',
+        'Thursday' => 'Thursday',
+        'Friday' => 'Friday',
+        'Saturday' => 'Saturday'
+    ], null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
     {!! Form::label('shift', 'Shift') !!}
     {!! Form::select('shift', [
-        '1 (07:00-09:00)',
-        '2 (09:00-11:00)',
-        '3 (13:00-15:00)',
-        '4 (15:00-17:00)'
+        '1 (07:00-09:00)' => 1,
+        '2 (09:00-11:00)' => 2,
+        '3 (13:00-15:00)' => 3,
+        '4 (15:00-17:00)' => 4
     ], null, ['class' => 'form-control']) !!}
 </div>
