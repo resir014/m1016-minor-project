@@ -1,16 +1,16 @@
-<div class="form-group">
+<div class="form-group" id="bloodhound-courses">
     {!! Form::label('course_id', 'Course ID', ['class' => 'control-label']) !!}
-    {!! Form::text('course_id', null, ['class' => 'form-control']) !!}
+    {!! Form::text('course_id', null, ['class' => 'form-control typeahead']) !!}
 </div>
 
-<div class="form-group">
+<div class="form-group" id="bloodhound-lecturers">
     {!! Form::label('lecturer_id', 'Lecturer ID', ['class' => 'control-label']) !!}
-    {!! Form::text('lecturer_id', null, ['class' => 'form-control']) !!}
+    {!! Form::text('lecturer_id', null, ['class' => 'form-control typeahead']) !!}
 </div>
 
-<div class="form-group">
+<div class="form-group" id="bloodhound-rooms">
     {!! Form::label('room_id', 'Room Number', ['class' => 'control-label']) !!}
-    {!! Form::text('room_id', null, ['class' => 'form-control']) !!}
+    {!! Form::text('room_id', null, ['class' => 'form-control typeahead']) !!}
 </div>
 
 <div class="form-group">

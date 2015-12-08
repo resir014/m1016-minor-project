@@ -1,27 +1,35 @@
 jQuery(document).ready(function($) {
-    var engine = new Bloodhound({
-        remote: '/schedule-drafts/query?id=%QUERY%',
-        // '...' = displayKey: '...'
-        datumTokenizer: Bloodhound.tokenizers.whitespace('id'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace
+    var lecturersTypeahead = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: '/data/lecturers',
+        remote: {
+            url: '/data/lecturers/%QUERY',
+            wildcard: '%QUERY'
+        }
+    });
+    var coursesTypeahead = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: '/data/courses',
+        remote: {
+            url: '/data/courses/%QUERY',
+            wildcard: '%QUERY'
+        }
     });
 
-    engine.initialize();
 
-    $("#users").typeahead({
-        hint: true,
-        highlight: true,
-        minLength: 2
-    }, {
-        source: engine.ttAdapter(),
-        // This will be appended to "tt-dataset-" to form the class name of the suggestion menu.
-        name: 'ScheduleDraft_list',
-        // the key from the array we want to display (name,id,email,etc...)
-        displayKey: 'id',
+    $('#bloodhound-courses .typeahead').typeahead(null, {
+        name: 'courses',
+        display: 'name',
+        source: coursesTypeahead,
         templates: {
             empty: [
-                '<div class="empty-message">unable to find any</div>'
-            ]
+                '<div class="empty-message">',
+                'Can\'t find anything.',
+                '</div>'
+            ].join('\n'),
+            suggestion: Handlebars.compile('<div><strong>{{ id }}</strong> - {{ name }}</div>')
         }
     });
 });

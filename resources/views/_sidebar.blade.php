@@ -11,6 +11,8 @@
   <li role="presentation"><a href="{{ URL::route('profile.index') }}">Profile</a></li>
   <li role="presentation"><a href="{{ URL::route('schedule-drafts.index') }}">Schedule Drafts</a></li>
 </ul>
+@elseif(Auth::user()->userable_type === 'Student')
+<ul class="nav nav-pills nav-stacked">
+  <li role="presentation"><a href="{{ URL::route('profile.index') }}">Profile</a></li>
+</ul>
 @endif
-
-<hr class="hidden-md hidden-lg">

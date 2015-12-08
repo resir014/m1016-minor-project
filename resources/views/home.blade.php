@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-3">
             @include('_sidebar')
+            <hr class="hidden-md hidden-lg">
         </div>
         <div class="col-md-9">
             <div class="panel panel-default">
