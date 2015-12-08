@@ -18655,7 +18655,7 @@ jQuery(document).ready(function($) {
         source: coursesTypeahead,
         templates: {
             empty: [
-                '<div class="empty-message">',
+                '<div class="tt-empty-message">',
                 'Can\'t find anything.',
                 '</div>'
             ].join('\n'),
@@ -18669,7 +18669,7 @@ jQuery(document).ready(function($) {
         source: lecturersTypeahead,
         templates: {
             empty: [
-                '<div class="empty-message">',
+                '<div class="tt-empty-message">',
                 'Can\'t find anything.',
                 '</div>'
             ].join('\n')//,

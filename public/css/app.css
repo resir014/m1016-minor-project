@@ -8724,7 +8724,8 @@ span.twitter-typeahead {
   background-clip: padding-box;
 }
 
-.tt-suggestion {
+.tt-suggestion,
+.tt-empty-message {
   display: block;
   padding: 3px 20px;
 }
@@ -8738,6 +8739,7 @@ span.twitter-typeahead {
   color: #fff;
 }
 
-.tt-suggestion p {
+.tt-suggestion p,
+.tt-empty-message p {
   margin: 0;
 }

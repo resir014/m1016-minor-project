@@ -37,7 +37,8 @@ span.twitter-typeahead {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
     background-clip: padding-box;
 }
-.tt-suggestion {
+.tt-suggestion,
+.tt-empty-message {
     display: block;
     padding: 3px 20px;
 }
@@ -48,6 +49,7 @@ span.twitter-typeahead {
 .tt-suggestion.tt-is-under-cursor a {
     color: #fff;
 }
-.tt-suggestion p {
+.tt-suggestion p,
+.tt-empty-message p {
     margin: 0;
 }
