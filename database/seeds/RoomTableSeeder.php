@@ -23,5 +23,16 @@ class RoomTableSeeder extends Seeder
 
             $room->save();
         }
+
+        for ($i = 1; $i <= 2; $i++) {
+            $room = new App\Room;
+
+            $room->id = 'LC20'.$i;
+            $room->name = 'Computer Laboratory '.$i;
+            $room->type = 'Laboratory';
+            $room->location = 'Gedung B';
+
+            $room->save();
+        }
     }
 }
