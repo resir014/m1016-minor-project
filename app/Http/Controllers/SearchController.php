@@ -14,8 +14,8 @@ class SearchController extends Controller
 {
     public function getLecturers($query)
     {
-        $results = \DB::table('users')
-            ->join('lecturers', 'users.userable_id', '=', 'lecturers.id')
+        $results = \DB::table('lecturers')
+            ->join('users', 'lecturers.id', '=', 'users.userable_id')
             ->select('lecturers.id', 'name')
             ->where('lecturers.id', 'LIKE', '%' . $query . '%')
             ->orWhere('name', 'LIKE', '%' . $query . '%')
