@@ -18634,9 +18634,13 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 jQuery(document).ready(function($) {
     var lecturersTypeahead = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: '/data/lecturers'
+        prefetch: '/data/lecturers',
+        remote: {
+            url: '/data/lecturers/%QUERY',
+            wildcard: '%QUERY'
+        }
     });
     var coursesTypeahead = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
@@ -18644,6 +18648,15 @@ jQuery(document).ready(function($) {
         prefetch: '/data/courses',
         remote: {
             url: '/data/courses/%QUERY',
+            wildcard: '%QUERY'
+        }
+    });
+    var roomsTypeahead = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: '/data/rooms',
+        remote: {
+            url: '/data/rooms/%QUERY',
             wildcard: '%QUERY'
         }
     });
@@ -18672,8 +18685,22 @@ jQuery(document).ready(function($) {
                 '<div class="tt-empty-message">',
                 'Can\'t find anything.',
                 '</div>'
-            ].join('\n')//,
-            //suggestion: Handlebars.compile('<div><strong>{{ id }}</strong> - {{ name }}</div>')
+            ].join('\n'),
+            suggestion: Handlebars.compile('<div><strong>{{ id }}</strong> - {{ name }}</div>')
+        }
+    });
+
+    $('#bloodhound-rooms .typeahead').typeahead(null, {
+        name: 'rooms',
+        display: 'id',
+        source: roomsTypeahead,
+        templates: {
+            empty: [
+                '<div class="tt-empty-message">',
+                'Can\'t find anything.',
+                '</div>'
+            ].join('\n'),
+            suggestion: Handlebars.compile('<div><strong>{{ id }}</strong> - {{ name }}</div>')
         }
     });
 });

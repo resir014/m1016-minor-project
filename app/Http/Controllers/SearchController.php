@@ -12,9 +12,16 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-    public function getLecturers()
+    public function getLecturers($query)
     {
-        $results = Lecturer::with('user')->get();
+        $results = \DB::table('users')
+            ->join('lecturers', 'users.userable_id', '=', 'lecturers.id')
+            ->select('lecturers.id', 'name')
+            ->where('lecturers.id', 'LIKE', '%' . $query . '%')
+            ->orWhere('name', 'LIKE', '%' . $query . '%')
+            ->get();
+
+        // dd($results);
 
         return \Response::json($results);
     }
