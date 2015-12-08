@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
         }
     });
     var coursesTypeahead = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         prefetch: '/data/courses',
         remote: {
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 
     $('#bloodhound-courses .typeahead').typeahead(null, {
         name: 'courses',
-        display: 'name',
+        display: 'id',
         source: coursesTypeahead,
         templates: {
             empty: [
@@ -30,6 +30,20 @@ jQuery(document).ready(function($) {
                 '</div>'
             ].join('\n'),
             suggestion: Handlebars.compile('<div><strong>{{ id }}</strong> - {{ name }}</div>')
+        }
+    });
+
+    $('#bloodhound-lecturers .typeahead').typeahead(null, {
+        name: 'lecturers',
+        display: 'id',
+        source: lecturersTypeahead,
+        templates: {
+            empty: [
+                '<div class="empty-message">',
+                'Can\'t find anything.',
+                '</div>'
+            ].join('\n')//,
+            //suggestion: Handlebars.compile('<div><strong>{{ id }}</strong> - {{ name }}</div>')
         }
     });
 });

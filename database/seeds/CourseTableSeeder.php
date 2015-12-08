@@ -26,5 +26,23 @@ class CourseTableSeeder extends Seeder
 
             $course->save();
         }
+
+        $course1 = new App\Course;
+
+        $course1->id = 'ISYS'.'1446';
+        $course1->name = 'Web Based Programming';
+        $course1->credits = 2;
+        $course1->active = false;
+
+        $course1->save();
+
+        $course2 = new App\Course;
+
+        $course2->id = 'COMP'.'1342';
+        $course2->name = 'Networking';
+        $course2->credits = 2;
+        $course2->active = false;
+
+        $course2->save();
     }
 }

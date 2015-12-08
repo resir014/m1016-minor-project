@@ -15,5 +15,9 @@
     "bootswatch": "~3.3.6",
     "typeahead.js": "~0.11.1",
     "handlebars": "~4.0.5"
+  },
+  "resolutions": {
+    "bootstrap": "~3.3.6",
+    "typeahead.js": "~0.11.1"
   }
 }

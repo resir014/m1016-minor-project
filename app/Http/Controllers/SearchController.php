@@ -3,32 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ScheduleDraft;
+use App\Course;
+use App\Lecturer;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
-    /**
-     * Create a new search controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function getLecturers($query)
     {
-        $this->middleware('auth');
+        // $results = Lecturer::select('id')->where('id', 'LIKE', '%' . $query . '%')->get();
+        $results = Lecturer::with('user')->where('id', 'LIKE', '%' . 'd' . '%');
+
+        return \Response::json($results);
     }
 
-    public function index()
+    public function getCourses($query)
     {
-        return view('schedule-drafts.index');
-    }
+        $results = Course::select('id', 'name')
+            ->where('id', 'LIKE', '%' . $query . '%')
+            ->orWhere('name', 'LIKE', '%' . $query . '%')
+            ->get();
 
-    public function query(Request $request)
-    {
-        $query = $request->id;
-        $res = ScheduleDraft::where('id', 'LIKE', "%$query%")->get();
-
-        return response()->json($res);
+        return \Response::json($results);
     }
 }

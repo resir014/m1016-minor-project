@@ -43,10 +43,8 @@ Route::resource('course-status', 'CourseStatusController', [
     'only' => ['show', 'edit', 'update']
 ]);
 
-Route::get('data/lecturers', 'DataController@getLecturers');
-Route::get('data/lecturers/{QUERY}', 'DataController@getLecturers');
-Route::get('data/courses', 'DataController@getCourses');
-Route::get('data/courses/{QUERY}', 'DataController@getCourses');
+Route::get('data/lecturers/{query?}', 'SearchController@getLecturers');
+Route::get('data/courses/{query?}', 'SearchController@getCourses');
 
 // berarti disini dia ngeload PagesController di method 'about' untuk link /about
 Route::get('about', 'PagesController@about');

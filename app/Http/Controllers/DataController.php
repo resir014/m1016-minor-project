@@ -10,17 +10,5 @@ use App\Http\Controllers\Controller;
 
 class DataController extends Controller
 {
-    public function getLecturers()
-    {
-        $lecturers = Lecturer::all();
-
-        return \Response::json($lecturers);
-    }
-
-    public function getCourses()
-    {
-        $courses = Course::all();
-
-        return \Response::json($courses);
-    }
+    //
 }
