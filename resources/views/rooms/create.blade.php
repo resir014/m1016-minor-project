@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('rooms.index') }}">&larr; Go back to all rooms</a>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/rooms') }}">Rooms</a></li>
+        <li class="active">Create Room</li>
+    </ol>
 
     <h1>Create a New Room</h1>
     <p class="lead">Create a new Room master data.</p>

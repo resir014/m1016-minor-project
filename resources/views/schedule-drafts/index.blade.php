@@ -2,11 +2,21 @@
 
 @section('content')
 <div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li class="active">Schedule Drafts</li>
+    </ol>
+
     @if(Auth::user()->userable_type === 'Admin')
-    <h1>View Schedule Drafts</h1>
+    <h1 class="page-header">View Schedule Drafts</h1>
     @else
-    <h1>Your Schedule Drafts</h1>
+    <h1 class="page-header">Your Schedule Drafts</h1>
     @endif
+
+    <div>
+        <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add New Schedule</a>
+    </div>
+
     <hr>
 
     <table class="table">
@@ -38,7 +48,7 @@
 
     <hr>
 
-    <div class="pull-right">
+    <div>
         <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add New Schedule</a>
     </div>
 </div>

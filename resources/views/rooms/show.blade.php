@@ -2,13 +2,19 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $room->id }} - {{ $room->name }}</h1>
-    <p class="lead">{{ $room->type }}</p>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/rooms') }}">Rooms</a></li>
+        <li class="active">{{ $room->id }} - {{ $room->name }}</li>
+    </ol>
+
+    <h1>View Room Details</h1>
+    <p class="lead">{{ $room->id }} - {{ $room->name }}</p>
 
     <hr>
 
     <p>
-        {{ $room->location }}
+        Lokasi: {{ $room->location }}
     </p>
 
     <a href="{{ route('rooms.index') }}" class="btn btn-info">Back to all rooms</a>

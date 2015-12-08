@@ -2,7 +2,17 @@
 
 @section('content')
 <div class="container">
-    <h1>All Rooms</h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li class="active">Rooms</li>
+    </ol>
+
+    <h1 class="page-header">All Rooms</h1>
+
+    <div>
+        <a href="{{ route('rooms.create') }}" class="btn btn-primary">Create a Room</a>
+    </div>
+
     <hr>
 
     @foreach($rooms as $room)
@@ -15,8 +25,8 @@
         <hr>
     @endforeach
 
-    <!--div class="pull-right"-->
+    <div>
         <a href="{{ route('rooms.create') }}" class="btn btn-primary">Create a Room</a>
-    <!--/div-->
+    </div>
 </div>
 @stop

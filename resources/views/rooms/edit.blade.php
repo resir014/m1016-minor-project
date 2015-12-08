@@ -2,8 +2,14 @@
 
 @section('content')
 <div class="container">
-    <h1>Editing {{ $room->id }}</h1>
-    <p class="lead">Edit the Master Room data below, or <a href="{{ route('rooms.index') }}">go back to all rooms</a>.</p>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/rooms') }}">Rooms</a></li>
+        <li class="active">Edit Room</li>
+    </ol>
+
+    <h1>Edit Room Details</h1>
+    <p class="lead">{{ $room->id }} - {{ $room->name }}</p>
     <hr>
 
     @if($errors->any())

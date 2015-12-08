@@ -2,8 +2,13 @@
 
 @section('content')
 <div class="container">
-    <h1>Create a Schedule Draft</h1>
-    <hr>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/schedule-drafts') }}">Schedule Drafts</a></li>
+        <li class="active">Create Schedule Draft</li>
+    </ol>
+
+    <h1 class="page-header">Create a Schedule Draft</h1>
 
     @if($errors->any())
         <div class="alert alert-danger">

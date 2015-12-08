@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/schedule-drafts') }}">Schedule Drafts</a></li>
+        <li class="active">Update Schedule Draft</li>
+    </ol>
+
     <h1>Updating Schedule Draft</h1>
     <p class="lead">Draft ID: {{ $scheduleDraft->id }}</p>
     <hr>
