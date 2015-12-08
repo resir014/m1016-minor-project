@@ -1,10 +1,15 @@
 @extends('app')
 
+@section('title', 'Home')
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li class="active">Home</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li class="active">Home</li>
-    </ol>
 
     <div class="row">
         <div class="col-md-3">

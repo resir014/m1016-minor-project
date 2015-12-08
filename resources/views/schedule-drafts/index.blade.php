@@ -1,11 +1,16 @@
 @extends('app')
 
+@section('title', 'Schedule Drafts')
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li class="active">Schedule Drafts</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li class="active">Schedule Drafts</li>
-    </ol>
 
     @if(Auth::user()->userable_type === 'Admin')
     <h1 class="page-header">View Schedule Drafts</h1>
@@ -52,4 +57,4 @@
         <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add New Schedule</a>
     </div>
 </div>
-@stop
+@endsection

@@ -11,4 +11,4 @@
     <p><a class="btn btn-primary btn-lg" href="{{ url('/auth/login') }}" role="button">Log in</a> <a class="btn btn-lg" href="{{ url('/about') }}" role="button">Learn more</a></p>
   </div>
 </div>
-@stop
+@endsection

@@ -1,13 +1,18 @@
 @extends('app')
 
+@section('title', 'Edit Course Status')
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li><a href="{{ url('/courses') }}">Courses</a></li>
+    <li><a href="{{ url('/courses/'.$course->id) }}">{{ $course->id }} - {{ $course->name }}</a></li>
+    <li class="active">Status</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/courses') }}">Courses</a></li>
-        <li><a href="{{ url('/courses/'.$course->id) }}">{{ $course->id }} - {{ $course->name }}</a></li>
-        <li class="active">Status</li>
-    </ol>
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -58,7 +63,7 @@
                     <div class="form-group">
                         <div class="col-md-12 pull-right">
                             {!! Form::submit('Save', ['class' => 'btn btn-primary pull-right']) !!}
-                            <a href="{{ route('courses.index') }}" class="btn btn-default">
+                            <a href="{{ route('courses.show', $course->id) }}" class="btn btn-default">
                                 Back to all courses
                             </a>
                         </div>
@@ -69,4 +74,4 @@
         </div>
     </div>
 </div>
-@stop
+@endsection

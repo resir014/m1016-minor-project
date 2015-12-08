@@ -1,12 +1,17 @@
 @extends('app')
 
+@section('title', 'Viewing Courses')
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li><a href="{{ url('/courses') }}">Courses</a></li>
+    <li class="active">{{ $course->id }} - {{ $course->name }}</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/courses') }}">Courses</a></li>
-        <li class="active">{{ $course->id }} - {{ $course->name }}</li>
-    </ol>
 
     <h1>Viewing Course</h1>
     <p class="lead">{{ $course->id }} - {{ $course->name }}</p>
@@ -53,4 +58,4 @@
         {!! Form::close() !!}
     </div>
 </div>
-@stop
+@endsection

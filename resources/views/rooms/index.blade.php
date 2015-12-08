@@ -1,11 +1,16 @@
 @extends('app')
 
+@section('title', 'All Rooms')
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li class="active">Rooms</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li class="active">Rooms</li>
-    </ol>
 
     <h1 class="page-header">All Rooms</h1>
 
@@ -29,4 +34,4 @@
         <a href="{{ route('rooms.create') }}" class="btn btn-primary">Create a Room</a>
     </div>
 </div>
-@stop
+@endsection

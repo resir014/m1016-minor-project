@@ -1,12 +1,17 @@
 @extends('app')
 
+@section('title', 'Create Schedule Draft')
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li><a href="{{ url('/schedule-drafts') }}">Schedule Drafts</a></li>
+    <li class="active">Create Schedule Draft</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/schedule-drafts') }}">Schedule Drafts</a></li>
-        <li class="active">Create Schedule Draft</li>
-    </ol>
 
     <h1 class="page-header">Create a Schedule Draft</h1>
 
@@ -40,4 +45,4 @@
 
     {!! Form::close() !!}
 </div>
-@stop
+@endsection

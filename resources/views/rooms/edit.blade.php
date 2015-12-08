@@ -1,12 +1,17 @@
 @extends('app')
 
+@section('title, Edit Room Details')
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li><a href="{{ url('/rooms') }}">Rooms</a></li>
+    <li class="active">Edit Room</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/rooms') }}">Rooms</a></li>
-        <li class="active">Edit Room</li>
-    </ol>
 
     <h1>Edit Room Details</h1>
     <p class="lead">{{ $room->id }} - {{ $room->name }}</p>
@@ -35,4 +40,4 @@
 
     {!! Form::close() !!}
 </div>
-@stop
+@endsection

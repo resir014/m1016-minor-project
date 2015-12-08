@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'View Student Profile')
+
 @section('content')
 <div class="container">
     <ol class="breadcrumb">
@@ -54,4 +56,4 @@
         {!! Form::close() !!}
     </div>
 </div>
-@stop
+@endsection

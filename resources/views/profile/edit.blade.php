@@ -1,12 +1,17 @@
 @extends('app')
 
+@section('title', Edit My Profile)
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li><a href="{{ url('/profile') }}">Profile</a></li>
+    <li class="active">Edit Profile</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/profile') }}">Profile</a></li>
-        <li class="active">Edit Profile</li>
-    </ol>
 
     <h1>Edit My Profile</h1>
     <p class="lead">Edit your profile details below.</p>
@@ -57,4 +62,4 @@
 
     {!! Form::close() !!}
 </div>
-@stop
+@endsection

@@ -1,12 +1,17 @@
 @extends('app')
 
+@section('title', 'Create Course')
+
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li><a href="{{ url('/courses') }}">Courses</a></li>
+    <li class="active">Create Course</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/courses') }}">Courses</a></li>
-        <li class="active">Create Course</li>
-    </ol>
 
     <h1>Create a New Course</h1>
     <p class="lead">Create a new Course master data.</p>
@@ -34,4 +39,4 @@
 
     {!! Form::close() !!}
 </div>
-@stop
+@endsection
