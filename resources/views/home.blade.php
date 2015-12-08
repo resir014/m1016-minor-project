@@ -2,6 +2,10 @@
 
 @section('content')
 <div class="container">
+    <ol class="breadcrumb">
+        <li class="active">Home</li>
+    </ol>
+
     <div class="row">
         <div class="col-md-3">
             @include('_sidebar')

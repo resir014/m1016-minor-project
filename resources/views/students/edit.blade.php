@@ -26,12 +26,12 @@
         </div>
     @endif
 
-    {!! Form::model($lecturer, [
+    {!! Form::model($student, [
         'method' => 'PATCH',
-        'route' => ['lecturers.update', $lecturer->id]
+        'route' => ['students.update', $student->id]
     ]) !!}
 
-    @include('lecturers.partials.form', ['buttonText' => 'Create New Lecturer'])
+    @include('students.partials.form', ['buttonText' => 'Save'])
 
     {!! Form::close() !!}
 </div>

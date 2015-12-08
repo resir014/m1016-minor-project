@@ -2,8 +2,14 @@
 
 @section('content')
 <div class="container">
-    <h1>Editing {{ $course->id }} - {{ $course->name }}</h1>
-    <p class="lead">Course details</p>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/courses') }}">Courses</a></li>
+        <li class="active">Edit Course</li>
+    </ol>
+
+    <h1>Editing Course Details</h1>
+    <p class="lead">{{ $course->id }} - {{ $course->name }}</p>
 
     <hr>
 

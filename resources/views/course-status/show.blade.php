@@ -2,7 +2,13 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('courses.index') }}">&larr; Go back to all courses</a>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/courses') }}">Courses</a></li>
+        <li><a href="{{ url('/courses/'.$course->id) }}">{{ $course->id }} - {{ $course->name }}</a></li>
+        <li class="active">Status</li>
+    </ol>
+
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <legend>Course Status</legend>

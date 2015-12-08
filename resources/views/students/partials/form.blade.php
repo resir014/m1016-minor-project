@@ -5,7 +5,7 @@
 
 <div class="form-group">
     {!! Form::label('name', 'Nama', ['class' => 'control-label']) !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    <p class="form-control-static">{{ $student->user->name }}</p>
 </div>
 
 <div class="form-group">

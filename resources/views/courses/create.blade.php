@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ route('courses.index') }}">&larr; Go back to all courses</a>
+    <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/courses') }}">Courses</a></li>
+        <li class="active">Create Course</li>
+    </ol>
 
     <h1>Create a New Course</h1>
     <p class="lead">Create a new Course master data.</p>

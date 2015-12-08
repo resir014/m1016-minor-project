@@ -4,6 +4,7 @@
   <li role="presentation"><a href="{{ URL::route('courses.index') }}">Courses</a></li>
   <li role="presentation"><a href="{{ URL::route('rooms.index') }}">Rooms</a></li>
   <li role="presentation"><a href="{{ URL::route('students.index') }}">Students</a></li>
+  <li role="presentation"><a href="{{ URL::route('lecturers.index') }}">Lecturers</a></li>
   <li role="presentation"><a href="{{ URL::route('schedule-drafts.index') }}">Schedule Drafts</a></li>
 </ul>
 @elseif(Auth::user()->userable_type === 'Lecturer')

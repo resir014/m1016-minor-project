@@ -15,15 +15,30 @@
 
     <hr>
 
-    @foreach($lecturers as $lecturer)
-        <h3>{{ $lecturer->id }} - @{{ $lecturer->user->name }}</h3>
-        <p>Spesialisasi: {{ $lecturer->spesialisasi }}</p>
-        <p>
-            <a href="{{ route('lecturers.show', $lecturer->id) }}" class="btn btn-info">View</a>
-            <a href="{{ route('lecturers.edit', $lecturer->id) }}" class="btn btn-primary">Edit lecturer</a>
-        </p>
-        <hr>
-    @endforeach
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Beban Jabatan</th>
+                <th>Jabatan</th>
+                <th>Spesialisasi</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($lecturers as $lecturer)
+            <tr>
+                <td>{{ $lecturer->id }}</td>
+                <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
+                <td>{{ $lecturer->beban_jabatan }}</td>
+                <td>{{ $lecturer->jabatan }}</td>
+                <td>{{ $lecturer->spesialisasi }}</td>
+                <td><a href="{{ route('lecturers.show', $lecturer->id) }}">View</a></td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 
     <div>
         <a href="{{ route('lecturers.create') }}" class="btn btn-primary">Add a lecturer</a>

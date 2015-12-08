@@ -13,9 +13,28 @@
 
     <hr>
 
-    <p>
-        Spesialisasi: {{ $lecturer->spesialisasi }}
-    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Beban Jabatan</th>
+                <th>Jabatan</th>
+                <th>Spesialisasi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $lecturer->id }}</td>
+                <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
+                <td>{{ $lecturer->beban_jabatan }}</td>
+                <td>{{ $lecturer->jabatan }}</td>
+                <td>{{ $lecturer->spesialisasi }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
 
     <a href="{{ route('lecturers.index') }}" class="btn btn-info">Back to all lecturers</a>
     <a href="{{ route('lecturers.edit', $lecturer->id) }}" class="btn btn-primary">Edit lecturer</a>
