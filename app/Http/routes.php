@@ -44,6 +44,7 @@ Route::resource('course-status', 'CourseStatusController', [
 ]);
 
 Route::get('data/lecturers/{query?}', 'SearchController@getLecturers');
+Route::get('data/new-users/{query?}', 'SearchController@getNewUsers');
 Route::get('data/courses/{query?}', 'SearchController@getCourses');
 Route::get('data/rooms/{query?}', 'SearchController@getRooms');
 

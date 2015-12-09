@@ -32,7 +32,7 @@
             <tr>
                 <td>{{ $student->id }}</td>
                 <td>{{ $student->user->name }}</td>
-                <td>{{ $student->birth_date }}</td>
+                <td>{{ date('d F Y', strtotime($student->birth_date)) }}</td>
                 <td>{{ $student->admission_year }}</td>
                 <td>{{ $student->nilai_tugas }}</td>
                 <td>{{ $student->nilai_uts }}</td>

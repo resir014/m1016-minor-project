@@ -1,11 +1,18 @@
 <div class="form-group">
     {!! Form::label('id', 'Nomor Induk', ['class' => 'control-label']) !!}
-    {!! Form::text('id', null, ['class' => 'form-control']) !!}
+    {!! Form::hidden('id', $lecturer->id) !!}
+    <p class="form-control-static">{{ $lecturer->id }}</p>
 </div>
 
 <div class="form-group">
     {!! Form::label('name', 'Nama', ['class' => 'control-label']) !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    <p class="form-control-static">
+        @if ($lecturer->user)
+            {{ $lecturer->user->name }}
+        @else
+            N/A
+        @endif
+    </p>
 </div>
 
 <div class="form-group">

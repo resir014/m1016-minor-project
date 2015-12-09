@@ -35,6 +35,14 @@ class Student extends Model
     protected $dates = ['created_at', 'updated_at', 'birth_date'];
 
     /**
+     * Properly format birth_date attribute when saving.
+     */
+    public function setBirthDateAttribute($date)
+    {
+        $this->attributes['birth_date'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
+    }
+
+    /**
      * Get the user that this model is related to.
      */
     public function user()

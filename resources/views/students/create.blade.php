@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Create Student')
+
 @section('breadcrumbs')
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
@@ -36,7 +38,24 @@
         'route' => 'students.store'
     ]) !!}
 
-    @include('students.partials.form', ['buttonText' => 'Create New Student'])
+    <div class="form-group" id="bloodhound-new-users">
+        {!! Form::label('id', 'Nomor Induk', ['class' => 'control-label']) !!}
+        {!! Form::text('id', null, ['class' => 'form-control typeahead']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('admission_year', 'Tahun masuk', ['class' => 'control-label']) !!}
+        {!! Form::text('admission_year', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('birth_date', 'Tanggal Lahir', ['class' => 'control-label']) !!}
+        {!! Form::input('date', 'birth_date', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::submit('Add New Student', ['class' => 'btn btn-primary form-control']) !!}
+    </div>
 
     {!! Form::close() !!}
 </div>

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class RoomRequest extends Request
+class StudentRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class RoomRequest extends Request
      */
     public function authorize()
     {
-        // Only Admins can add Room data.
+        // Only Admins can add Student data.
         if (\Auth::user()->userable_type == 'Admin') {
             return true;
         } else {
@@ -29,10 +29,9 @@ class RoomRequest extends Request
     public function rules()
     {
         return [
-            'id' => 'required',
-            'name' => 'required',
-            'type' => 'required',
-            'location' => 'required'
+            'id' => 'required|unique:students',
+            'admission_year' => 'required|integer',
+            'birth_date' => 'required|date'
         ];
     }
 
@@ -44,10 +43,12 @@ class RoomRequest extends Request
     public function messages()
     {
         return [
-            'id.required' => 'Room number is required.',
-            'name.required'  => 'Room name is required.',
-            'type.required'  => 'Room type is required.',
-            'location.required'  => 'Location is required.',
+            'id.required' => 'Please enter a Student ID.',
+            'id.unique:students' => 'That Student ID already exists.',
+            'admission_year.required' => 'Please enter the Admission Year.',
+            'admission_year.integer' => 'Admission Year is not a valid number.',
+            'birth_date.required' => 'Please enter the Birth Date.',
+            'birth_date.date' => 'Birth Year is not a valid year format.'
         ];
     }
 }

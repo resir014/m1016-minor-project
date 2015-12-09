@@ -45,4 +45,15 @@ class SearchController extends Controller
 
         return \Response::json($results);
     }
+
+    public function getNewUsers($query)
+    {
+        $results = \DB::table('users')
+            ->select('userable_id', 'name')
+            ->where('userable_id', 'LIKE', '%' . $query . '%')
+            ->orWhere('name', 'LIKE', '%' . $query . '%')
+            ->get();
+
+        return \Response::json($results);
+    }
 }

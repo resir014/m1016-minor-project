@@ -80,7 +80,7 @@ class UserTableSeeder extends Seeder
 
             $student->id = 'S'.sprintf("%04d", $i);
             $student->admission_year = 2012;
-            $student->birth_date = $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years');
+            $student->birth_date = $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years')->format('Y-m-d H:i:s');
             $student->active = true;
 
             $student->save();

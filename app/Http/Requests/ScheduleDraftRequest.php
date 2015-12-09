@@ -13,7 +13,14 @@ class ScheduleDraftRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        // Only Admins and Lecturers can add ScheduleDraft data.
+        if (\Auth::user()->userable_type == 'Admin') {
+            return true;
+        } elseif (\Auth::user()->userable_type == 'Lecturer') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
