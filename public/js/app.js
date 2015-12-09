@@ -18665,6 +18665,7 @@ jQuery(document).ready(function($) {
     $('#bloodhound-courses .typeahead').typeahead(null, {
         name: 'courses',
         display: 'id',
+        limit: 5,
         source: coursesTypeahead,
         templates: {
             empty: [
@@ -18679,6 +18680,7 @@ jQuery(document).ready(function($) {
     $('#bloodhound-lecturers .typeahead').typeahead(null, {
         name: 'lecturers',
         display: 'id',
+        limit: 5,
         source: lecturersTypeahead,
         templates: {
             empty: [
@@ -18693,6 +18695,7 @@ jQuery(document).ready(function($) {
     $('#bloodhound-rooms .typeahead').typeahead(null, {
         name: 'rooms',
         display: 'id',
+        limit: 5,
         source: roomsTypeahead,
         templates: {
             empty: [
