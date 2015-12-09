@@ -35,4 +35,6 @@ elixir(function(mix) {
         paths.handlebars + 'handlebars.js',
         paths.js + 'scripts.js'
     ], 'public/js/app.js');
+
+    mix.version(['public/css/app.css', 'public/js/app.js']);
 });
