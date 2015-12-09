@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>App Name - @yield('title')</title>
 
-    <link href="{{ elixir('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
@@ -65,6 +65,14 @@
         @yield('breadcrumbs')
     </div>
 
+    @if(Session::has('flash_message'))
+        <div class="container">
+            <div class="alert alert-success">
+                {{ Session::get('flash_message') }}
+            </div>
+        </div>
+    @endif
+
     @yield('content')
 
     <footer>
@@ -75,6 +83,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="{{ elixir('/js/app.js') }}" charset="utf-8"></script>
+    <script src="{{ elixir('js/app.js') }}" charset="utf-8"></script>
 </body>
 </html>
