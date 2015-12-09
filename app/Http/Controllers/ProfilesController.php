@@ -55,6 +55,16 @@ class ProfilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = \Auth::user();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+
+        $user->save();
+
+        $request->session()->flash('flash_message', 'Profile successfully updated!');
+
+        return redirect()->back();
     }
 }

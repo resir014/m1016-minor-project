@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'Register')
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -7,7 +9,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    @if (count($errors) > 0)
+                    @if ($errors->any())
                         <div class="alert alert-danger">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
                             <ul>
@@ -32,6 +34,25 @@
                             <label class="col-md-4 control-label">E-Mail Address</label>
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">I am a...</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="userable_type">
+                                    <option disabled selected> -- Select an option -- </option>
+                                    <option value="Student">Student</option>
+                                    <option value="Lecturer">Lecturer</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">ID Number</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="userable_id" value="{{ old('userable_id') }}">
                             </div>
                         </div>
 

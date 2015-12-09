@@ -1,7 +1,8 @@
 @extends('app')
 
-@section('content')
+@section('title', 'Welcome')
 
+@section('content')
 <div class="jumbotron">
   <div class="container">
     <h1>Your school life, organized.</h1>

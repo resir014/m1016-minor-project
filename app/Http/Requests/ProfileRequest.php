@@ -30,7 +30,7 @@ class ProfileRequest extends Request
         return [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6'
+            'password' => 'required|confirmed|min:6',
         ];
     }
 
@@ -42,15 +42,15 @@ class ProfileRequest extends Request
     public function messages()
     {
         return [
-            'name.required' => 'User name is required.',
-            'name.max:255' => 'User name is too long.',
-            'email.required'  => 'Email is required.',
-            'email.email'  => 'Not a valid email address.',
-            'email.max:255'  => 'Email is too long.',
-            'email.unique:users'  => 'Email is already in use.',
-            'password.required'  => 'Room type is required.',
-            'password.confirmed'  => 'Password needs to be confirmed.',
-            'password.min:6'  => 'Password is too short. (6 character minimum)',
+            'name.required' => 'Please enter your name.',
+            'name.max:255' => 'Inserted name is too long.',
+            'email.required' => 'Please enter an email.',
+            'email.email' => 'Not a valid email address.',
+            'email.max:255' => 'Inserted email address is too long.',
+            'email.unique:users' => 'Email is already in use.',
+            'password.required' => 'Please enter a password.',
+            'password.confirmed' => 'Please confirm your password.',
+            'password.min:6' => 'Password must be at least 6 characters.',
         ];
     }
 }

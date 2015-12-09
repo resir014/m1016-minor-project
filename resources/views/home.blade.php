@@ -24,11 +24,11 @@
                     <p>
                         Welcome, {{ Auth::user()->name }}!
                         @if (Auth::user()->userable_id)
-                            ({{ Auth::user()->userable->id }})
+                            ({{ Auth::user()->userable_id }})
                         @endif
                     </p>
 
-                    @if (Auth::user()->userable_id)
+                    @if (Auth::user()->userable)
                         <p class="text-info">
                             You are logged in as {{ Auth::user()->userable_type }}.
                         </p>

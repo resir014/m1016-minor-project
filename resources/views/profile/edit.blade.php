@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', Edit My Profile)
+@section('title', 'Edit My Profile')
 
 @section('breadcrumbs')
 <ol class="breadcrumb">
@@ -19,9 +19,12 @@
 
     @if($errors->any())
         <div class="alert alert-danger">
-            @foreach($errors->all() as $error)
-                <p>{{ $error }}</p>
-            @endforeach
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
 
@@ -38,7 +41,8 @@
 
     <div class="form-group">
         {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
-        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+        {!! Form::hidden('name', Auth::user()->name) !!}
+        <p class="form-control-static">{{ Auth::user()->name }}</p>
     </div>
 
     <div class="form-group">
@@ -47,12 +51,12 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
+        {!! Form::label('password', 'New Password', ['class' => 'control-label']) !!}
         {!! Form::password('password', ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
-        {!! Form::label('password_confirmation', 'Confirm Password', ['class' => 'control-label']) !!}
+        {!! Form::label('password_confirmation', 'Confirm New Password', ['class' => 'control-label']) !!}
         {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
     </div>
 

@@ -16,4 +16,8 @@
 <ul class="nav nav-pills nav-stacked">
   <li role="presentation"><a href="{{ URL::route('profile.index') }}">Profile</a></li>
 </ul>
+@else
+<ul class="nav nav-pills nav-stacked">
+  <li role="presentation"><a href="{{ URL::route('profile.index') }}">Profile</a></li>
+</ul>
 @endif

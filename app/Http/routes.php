@@ -30,7 +30,7 @@ Route::get('home', ['middleware' => 'auth', function() {
     return view('home');
 }]);
 Route::resource('profile', 'ProfilesController', [
-    'only' => ['index', 'show', 'edit', 'update']
+    'only' => ['index', 'edit', 'update']
 ]);
 
 Route::resource('rooms', 'RoomsController');
