@@ -15,6 +15,7 @@ class FixedScheduleTableSeeder extends Seeder
             $fixedSchedule = new App\FixedSchedule;
 
             $fixedSchedule->schedule_draft_id = 1;
+            $fixedSchedule->room_id = 'CC101';
             $fixedSchedule->day = 'Monday';
             $fixedSchedule->shift = 1;
 

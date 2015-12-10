@@ -20,12 +20,9 @@ class FixedSchedule extends Model
      */
     protected $fillable = [
         'schedule_draft_id',
-        'user_id',
-        'lecturer_id',
         'room_id',
-        'date',
-        'shift',
-        'student_id'
+        'day',
+        'shift'
     ];
 
      /**
@@ -34,6 +31,14 @@ class FixedSchedule extends Model
      public function scheduleDraft()
      {
          return $this->belongsTo('App\ScheduleDraft');
+     }
+
+     /**
+      * Get the Room that this schedule is in.
+      */
+     public function room()
+     {
+         return $this->belongsTo('App\Room');
      }
 
      /**

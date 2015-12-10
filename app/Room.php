@@ -45,8 +45,16 @@ class Room extends Model
     /**
      * Get the schedules that are in this room
      */
-    public function scheduleDraft()
+    public function scheduleDrafts()
     {
         return $this->hasMany('App\ScheduleDraft');
+    }
+
+    /**
+     * Get the schedules that are in this room
+     */
+    public function fixedSchedules()
+    {
+        return $this->hasMany('App\FixedSchedule');
     }
 }

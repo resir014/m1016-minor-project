@@ -31,6 +31,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('students', 'StudentsController');
     Route::resource('schedule-drafts', 'ScheduleDraftsController');
     Route::resource('schedule-approvals', 'ScheduleApprovalsController');
+    Route::resource('fixed-schedules', 'FixedSchedulesController', [
+        'except' => ['create']
+    ]);
+    Route::get('fixed-schedules/create/{id}', 'FixedSchedulesController@create');
     Route::resource('course-status', 'CourseStatusController', [
         'only' => ['show', 'edit', 'update']
     ]);

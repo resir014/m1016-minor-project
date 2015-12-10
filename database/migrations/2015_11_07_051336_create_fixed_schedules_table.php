@@ -16,10 +16,12 @@ class CreateFixedSchedulesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('schedule_draft_id')->unsigned();
+            $table->string('room_id');
             $table->string('day');
             $table->integer('shift');
 
             $table->foreign('schedule_draft_id')->references('id')->on('schedule_drafts');
+            $table->foreign('room_id')->references('id')->on('rooms');
         });
     }
 
