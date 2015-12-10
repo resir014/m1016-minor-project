@@ -12,6 +12,12 @@ use App\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {
+    /**
+     * Returns a JSON output of Typeahead query for Lecturers
+     *
+     * @param  string $query
+     * @return \Illuminate\Http\Response
+     */
     public function getLecturers($query)
     {
         $results = \DB::table('lecturers')
@@ -26,6 +32,12 @@ class SearchController extends Controller
         return \Response::json($results);
     }
 
+    /**
+     * Returns a JSON output of Typeahead query for Lecturers
+     *
+     * @param  string $query
+     * @return \Illuminate\Http\Response
+     */
     public function getCourses($query)
     {
         $results = Course::select('id', 'name')
@@ -36,6 +48,12 @@ class SearchController extends Controller
         return \Response::json($results);
     }
 
+    /**
+     * Returns a JSON output of Typeahead query for Lecturers
+     *
+     * @param  string $query
+     * @return \Illuminate\Http\Response
+     */
     public function getRooms($query)
     {
         $results = Room::select('id', 'name')
@@ -46,6 +64,12 @@ class SearchController extends Controller
         return \Response::json($results);
     }
 
+    /**
+     * Returns a JSON output of Typeahead query for New Users
+     *
+     * @param  string $query
+     * @return \Illuminate\Http\Response
+     */
     public function getNewUsers($query)
     {
         $results = \DB::table('users')

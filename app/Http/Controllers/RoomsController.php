@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class RoomsController extends Controller
 {
     /**
-     * Create a new profiles controller instance.
+     * Creates a new controller instance.
      *
      * @return void
      */
@@ -117,7 +117,7 @@ class RoomsController extends Controller
 
         $room->delete();
 
-        //Session::flash('flash_message', 'Room successfully deleted!');
+        \Session::flash('flash_message', 'Room successfully deleted!');
 
         return redirect()->route('rooms.index');
     }

@@ -56,7 +56,7 @@ class StudentsController extends Controller
 
         $request->session()->flash('flash_message', 'Student successfully added!');
 
-        return redirect()->back();
+        return redirect()->route('students.index');
     }
 
     /**
@@ -117,8 +117,8 @@ class StudentsController extends Controller
 
         $student->delete();
 
-        // Session::flash('flash_message', 'Student successfully deleted!');
+        \Session::flash('flash_message', 'Student successfully deleted!');
 
-        return redirect()->route('rooms.index');
+        return redirect()->route('students.index');
     }
 }

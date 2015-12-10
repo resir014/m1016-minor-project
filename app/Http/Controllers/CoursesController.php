@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class CoursesController extends Controller
 {
     /**
-     * Create a new profiles controller instance.
+     * Creates a new controller instance.
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class CoursesController extends Controller
 
         $request->session()->flash('flash_message', 'Course successfully added!');
 
-        return redirect()->back();
+        return redirect()->route('courses.index');
     }
 
     /**
@@ -112,6 +112,12 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $course = Course::findOrFail($id);
+
+        $course->delete();
+
+        \Session::flash('flash_message', 'Course successfully deleted!');
+
+        return redirect()->route('courses.index');
     }
 }

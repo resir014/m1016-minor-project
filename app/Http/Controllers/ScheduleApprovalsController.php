@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class ScheduleApprovalsController extends Controller
 {
     /**
-     * Create a new profiles controller instance.
+     * Creates a new controller instance.
      *
      * @return void
      */

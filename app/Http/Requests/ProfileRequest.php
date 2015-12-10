@@ -13,11 +13,11 @@ class ProfileRequest extends Request
      */
     public function authorize()
     {
-        // Check if not guest
-        if (\Auth::guest) {
-            return false;
-        } else {
+        if (\Auth::check) {
+            // The user is logged in.
             return true;
+        } else {
+            return false;
         }
     }
 

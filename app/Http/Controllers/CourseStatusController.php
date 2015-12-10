@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class CourseStatusController extends Controller
 {
     /**
-     * Create a new course status controller instance.
+     * Creates a new controller instance.
      *
      * @return void
      */
@@ -23,16 +23,12 @@ class CourseStatusController extends Controller
     {
         $course = Course::findOrFail($id);
 
-        //dd($course);
-
         return view('course-status.show')->with('course', $course);
     }
 
     public function edit($id)
     {
         $course = Course::findOrFail($id);
-
-        //dd($course);
 
         return view('course-status.edit')->with('course', $course);
     }

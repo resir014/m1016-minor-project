@@ -8,8 +8,12 @@ use App\Http\Controllers\Controller;
 
 class PagesController extends Controller
 {
+    /**
+     * Shows the About page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function about() {
-        $name = 'Resi';
-        return view('pages/about')->with('name', $name);
+        return view('pages.about');
     }
 }

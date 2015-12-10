@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class ScheduleDraftsController extends Controller
 {
     /**
-     * Create a new profiles controller instance.
+     * Creates a new controller instance.
      *
      * @return void
      */
@@ -121,6 +121,8 @@ class ScheduleDraftsController extends Controller
         $scheduleDraft = ScheduleDraft::findOrFail($id);
 
         $scheduleDraft->delete();
+
+        \Session::flash('flash_message', 'Schedule draft successfully deleted!');
 
         return redirect()->route('schedule-drafts.index');
     }

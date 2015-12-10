@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class LecturersController extends Controller
 {
     /**
-     * Create a new profiles controller instance.
+     * Creates a new controller instance.
      *
      * @return void
      */
@@ -93,7 +93,15 @@ class LecturersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lecturer = Lecturer::findOrFail($id);
+
+        $input = $request->all();
+
+        $lecturer->fill($input)->save();
+
+        $request->session()->flash('flash_message', 'Lecturer successfully updated!');
+
+        return redirect()->back();
     }
 
     /**
@@ -104,6 +112,12 @@ class LecturersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lecturer = Lecturer::findOrFail($id);
+
+        $lecturer->delete();
+
+        \Session::flash('flash_message', 'Lecturer successfully deleted!');
+
+        return redirect()->route('lecturers.index');
     }
 }
