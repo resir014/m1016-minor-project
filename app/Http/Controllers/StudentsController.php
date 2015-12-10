@@ -45,7 +45,7 @@ class StudentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StudentRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StudentRequest $request)
@@ -88,7 +88,7 @@ class StudentsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StudentRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

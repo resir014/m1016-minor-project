@@ -38,17 +38,12 @@
         </tbody>
     </table>
 
-    <div class="row">
-        <div class="col-sm-12">
-            <p class="text-right"><a href="#" class="btn btn-default text-right">Add a Schedule</a></p>
-        </div>
-    </div>
-
 
     <hr>
 
     <a href="{{ route('schedule-drafts.index') }}" class="btn btn-info">Back to index</a>
     <a href="{{ route('schedule-drafts.edit', $scheduleDraft->id) }}" class="btn btn-primary">Make revision</a>
+    <a href="#" class="btn btn-default text-right">Publish Schedule</a>
 
     <div class="pull-right">
         {!! Form::open([

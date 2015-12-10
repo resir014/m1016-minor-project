@@ -16,8 +16,6 @@ class ScheduleDraftRequest extends Request
         // Only Admins and Lecturers can add ScheduleDraft data.
         if (\Auth::user()->userable_type == 'Admin') {
             return true;
-        } elseif (\Auth::user()->userable_type == 'Lecturer') {
-            return true;
         } else {
             return false;
         }

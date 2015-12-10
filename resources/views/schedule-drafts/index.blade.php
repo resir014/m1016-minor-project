@@ -18,9 +18,11 @@
     <h1 class="page-header">Your Schedule Drafts</h1>
     @endif
 
+    @if (Auth::user()->userable_type === 'Admin')
     <div>
         <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add New Schedule</a>
     </div>
+    @endif
 
     <hr>
 
@@ -53,8 +55,10 @@
 
     <hr>
 
+    @if (Auth::user()->userable_type === 'Admin')
     <div>
         <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add New Schedule</a>
     </div>
+    @endif
 </div>
 @endsection
