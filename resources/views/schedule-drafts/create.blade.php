@@ -1,19 +1,19 @@
 @extends('app')
 
-@section('title', 'Create Schedule Draft')
+@section('title', 'Add Schedule Draft')
 
 @section('breadcrumbs')
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
     <li><a href="{{ url('/schedule-drafts') }}">Schedule Drafts</a></li>
-    <li class="active">Create Schedule Draft</li>
+    <li class="active">Add Schedule Draft</li>
 </ol>
 @endsection
 
 @section('content')
 <div class="container">
 
-    <h1 class="page-header">Create a Schedule Draft</h1>
+    <h1 class="page-header">Add a Schedule Draft</h1>
 
     @if($errors->any())
         <div class="alert alert-danger">

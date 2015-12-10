@@ -13,7 +13,7 @@
 <div class="container">
 
     @if(Auth::user()->userable_type === 'Admin')
-    <h1 class="page-header">View Schedule Drafts</h1>
+    <h1 class="page-header">All Schedule Drafts</h1>
     @else
     <h1 class="page-header">My Schedule Drafts</h1>
     @endif

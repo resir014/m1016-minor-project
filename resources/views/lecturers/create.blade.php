@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Create Lecturer')
+@section('title', 'Add Lecturer')
 
 @section('breadcrumbs')
 <ol class="breadcrumb">

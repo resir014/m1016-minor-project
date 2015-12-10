@@ -1,5 +1,7 @@
 @extends('app')
 
+@section('title', 'View Fixed Schedule')
+
 @section('breadcrumbs')
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>

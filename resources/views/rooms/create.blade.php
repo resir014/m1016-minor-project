@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Create Room')
+@section('title', 'Add Room')
 
 @section('breadcrumbs')
 <ol class="breadcrumb">
