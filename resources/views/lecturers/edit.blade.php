@@ -33,7 +33,7 @@
         'route' => ['lecturers.update', $lecturer->id]
     ]) !!}
 
-    @include('lecturers.partials.form', ['buttonText' => 'Create New Lecturer'])
+    @include('lecturers.partials.form', ['buttonText' => 'Save'])
 
     {!! Form::close() !!}
 </div>

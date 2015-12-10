@@ -32,7 +32,7 @@
         'route' => 'rooms.store'
     ]) !!}
 
-    @include('rooms.partials.form', ['buttonText' => 'Create New Room'])
+    @include('rooms.partials.form', ['buttonText' => 'Add Room'])
 
     {!! Form::close() !!}
 </div>

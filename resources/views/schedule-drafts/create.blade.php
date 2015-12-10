@@ -36,7 +36,7 @@
 
     <div class="form-group">
         <div class="pull-right">
-            {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Add Schedule Draft', ['class' => 'btn btn-primary']) !!}
         </div>
     </div>
 

@@ -32,7 +32,7 @@
         'route' => 'courses.store'
     ]) !!}
 
-    @include('courses.partials.form', ['buttonText' => 'Create New course'])
+    @include('courses.partials.form', ['buttonText' => 'Add Course'])
 
     {!! Form::close() !!}
 </div>

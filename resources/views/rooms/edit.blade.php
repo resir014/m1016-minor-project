@@ -33,7 +33,7 @@
         'route' => ['rooms.update', $room->id]
     ]) !!}
 
-    @include('rooms.partials.form', ['buttonText' => 'Update Room'])
+    @include('rooms.partials.form', ['buttonText' => 'Save'])
 
     {!! Form::close() !!}
 </div>

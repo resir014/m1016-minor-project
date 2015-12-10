@@ -19,7 +19,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('day', 'Hari') !!}
+    {!! Form::label('day', 'Day') !!}
     {!! Form::select('day', [
         'Monday' => 'Monday',
         'Tuesday' => 'Tuesday',

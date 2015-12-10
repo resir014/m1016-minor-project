@@ -38,17 +38,17 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('admission_year', 'Tahun masuk', ['class' => 'control-label']) !!}
+        {!! Form::label('admission_year', 'Admission Year', ['class' => 'control-label']) !!}
         {!! Form::text('admission_year', null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
-        {!! Form::label('birth_date', 'Tanggal Lahir', ['class' => 'control-label']) !!}
+        {!! Form::label('birth_date', 'Birth Date', ['class' => 'control-label']) !!}
         {!! Form::input('date', 'birth_date', null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
-        {!! Form::submit('Add New Student', ['class' => 'btn btn-primary form-control']) !!}
+        {!! Form::submit('Add Student', ['class' => 'btn btn-primary form-control']) !!}
     </div>
 
     {!! Form::close() !!}
