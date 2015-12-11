@@ -20,8 +20,8 @@ class ScheduleApproval extends Model
      */
     protected $fillable = [
         'lecturer_id',
-        'day',
-        'shift',
+        'days',
+        'shifts',
         'cleared'
     ];
 
