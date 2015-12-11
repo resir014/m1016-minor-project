@@ -15,7 +15,7 @@
     <h1 class="page-header">All Rooms</h1>
 
     <div>
-        <a href="{{ route('rooms.create') }}" class="btn btn-primary">Create a Room</a>
+        <a href="{{ route('rooms.create') }}" class="btn btn-primary">Add Room</a>
     </div>
 
     <hr>
@@ -31,7 +31,7 @@
     @endforeach
 
     <div>
-        <a href="{{ route('rooms.create') }}" class="btn btn-primary">Create a Room</a>
+        <a href="{{ route('rooms.create') }}" class="btn btn-primary">Add Room</a>
     </div>
 </div>
 @endsection

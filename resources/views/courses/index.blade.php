@@ -15,7 +15,7 @@
     <h1 class="page-header">All Courses</h1>
 
     <div>
-        <a href="{{ route('courses.create') }}" class="btn btn-primary">Create a course</a>
+        <a href="{{ route('courses.create') }}" class="btn btn-primary">Add Course</a>
     </div>
 
     <hr>
@@ -50,7 +50,7 @@
     </table>
 
     <div>
-        <a href="{{ route('courses.create') }}" class="btn btn-primary">Create a course</a>
+        <a href="{{ route('courses.create') }}" class="btn btn-primary">Add Course</a>
     </div>
 </div>
 @endsection

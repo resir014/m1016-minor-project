@@ -31,7 +31,7 @@
     ]) !!}
 
     <div class="form-group" id="bloodhound-new-users">
-        {!! Form::label('id', 'Nomor Induk', ['class' => 'control-label']) !!}
+        {!! Form::label('id', 'Lecturer ID', ['class' => 'control-label']) !!}
         {!! Form::text('id', null, ['class' => 'form-control typeahead']) !!}
     </div>
 

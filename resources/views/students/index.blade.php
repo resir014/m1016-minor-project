@@ -15,7 +15,7 @@
     <h1 class="page-header">All Students</h1>
 
     <div>
-        <a href="{{ route('students.create') }}" class="btn btn-primary">Add a student</a>
+        <a href="{{ route('students.create') }}" class="btn btn-primary">Add Student</a>
     </div>
 
     <hr>
@@ -54,7 +54,7 @@
     <hr>
 
     <div>
-        <a href="{{ route('students.create') }}" class="btn btn-primary">Add a student</a>
+        <a href="{{ route('students.create') }}" class="btn btn-primary">Add Student</a>
     </div>
 </div>
 @endsection

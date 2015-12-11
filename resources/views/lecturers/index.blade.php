@@ -15,7 +15,7 @@
     <h1 class="page-header">All Lecturers</h1>
 
     <div>
-        <a href="{{ route('lecturers.create') }}" class="btn btn-primary">Add a lecturer</a>
+        <a href="{{ route('lecturers.create') }}" class="btn btn-primary">Add Lecturer</a>
     </div>
 
     <hr>
@@ -46,7 +46,7 @@
     </table>
 
     <div>
-        <a href="{{ route('lecturers.create') }}" class="btn btn-primary">Add a lecturer</a>
+        <a href="{{ route('lecturers.create') }}" class="btn btn-primary">Add Lecturer</a>
     </div>
 </div>
 @endsection

@@ -16,26 +16,25 @@
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <legend>Course Status</legend>
             <div class="panel panel-default">
-                <div class="panel-body form-horizontal payment-form">
-
+                <div class="panel-heading">
+                    <h3 class="panel-title">Course Status</h3>
+                </div>
+                <div class="panel-body form-horizontal">
                     <div class="form-group">
-                        <label for="description" class="col-md-3 control-label">ID Matakuliah</label>
+                        <label for="description" class="col-md-3 control-label">Course ID</label>
                         <div class="col-md-9">
-                            <span class="form-control">{{ $course->id }}</span>
+                            <p class="form-control-static">{{ $course->id }}</p>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="status" class="col-md-3 control-label">Status</label>
                         <div class="col-md-9">
-                            <span class="form-control">
-                                @if($course->active)
-                                    <span class="text-success">Active</span>
-                                @else
-                                    <span class="text-danger">Inactive</span>
-                                @endif
-                            </span>
+                            @if($course->active)
+                                <p class="form-control-static text-success">Active</p>
+                            @else
+                                <p class="form-control-static text-danger">Inactive</p>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">
