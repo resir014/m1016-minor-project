@@ -198,10 +198,16 @@ return [
         'Html'      => Illuminate\Html\HtmlFacade::class,
 
         // Custom aliases
-        'Admin'     => App\Admin::class,
-        'Course'    => App\Course::class,
-        'Lecturer'  => App\Lecturer::class,
-        'Student'   => App\Student::class,
+
+        'User'              => App\User::class,
+        'Admin'             => App\Admin::class,
+        'Lecturer'          => App\Lecturer::class,
+        'Student'           => App\Student::class,
+        'Course'            => App\Course::class,
+        'Room'              => App\Room::class,
+        'ScheduleDraft'     => App\ScheduleDraft::class,
+        'FixedSchedule'     => App\FixedSchedule::class,
+        'ScheduleApproval'  => App\ScheduleApproval::class,
 
     ],
 
