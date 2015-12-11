@@ -6,16 +6,14 @@
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
     <li><a href="{{ url('/students') }}">Students</a></li>
-    <li class="active">Create Student</li>
+    <li class="active">Add Student</li>
 </ol>
 @endsection
 
 @section('content')
 <div class="container">
 
-    <h1>Create a New Student</h1>
-    <p class="lead">Create a new Student master data.</p>
-    <hr>
+    <h1 class="page-header">Add a New Student</h1>
 
     @if($errors->any())
         <div class="alert alert-danger">
