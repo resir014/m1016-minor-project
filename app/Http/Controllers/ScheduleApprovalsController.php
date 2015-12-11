@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ScheduleApproval;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -25,6 +26,10 @@ class ScheduleApprovalsController extends Controller
      */
     public function index()
     {
+        $scheduleApprovals = ScheduleApproval::all();
+
+        dd($scheduleApprovals);
+
         return view('schedule-approvals.index');
     }
 
@@ -46,7 +51,16 @@ class ScheduleApprovalsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ScheduleApproval::create([
+            'lecturer_id' => $request->lecturer_id,
+            'days' => implode(', ', $request->days),
+            'shifts' => implode(', ', $request->shifts),
+            'cleared' => true
+        ]);
+
+        $request->session()->flash('flash_message', 'Schedule Approval form successfully created!');
+
+        return redirect()->back();
     }
 
     /**
@@ -57,7 +71,9 @@ class ScheduleApprovalsController extends Controller
      */
     public function show($id)
     {
-        //
+        $scheduleApproval = ScheduleApproval::findOrFail($id);
+
+        return $scheduleApproval;
     }
 
     /**

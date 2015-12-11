@@ -45,6 +45,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('data/rooms/{query?}', 'SearchController@getRooms');
 });
 
+Route::get('attendance-form', function() {
+    return view('attendance-form.index');
+});
+Route::get('attendance-form/create', function() {
+    return view('attendance-form.create');
+});
+
+Route::get('session-log', function() {
+    return view('session-log.index');
+});
+Route::get('session-log/create', function() {
+    return view('session-log.create');
+});
+
 // Controller groups
 Route::controllers([
     'auth' => 'Auth\AuthController',
