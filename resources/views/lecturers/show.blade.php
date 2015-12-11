@@ -23,8 +23,8 @@
             <tr>
                 <th>Student ID</th>
                 <th>Name</th>
-                <th>Beban Jabatan</th>
-                <th>Jabatan</th>
+                <th>Self Credit</th>
+                <th>Role</th>
                 <th>Spesialisasi</th>
             </tr>
         </thead>
@@ -32,8 +32,8 @@
             <tr>
                 <td>{{ $lecturer->id }}</td>
                 <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
-                <td>{{ $lecturer->beban_jabatan }}</td>
-                <td>{{ $lecturer->jabatan }}</td>
+                <td>{{ $lecturer->self_credit }}</td>
+                <td>{{ $lecturer->role }}</td>
                 <td>{{ $lecturer->spesialisasi }}</td>
             </tr>
         </tbody>

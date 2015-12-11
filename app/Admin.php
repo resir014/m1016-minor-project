@@ -25,7 +25,7 @@ class Admin extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'jabatan'];
+    protected $fillable = ['id', 'role'];
 
     /**
      * Get the user that this model is related to.

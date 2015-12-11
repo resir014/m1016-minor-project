@@ -38,10 +38,10 @@
                 <th>Name</th>
                 <th>Role</th>
                 @if (Auth::user()->userable_type == 'Admin')
-                <th>Jabatan</th>
+                <th>Role</th>
                 @elseif (Auth::user()->userable_type == 'Lecturer')
-                <th>Beban Jabatan</th>
-                <th>Jabatan</th>
+                <th>Self Credit</th>
+                <th>Role</th>
                 <th>Spesialisasi</th>
                 @elseif (Auth::user()->userable_type == 'Student')
                 <th>Tanggal Lahir</th>
@@ -59,10 +59,10 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->userable_type }}</td>
                 @if (Auth::user()->userable_type == 'Admin')
-                <td>{{ $user->userable->jabatan }}</td>
+                <td>{{ $user->userable->role }}</td>
                 @elseif (Auth::user()->userable_type == 'Lecturer')
-                <td>{{ $user->userable->beban_jabatan }}</td>
-                <td>{{ $user->userable->jabatan }}</td>
+                <td>{{ $user->userable->self_credit }}</td>
+                <td>{{ $user->userable->role }}</td>
                 <td>{{ $user->userable->spesialisasi }}</td>
                 @elseif (Auth::user()->userable_type == 'Student')
                 <td>{{ $user->userable->birth_date }}</td>

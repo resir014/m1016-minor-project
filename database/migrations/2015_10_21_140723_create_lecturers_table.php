@@ -15,8 +15,8 @@ class CreateLecturersTable extends Migration
         Schema::create('lecturers', function (Blueprint $table) {
             $table->string('id')->unique();
             $table->timestamps();
-            $table->integer('beban_jabatan');
-            $table->string('jabatan');
+            $table->integer('self_credit');
+            $table->string('role');
             $table->string('spesialisasi');
 
             $table->primary('id');

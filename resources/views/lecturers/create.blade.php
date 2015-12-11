@@ -38,13 +38,13 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('beban_jabatan', 'Beban Jabatan', ['class' => 'control-label']) !!}
-        {!! Form::text('beban_jabatan', null, ['class' => 'form-control']) !!}
+        {!! Form::label('self_credit', 'Self Credit', ['class' => 'control-label']) !!}
+        {!! Form::text('self_credit', null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
-        {!! Form::label('jabatan', 'Jabatan', ['class' => 'control-label']) !!}
-        {!! Form::text('jabatan', null, ['class' => 'form-control']) !!}
+        {!! Form::label('role', 'Role', ['class' => 'control-label']) !!}
+        {!! Form::text('role', null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">

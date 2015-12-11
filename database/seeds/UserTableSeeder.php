@@ -33,7 +33,7 @@ class UserTableSeeder extends Seeder
             $admin = new App\Admin;
 
             $admin->id = 'A'.sprintf("%04d", $i);
-            $admin->jabatan = 'Admin';
+            $admin->role = 'Admin';
 
             $admin->save();
         }
@@ -55,8 +55,8 @@ class UserTableSeeder extends Seeder
             $lecturer = new App\Lecturer;
 
             $lecturer->id = 'D'.sprintf("%04d", $i);
-            $lecturer->beban_jabatan = 6;
-            $lecturer->jabatan = 'Dosen';
+            $lecturer->self_credit = 6;
+            $lecturer->role = 'Dosen';
             $lecturer->spesialisasi = 'Teknik';
 
             $lecturer->save();
