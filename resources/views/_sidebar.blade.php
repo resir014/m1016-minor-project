@@ -13,6 +13,8 @@
   <li role="presentation"><a href="{{ URL::route('profile.index') }}">Profile</a></li>
   <li role="presentation"><a href="{{ URL::route('schedule-drafts.index') }}">Schedule Drafts</a></li>
   <li role="presentation"><a href="{{ URL::route('fixed-schedules.index') }}">Fixed Schedules</a></li>
+  <li role="presentation"><a href="{{ url('/attendance-form') }}">Attendance</a></li>
+  <li role="presentation"><a href="{{ url('/session-log') }}">Session Log</a></li>
 </ul>
 @elseif(Auth::user()->userable_type === 'Student')
 <ul class="nav nav-pills nav-stacked">

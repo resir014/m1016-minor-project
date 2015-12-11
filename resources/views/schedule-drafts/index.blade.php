@@ -35,7 +35,9 @@
                 <th>Room</th>
                 <th>Day</th>
                 <th>Shift</th>
+                @if(Auth::user()->userable_type === 'Admin')
                 <th></th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -47,7 +49,9 @@
                 <td>{{ $scheduleDraft->room->id }}</td>
                 <td>{{ $scheduleDraft->day }}</td>
                 <td>{{ $scheduleDraft->shift }}</td>
+                @if(Auth::user()->userable_type === 'Admin')
                 <td><a href="{{ route('schedule-drafts.show', $scheduleDraft->id) }}">View</a></td>
+                @endif
             </tr>
             @endforeach
         </tbody>
