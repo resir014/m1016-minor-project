@@ -48,8 +48,8 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('spesialisasi', 'Spesialisasi', ['class' => 'control-label']) !!}
-        {!! Form::text('spesialisasi', null, ['class' => 'form-control']) !!}
+        {!! Form::label('field', 'Field', ['class' => 'control-label']) !!}
+        {!! Form::text('field', null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">

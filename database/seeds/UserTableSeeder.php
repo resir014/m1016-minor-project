@@ -57,7 +57,7 @@ class UserTableSeeder extends Seeder
             $lecturer->id = 'D'.sprintf("%04d", $i);
             $lecturer->self_credit = 6;
             $lecturer->role = 'Dosen';
-            $lecturer->spesialisasi = 'Teknik';
+            $lecturer->field = 'Teknik';
 
             $lecturer->save();
         }

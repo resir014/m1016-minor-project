@@ -25,7 +25,7 @@
                 <th>Name</th>
                 <th>Self Credit</th>
                 <th>Role</th>
-                <th>Spesialisasi</th>
+                <th>Field</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +34,7 @@
                 <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
                 <td>{{ $lecturer->self_credit }}</td>
                 <td>{{ $lecturer->role }}</td>
-                <td>{{ $lecturer->spesialisasi }}</td>
+                <td>{{ $lecturer->field }}</td>
             </tr>
         </tbody>
     </table>

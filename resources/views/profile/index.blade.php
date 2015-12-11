@@ -42,7 +42,7 @@
                 @elseif (Auth::user()->userable_type == 'Lecturer')
                 <th>Self Credit</th>
                 <th>Role</th>
-                <th>Spesialisasi</th>
+                <th>Field</th>
                 @elseif (Auth::user()->userable_type == 'Student')
                 <th>Tanggal Lahir</th>
                 <th>Tahun Masuk</th>
@@ -63,7 +63,7 @@
                 @elseif (Auth::user()->userable_type == 'Lecturer')
                 <td>{{ $user->userable->self_credit }}</td>
                 <td>{{ $user->userable->role }}</td>
-                <td>{{ $user->userable->spesialisasi }}</td>
+                <td>{{ $user->userable->field }}</td>
                 @elseif (Auth::user()->userable_type == 'Student')
                 <td>{{ $user->userable->birth_date }}</td>
                 <td>{{ $user->userable->admission_year }}</td>

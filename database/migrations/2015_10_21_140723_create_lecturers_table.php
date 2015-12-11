@@ -17,7 +17,7 @@ class CreateLecturersTable extends Migration
             $table->timestamps();
             $table->integer('self_credit');
             $table->string('role');
-            $table->string('spesialisasi');
+            $table->string('field');
 
             $table->primary('id');
         });

@@ -25,7 +25,7 @@ class Lecturer extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'self_credit', 'role', 'spesialisasi'];
+    protected $fillable = ['id', 'self_credit', 'role', 'field'];
 
     /**
      * Get the user that this model is related to.
