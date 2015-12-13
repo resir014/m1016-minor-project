@@ -16,8 +16,8 @@ class CreateScheduleApprovalsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('lecturer_id');
-            $table->string('day');
-            $table->integer('shift');
+            $table->string('days');
+            $table->string('shifts');
             $table->boolean('cleared')->default(false);
 
             $table->foreign('lecturer_id')->references('id')->on('lecturers');

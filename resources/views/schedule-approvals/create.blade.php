@@ -3,7 +3,8 @@
 @section('breadcrumbs')
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
-    <li class="active">Schedule Approvals</li>
+    <li><a href="{{ url('/schedule-approvals') }}">Schrdule Approvals</a></li>
+    <li class="active">Create Schedule Approval</li>
 </ol>
 @endsection
 
@@ -16,7 +17,9 @@
                     <h3 class="panel-title">Create Schedule Approval</h3>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open() !!}
+                    {!! Form::open([
+                        'route' => 'schedule-approvals.store'
+                    ]) !!}
                     <div class="form-group" id="bloodhound-courses">
                         {!! Form::label('lecturer_id', 'Lecturer ID', ['class' => 'control-label']) !!}
                         {!! Form::hidden('lecturer_id', \Auth::user()->userable->id) !!}
@@ -27,37 +30,37 @@
                             {!! Form::label('day', 'Days Available', ['class' => 'control-label']) !!}
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('day', 'Monday') !!}
+                                    {!! Form::checkbox('days[]', 'Monday') !!}
                                     Monday
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('day', 'Tuesday') !!}
+                                    {!! Form::checkbox('days[]', 'Tuesday') !!}
                                     Tuesday
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('day', 'Wednesday') !!}
+                                    {!! Form::checkbox('days[]', 'Wednesday') !!}
                                     Wednesday
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('day', 'Thursday') !!}
+                                    {!! Form::checkbox('days[]', 'Thursday') !!}
                                     Thursday
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('day', 'Friday') !!}
+                                    {!! Form::checkbox('days[]', 'Friday') !!}
                                     Friday
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('day', 'Saturday') !!}
+                                    {!! Form::checkbox('days[]', 'Saturday') !!}
                                     Saturday
                                 </label>
                             </div>
@@ -66,28 +69,31 @@
                             {!! Form::label('shift', 'Shifts Available', ['class' => 'control-label']) !!}
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('shift', 1) !!}
+                                    {!! Form::checkbox('shifts[]', 1) !!}
                                     1
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('shift', 2) !!}
+                                    {!! Form::checkbox('shifts[]', 2) !!}
                                     2
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('shift', 3) !!}
+                                    {!! Form::checkbox('shifts[]', 3) !!}
                                     3
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    {!! Form::checkbox('shift', 4) !!}
+                                    {!! Form::checkbox('shifts[]', 4) !!}
                                     4
                                 </label>
                             </div>
+                        </div>
+                        <div class="col-sm-12">
+                            {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
                         </div>
                     </div>
                     {!! Form::close() !!}
