@@ -56,6 +56,6 @@ class Lecturer extends Model
      */
     public function scheduleApproval()
     {
-        return $this->belongsTo('App\ScheduleApproval');
+        return $this->hasOne('App\ScheduleApproval');
     }
 }

@@ -28,9 +28,7 @@ class ScheduleApprovalsController extends Controller
     {
         $scheduleApprovals = ScheduleApproval::all();
 
-        dd($scheduleApprovals);
-
-        return view('schedule-approvals.index');
+        return view('schedule-approvals.index')->with('scheduleApprovals', $scheduleApprovals);
     }
 
     /**
@@ -73,7 +71,7 @@ class ScheduleApprovalsController extends Controller
     {
         $scheduleApproval = ScheduleApproval::findOrFail($id);
 
-        return $scheduleApproval;
+        return view('schedule-approvals.show')->with('scheduleApproval', $scheduleApproval);
     }
 
     /**

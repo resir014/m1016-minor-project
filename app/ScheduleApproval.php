@@ -36,6 +36,6 @@ class ScheduleApproval extends Model
 
     public function lecturer()
     {
-        return $this->hasOne('App\Lecturer');
+        return $this->belongsTo('App\Lecturer');
     }
 }
