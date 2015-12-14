@@ -1,5 +1,13 @@
 @extends('app')
 
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li><a href="{{ url('/home') }}">Grades</a></li>
+    <li class="active">Input Grades</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="panel panel-primary">
