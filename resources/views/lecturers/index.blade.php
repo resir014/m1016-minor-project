@@ -20,30 +20,32 @@
 
     <hr>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Self Credit</th>
-                <th>Role</th>
-                <th>Field</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($lecturers as $lecturer)
-            <tr>
-                <td>{{ $lecturer->id }}</td>
-                <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
-                <td>{{ $lecturer->self_credit }}</td>
-                <td>{{ $lecturer->role }}</td>
-                <td>{{ $lecturer->field }}</td>
-                <td><a href="{{ route('lecturers.show', $lecturer->id) }}">View</a></td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Self Credit</th>
+                    <th>Role</th>
+                    <th>Field</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($lecturers as $lecturer)
+                <tr>
+                    <td>{{ $lecturer->id }}</td>
+                    <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
+                    <td>{{ $lecturer->self_credit }}</td>
+                    <td>{{ $lecturer->role }}</td>
+                    <td>{{ $lecturer->field }}</td>
+                    <td><a href="{{ route('lecturers.show', $lecturer->id) }}">View</a></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
     <div>
         <a href="{{ route('lecturers.create') }}" class="btn btn-primary">Add Lecturer</a>

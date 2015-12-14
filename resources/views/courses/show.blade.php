@@ -18,30 +18,32 @@
 
     <hr>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Course ID</th>
-                <th>Name</th>
-                <th>Credits</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $course->id }}</td>
-                <td>{{ $course->name }}</td>
-                <td>{{ $course->credits }}</td>
-                <td>
-                    @if($course->active)
-                        <span class="text-success">Active</span>
-                    @else
-                        <span class="text-danger">Inactive</span>
-                    @endif
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Name</th>
+                    <th>Credits</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ $course->id }}</td>
+                    <td>{{ $course->name }}</td>
+                    <td>{{ $course->credits }}</td>
+                    <td>
+                        @if($course->active)
+                            <span class="text-success">Active</span>
+                        @else
+                            <span class="text-danger">Inactive</span>
+                        @endif
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <hr>
 
