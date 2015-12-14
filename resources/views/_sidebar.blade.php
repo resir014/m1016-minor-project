@@ -8,6 +8,7 @@
   <li role="presentation"><a href="{{ URL::route('schedule-drafts.index') }}">Schedule Drafts</a></li>
   <li role="presentation"><a href="{{ URL::route('schedule-approvals.index') }}">Schedule Approvals</a></li>
   <li role="presentation"><a href="{{ url('/attendance-form') }}">Attendance</a></li>
+  <li role="presentation"><a href="{{ url('/mockups/perubahan-nilai') }}">Update Grades</a></li>
 </ul>
 @elseif(Auth::user()->userable_type === 'Lecturer')
 <ul class="nav nav-pills nav-stacked">
@@ -16,6 +17,7 @@
   <li role="presentation"><a href="{{ URL::route('fixed-schedules.index') }}">Fixed Schedules</a></li>
   <li role="presentation"><a href="{{ url('/attendance-form') }}">Attendance</a></li>
   <li role="presentation"><a href="{{ url('/session-log') }}">Session Log</a></li>
+  <li role="presentation"><a href="{{ url('/mockups/input-nilai') }}">Input Grades</a></li>
 </ul>
 @elseif(Auth::user()->userable_type === 'Student')
 <ul class="nav nav-pills nav-stacked">
