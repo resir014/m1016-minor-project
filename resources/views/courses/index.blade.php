@@ -20,34 +20,36 @@
 
     <hr>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Course ID</th>
-                <th>Name</th>
-                <th>Credits</th>
-                <th>Status</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($courses as $course)
-            <tr>
-                <td>{{ $course->id }}</td>
-                <td>{{ $course->name }}</td>
-                <td>{{ $course->credits }}</td>
-                <td>
-                    @if($course->active)
-                        <span class="text-success">Active</span>
-                    @else
-                        <span class="text-danger">Inactive</span>
-                    @endif
-                </td>
-                <td><a href="{{ route('courses.show', $course->id) }}">View</a></td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Name</th>
+                    <th>Credits</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($courses as $course)
+                <tr>
+                    <td>{{ $course->id }}</td>
+                    <td>{{ $course->name }}</td>
+                    <td>{{ $course->credits }}</td>
+                    <td>
+                        @if($course->active)
+                            <span class="text-success">Active</span>
+                        @else
+                            <span class="text-danger">Inactive</span>
+                        @endif
+                    </td>
+                    <td><a href="{{ route('courses.show', $course->id) }}">View</a></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
     <div>
         <a href="{{ route('courses.create') }}" class="btn btn-primary">Add Course</a>

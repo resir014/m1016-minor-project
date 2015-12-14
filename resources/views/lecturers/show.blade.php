@@ -18,26 +18,28 @@
 
     <hr>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Self Credit</th>
-                <th>Role</th>
-                <th>Field</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $lecturer->id }}</td>
-                <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
-                <td>{{ $lecturer->self_credit }}</td>
-                <td>{{ $lecturer->role }}</td>
-                <td>{{ $lecturer->field }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Self Credit</th>
+                    <th>Role</th>
+                    <th>Field</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ $lecturer->id }}</td>
+                    <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
+                    <td>{{ $lecturer->self_credit }}</td>
+                    <td>{{ $lecturer->role }}</td>
+                    <td>{{ $lecturer->field }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <hr>
 

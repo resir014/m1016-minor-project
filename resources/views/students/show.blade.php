@@ -15,32 +15,34 @@
 
     <hr>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Tanggal Lahir</th>
-                <th>Tahun Masuk</th>
-                <th>Nilai Tugas</th>
-                <th>Nilai UTS</th>
-                <th>Nilai UAS</th>
-                <th>Nilai Sumatif</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $student->id }}</td>
-                <td>{{ $student->user->name }}</td>
-                <td>{{ date('d F Y', strtotime($student->birth_date)) }}</td>
-                <td>{{ $student->admission_year }}</td>
-                <td>{{ $student->nilai_tugas }}</td>
-                <td>{{ $student->nilai_uts }}</td>
-                <td>{{ $student->nilai_uas }}</td>
-                <td>{{ $student->nilai_sumatif }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Tahun Masuk</th>
+                    <th>Nilai Tugas</th>
+                    <th>Nilai UTS</th>
+                    <th>Nilai UAS</th>
+                    <th>Nilai Sumatif</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ $student->id }}</td>
+                    <td>{{ $student->user->name }}</td>
+                    <td>{{ date('d F Y', strtotime($student->birth_date)) }}</td>
+                    <td>{{ $student->admission_year }}</td>
+                    <td>{{ $student->nilai_tugas }}</td>
+                    <td>{{ $student->nilai_uts }}</td>
+                    <td>{{ $student->nilai_uas }}</td>
+                    <td>{{ $student->nilai_sumatif }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <hr>
 

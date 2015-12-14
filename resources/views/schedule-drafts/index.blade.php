@@ -26,36 +26,38 @@
 
     <hr>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Draft ID</th>
-                <th>Lecturer</th>
-                <th>Course</th>
-                <th>Room</th>
-                <th>Day</th>
-                <th>Shift</th>
-                @if(Auth::user()->userable_type === 'Admin')
-                <th></th>
-                @endif
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($scheduleDrafts as $scheduleDraft)
-            <tr>
-                <td>{{ $scheduleDraft->id }}</td>
-                <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
-                <td>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</td>
-                <td>{{ $scheduleDraft->room->id }}</td>
-                <td>{{ $scheduleDraft->day }}</td>
-                <td>{{ $scheduleDraft->shift }}</td>
-                @if(Auth::user()->userable_type === 'Admin')
-                <td><a href="{{ route('schedule-drafts.show', $scheduleDraft->id) }}">View</a></td>
-                @endif
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Draft ID</th>
+                    <th>Lecturer</th>
+                    <th>Course</th>
+                    <th>Room</th>
+                    <th>Day</th>
+                    <th>Shift</th>
+                    @if(Auth::user()->userable_type === 'Admin')
+                    <th></th>
+                    @endif
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($scheduleDrafts as $scheduleDraft)
+                <tr>
+                    <td>{{ $scheduleDraft->id }}</td>
+                    <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
+                    <td>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</td>
+                    <td>{{ $scheduleDraft->room->id }}</td>
+                    <td>{{ $scheduleDraft->day }}</td>
+                    <td>{{ $scheduleDraft->shift }}</td>
+                    @if(Auth::user()->userable_type === 'Admin')
+                    <td><a href="{{ route('schedule-drafts.show', $scheduleDraft->id) }}">View</a></td>
+                    @endif
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
     <hr>
 
