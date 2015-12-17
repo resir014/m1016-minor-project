@@ -17,6 +17,7 @@ class CreateScheduleDraftsTable extends Migration
             $table->timestamps();
             $table->string('course_id');
             $table->string('lecturer_id');
+            $table->string('semester');
             $table->string('room_id');
             $table->string('day');
             $table->integer('shift');

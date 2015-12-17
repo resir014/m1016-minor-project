@@ -21,21 +21,5 @@ class DatabaseSeeder extends Seeder
         $this->call(FixedScheduleTableSeeder::class);
 
         Model::reguard();
-
-        /*
-        DB::table('fixed_schedules')->insert([
-            'schedule_draft_id' => 1,
-            'day' => 'Monday',
-            'shift' => 1,
-            'student_id' => 1
-        ]);
-
-        DB::table('schedule_approvals')->insert([
-            'lecturer_id' => 1,
-            'day' => 'Monday',
-            'shift' => 1,
-            'cleared' => true
-        ]);
-        */
     }
 }

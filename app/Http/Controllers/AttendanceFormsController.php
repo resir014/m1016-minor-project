@@ -3,22 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ScheduleApproval;
+use App\AttendanceForm;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ScheduleApprovalsController extends Controller
+class AttendanceFormsController extends Controller
 {
-    /**
-     * Creates a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -26,9 +16,9 @@ class ScheduleApprovalsController extends Controller
      */
     public function index()
     {
-        $scheduleApprovals = ScheduleApproval::all();
+        $attendanceForms = AttendanceForm::all();
 
-        return view('schedule-approvals.index')->with('scheduleApprovals', $scheduleApprovals);
+        return $attendanceForms;
     }
 
     /**
@@ -38,7 +28,7 @@ class ScheduleApprovalsController extends Controller
      */
     public function create()
     {
-        return view('schedule-approvals.create');
+        return view('attendance-form.create');
     }
 
     /**
@@ -49,16 +39,9 @@ class ScheduleApprovalsController extends Controller
      */
     public function store(Request $request)
     {
-        ScheduleApproval::create([
-            'lecturer_id' => $request->lecturer_id,
-            'shifts_available' => implode(', ', $request->shifts_available),
-            'semester' => $request->semester,
-            'cleared' => true
-        ]);
+        $input = $request->all();
 
-        $request->session()->flash('flash_message', 'Schedule Approval form successfully created!');
-
-        return redirect()->back();
+        dd($input);
     }
 
     /**
@@ -69,9 +52,9 @@ class ScheduleApprovalsController extends Controller
      */
     public function show($id)
     {
-        $scheduleApproval = ScheduleApproval::findOrFail($id);
+        $attendanceForm = AttendanceForm::findOrFail($id);
 
-        return view('schedule-approvals.show')->with('scheduleApproval', $scheduleApproval);
+        return $attendanceForm;
     }
 
     /**

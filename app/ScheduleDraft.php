@@ -22,6 +22,7 @@ class ScheduleDraft extends Model
         'course_id',
         'lecturer_id',
         'room_id',
+        'semester',
         'day',
         'shift'
     ];

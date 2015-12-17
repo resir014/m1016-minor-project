@@ -17,17 +17,19 @@
             <thead>
                 <tr>
                     <th>Lecturer</th>
-                    <th>Days Available</th>
+                    <th>Semester</th>
                     <th>Shifts Available</th>
+                    @if(Auth::user()->userable_type === 'Admin')
                     <th></th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
                 @foreach($scheduleApprovals as $scheduleApproval)
                 <tr>
                     <td>{{ $scheduleApproval->lecturer->id }} - {{ $scheduleApproval->lecturer->user->name }}</td>
-                    <td>{{ $scheduleApproval->days }}</td>
-                    <td>{{ $scheduleApproval->shifts }}</td>
+                    <td>{{ $scheduleApproval->semester }}</td>
+                    <td>{{ $scheduleApproval->shifts_available }}</td>
                     @if(Auth::user()->userable_type === 'Admin')
                     <td><a href="{{ route('schedule-approvals.show', $scheduleApproval->id) }}">View</a></td>
                     @endif

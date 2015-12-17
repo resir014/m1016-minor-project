@@ -80,4 +80,23 @@ class SearchController extends Controller
 
         return \Response::json($results);
     }
+
+    /**
+     * [getLecturersWithApproval description]
+     * @param  [type] $query [description]
+     * @return [type]        [description]
+     */
+    public function getLecturersWithApproval($query)
+    {
+        $results = \DB::table('lecturers')
+            ->join('users', 'lecturers.id', '=', 'users.userable_id')
+            ->join('schedule_approvals', 'lecturers.id', '=', 'schedule_approvals.lecturer_id')
+            ->select('lecturers.id', 'name', 'semester', 'shifts_available', 'cleared')
+            ->where('cleared', 1)
+            ->where('lecturers.id', 'LIKE', '%' . $query . '%')
+            ->orWhere('name', 'LIKE', '%' . $query . '%')
+            ->get();
+
+        return \Response::json($results);
+    }
 }

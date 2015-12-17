@@ -22,15 +22,15 @@
             <thead>
                 <tr>
                     <th>Lecturer</th>
-                    <th>Days Available</th>
+                    <th>Semester</th>
                     <th>Shifts Available</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{ $scheduleApproval->lecturer->id }} - {{ $scheduleApproval->lecturer->user->name }}</td>
-                    <td>{{ $scheduleApproval->days }}</td>
-                    <td>{{ $scheduleApproval->shifts }}</td>
+                    <td>{{ $scheduleApproval->semester }}</td>
+                    <td>{{ $scheduleApproval->shifts_available }}</td>
                 </tr>
             </tbody>
         </table>

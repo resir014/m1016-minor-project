@@ -2,9 +2,9 @@ jQuery(document).ready(function($) {
     var lecturersTypeahead = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: '/data/lecturers',
+        prefetch: '/data/lecturers-with-approval',
         remote: {
-            url: '/data/lecturers/%QUERY',
+            url: '/data/lecturers-with-approval/%QUERY',
             wildcard: '%QUERY'
         }
     });
