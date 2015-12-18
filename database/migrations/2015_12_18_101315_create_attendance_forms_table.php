@@ -15,6 +15,14 @@ class CreateAttendanceFormsTable extends Migration
         Schema::create('attendance_forms', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('fixed_schedule_id')->unsigned();
+            $table->string('lecturer_id');
+            $table->string('course_id');
+            $table->string('shift');
+
+            $table->foreign('fixed_schedule_id')->references('id')->on('fixed_schedules');
+            $table->foreign('lecturer_id')->references('id')->on('lecturers');
+            $table->foreign('course_id')->references('id')->on('courses');
         });
     }
 

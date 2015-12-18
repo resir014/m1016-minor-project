@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('students', 'StudentsController');
     Route::resource('schedule-drafts', 'ScheduleDraftsController');
     Route::resource('schedule-approvals', 'ScheduleApprovalsController');
+    Route::resource('attendance-form', 'AttendanceFormsController');
     Route::resource('fixed-schedules', 'FixedSchedulesController', [
         'except' => ['create']
     ]);
@@ -44,13 +45,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('data/new-users/{query?}', 'SearchController@getNewUsers');
     Route::get('data/courses/{query?}', 'SearchController@getCourses');
     Route::get('data/rooms/{query?}', 'SearchController@getRooms');
-});
-
-Route::get('attendance-form', function() {
-    return view('attendance-form.index');
-});
-Route::get('attendance-form/create', function() {
-    return view('attendance-form.create');
 });
 
 Route::get('session-log', function() {

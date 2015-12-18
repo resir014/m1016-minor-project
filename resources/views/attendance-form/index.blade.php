@@ -20,22 +20,18 @@
                         <th>Schedule ID</th>
                         <th>Lecturer</th>
                         <th>Course</th>
-                        <th>Room</th>
-                        <th>Day</th>
-                        <th>Shift</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($schedules as $schedule)
                     <tr>
-                        <td>@{{ $fixedSchedule->id }}</td>
-                        <td>@{{ $fixedSchedule->scheduleDraft->lecturer->id }} - @{{ $fixedSchedule->scheduleDraft->lecturer->user->name }}</td>
-                        <td>@{{ $fixedSchedule->scheduleDraft->course->id }} - @{{ $fixedSchedule->scheduleDraft->course->name }}</td>
-                        <td>@{{ $fixedSchedule->room_id }}</td>
-                        <td>@{{ $fixedSchedule->day }}</td>
-                        <td>@{{ $fixedSchedule->shift }}</td>
-                        <td><a href="{{ url('/attendance-form/create') }}">View</a></td>
+                        <td>{{ $schedule->id }}</td>
+                        <td>{{ $schedule->lecturer->id }}</td>
+                        <td>{{ $schedule->scheduleDraft->course->id }} - {{ $schedule->scheduleDraft->course->name }}</td>
+                        <td><a href="{{ url('/attendance-form/create') }}">Post Attendance</a></td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

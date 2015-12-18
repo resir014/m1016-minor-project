@@ -50,9 +50,11 @@
                     {{ $scheduleDraft->id }}
                 </td>
                 <td>
+                    {!! Form::hidden('course_id', $scheduleDraft->course->id) !!}
                     {{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}
                 </td>
                 <td>
+                    {!! Form::hidden('lecturer_id', $scheduleDraft->lecturer->id) !!}
                     {{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}
                 </td>
                 <td>

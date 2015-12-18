@@ -16,9 +16,9 @@ class AttendanceFormsController extends Controller
      */
     public function index()
     {
-        $attendanceForms = AttendanceForm::all();
+        $schedules = \Auth::user()->userable->fixedSchedules;
 
-        return $attendanceForms;
+        return view('attendance-form.index')->with('schedules', $schedules);
     }
 
     /**
