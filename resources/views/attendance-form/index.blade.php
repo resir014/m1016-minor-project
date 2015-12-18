@@ -18,7 +18,6 @@
                 <thead>
                     <tr>
                         <th>Schedule ID</th>
-                        <th>Lecturer</th>
                         <th>Course</th>
                         <th></th>
                     </tr>
@@ -27,7 +26,6 @@
                     @foreach($schedules as $schedule)
                     <tr>
                         <td>{{ $schedule->id }}</td>
-                        <td>{{ $schedule->lecturer->id }}</td>
                         <td>{{ $schedule->scheduleDraft->course->id }} - {{ $schedule->scheduleDraft->course->name }}</td>
                         <td><a href="{{ url('/attendance-form/create') }}">Post Attendance</a></td>
                     </tr>
