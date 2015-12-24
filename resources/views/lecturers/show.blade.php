@@ -22,20 +22,20 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Student ID</th>
+                    <th>Lecturer ID</th>
                     <th>Name</th>
-                    <th>Self Credit</th>
                     <th>Role</th>
                     <th>Field</th>
+                    <th>Self Credit</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{ $lecturer->id }}</td>
                     <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
-                    <td>{{ $lecturer->self_credit }}</td>
                     <td>{{ $lecturer->role }}</td>
                     <td>{{ $lecturer->field }}</td>
+                    <td>{{ $lecturer->self_credit }}</td>
                 </tr>
             </tbody>
         </table>

@@ -26,9 +26,9 @@
                 <tr>
                     <th>Student ID</th>
                     <th>Name</th>
-                    <th>Self Credit</th>
                     <th>Role</th>
                     <th>Field</th>
+                    <th>Self Credit</th>
                     <th></th>
                 </tr>
             </thead>
@@ -37,9 +37,9 @@
                 <tr>
                     <td>{{ $lecturer->id }}</td>
                     <td>@if($lecturer->user) {{ $lecturer->user->name }} @else N/A @endif</td>
-                    <td>{{ $lecturer->self_credit }}</td>
                     <td>{{ $lecturer->role }}</td>
                     <td>{{ $lecturer->field }}</td>
+                    <td>{{ $lecturer->self_credit }}</td>
                     <td><a href="{{ route('lecturers.show', $lecturer->id) }}">View</a></td>
                 </tr>
                 @endforeach
