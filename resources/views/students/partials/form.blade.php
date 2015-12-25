@@ -1,7 +1,6 @@
 <div class="form-group">
     {!! Form::label('id', 'Student ID', ['class' => 'control-label']) !!}
-    {!! Form::hidden('id', $student->id) !!}
-    <p class="form-control-static">{{ $student->id }}</p>
+    {!! Form::text('id', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

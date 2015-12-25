@@ -30,6 +30,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('lecturers', 'LecturersController');
     Route::resource('students', 'StudentsController');
     Route::resource('schedule-drafts', 'ScheduleDraftsController');
+    Route::resource('credit-overview', 'CreditOverviewController', [
+        'only' => 'index'
+    ]);
     Route::resource('schedule-approvals', 'ScheduleApprovalsController');
     Route::resource('attendance-form', 'AttendanceFormsController');
     Route::resource('fixed-schedules', 'FixedSchedulesController', [

@@ -64,6 +64,7 @@
     @if (Auth::user()->userable_type === 'Admin')
     <div>
         <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add New Schedule</a>
+        <a href="{{ route('credit-overview.index') }}" class="btn btn-primary">Add New Schedule</a>
     </div>
     @endif
 </div>
