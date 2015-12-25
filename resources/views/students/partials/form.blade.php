@@ -6,13 +6,7 @@
 
 <div class="form-group">
     {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
-    <p class="form-control-static">
-        @if ($student->user)
-            {{ $student->user->name }}
-        @else
-            N/A
-        @endif
-    </p>
+    {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

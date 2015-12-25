@@ -14,6 +14,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        // Faker is a library to generate dummy data.
         $faker = Faker\Factory::create();
 
         // Creates a sample Admin userset
@@ -60,30 +61,6 @@ class UserTableSeeder extends Seeder
             $lecturer->field = 'Teknik';
 
             $lecturer->save();
-        }
-
-        // Create a sample Student userset
-        for ($i = 1; $i <= 15; $i++) {
-            // User
-            $user = new App\User;
-
-            $user->name = $faker->name;
-            $user->email = 'test.student'.$i.'@example.com';
-            $user->password = bcrypt('password');
-            $user->userable_id = 'S'.sprintf("%04d", $i);
-            $user->userable_type = 'Student';
-
-            $user->save();
-
-            // Student
-            $student = new App\Student;
-
-            $student->id = 'S'.sprintf("%04d", $i);
-            $student->admission_year = 2012;
-            $student->birth_date = $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years')->format('Y-m-d H:i:s');
-            $student->active = true;
-
-            $student->save();
         }
     }
 }

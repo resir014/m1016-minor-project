@@ -13,7 +13,7 @@
 @section('content')
 <div class="container">
 
-    <h1>View Lecturer Details</h1>
+    <h1>Viewing Lecturer Details</h1>
     <p class="lead">{{ $lecturer->id }} - {{ $lecturer->user->name }}</p>
 
     <hr>

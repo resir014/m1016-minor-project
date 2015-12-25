@@ -25,7 +25,13 @@ class Student extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'admission_year', 'birth_date', 'status'];
+    protected $fillable = [
+        'id',
+        'name',
+        'admission_year',
+        'birth_date',
+        'status'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
@@ -40,14 +46,6 @@ class Student extends Model
     public function setBirthDateAttribute($date)
     {
         $this->attributes['birth_date'] = \Carbon\Carbon::parse($date)->format('Y-m-d');
-    }
-
-    /**
-     * Get the user that this model is related to.
-     */
-    public function user()
-    {
-        return $this->morphOne('App\User', 'userable');
     }
 
     /**

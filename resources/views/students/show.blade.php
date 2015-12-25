@@ -2,16 +2,18 @@
 
 @section('title', 'View Student Profile')
 
+@section('breadcrumbs')
+<ol class="breadcrumb">
+    <li><a href="{{ url('/home') }}">Home</a></li>
+    <li><a href="{{ url('/students') }}">Students</a></li>
+    <li class="active">{{ $student->id }} - {{ $student->name }}</li>
+</ol>
+@endsection
+
 @section('content')
 <div class="container">
-    <ol class="breadcrumb">
-        <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/students') }}">Students</a></li>
-        <li class="active">{{ $student->id }} - {{ $student->user->name }}</li>
-    </ol>
-
-    <h1>View Student Profile</h1>
-    <p class="lead">{{ $student->id }} - {{ $student->user->name }}</p>
+    <h1>Viewing Student Profile</h1>
+    <p class="lead">{{ $student->id }} - {{ $student->name }}</p>
 
     <hr>
 
@@ -21,24 +23,16 @@
                 <tr>
                     <th>Student ID</th>
                     <th>Name</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Tahun Masuk</th>
-                    <th>Nilai Tugas</th>
-                    <th>Nilai UTS</th>
-                    <th>Nilai UAS</th>
-                    <th>Nilai Sumatif</th>
+                    <th>Date of Birth</th>
+                    <th>Admission Year</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{ $student->id }}</td>
-                    <td>{{ $student->user->name }}</td>
+                    <td>{{ $student->name }}</td>
                     <td>{{ date('d F Y', strtotime($student->birth_date)) }}</td>
                     <td>{{ $student->admission_year }}</td>
-                    <td>{{ $student->nilai_tugas }}</td>
-                    <td>{{ $student->nilai_uts }}</td>
-                    <td>{{ $student->nilai_uas }}</td>
-                    <td>{{ $student->nilai_sumatif }}</td>
                 </tr>
             </tbody>
         </table>

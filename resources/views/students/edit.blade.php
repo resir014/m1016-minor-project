@@ -14,7 +14,7 @@
 <div class="container">
 
     <h1>Edit Student</h1>
-    <p class="lead">{{ $student->id }} - {{ $student->user->name }}</p>
+    <p class="lead">{{ $student->id }} - {{ $student->name }}</p>
     <hr>
 
     @if($errors->any())
