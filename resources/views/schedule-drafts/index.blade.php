@@ -33,6 +33,7 @@
                     <th>Draft ID</th>
                     <th>Lecturer</th>
                     <th>Course</th>
+                    <th>Credits</th>
                     <th>Room</th>
                     <th>Day</th>
                     <th>Shift</th>
@@ -46,7 +47,8 @@
                 <tr>
                     <td>{{ $scheduleDraft->id }}</td>
                     <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
-                    <td>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</td>
+                    <td>{{ $scheduleDraft->course_id }} - {{ $scheduleDraft->course->name }}</td>
+                    <td>{{ $scheduleDraft->course->credits }}</td>
                     <td>{{ $scheduleDraft->room->id }}</td>
                     <td>{{ $scheduleDraft->day }}</td>
                     <td>{{ $scheduleDraft->shift }}</td>
@@ -64,7 +66,7 @@
     @if (Auth::user()->userable_type === 'Admin')
     <div>
         <a href="{{ route('schedule-drafts.create') }}" class="btn btn-primary">Add New Schedule</a>
-        <a href="{{ route('credit-overview.index') }}" class="btn btn-primary">Add New Schedule</a>
+        <a href="{{ route('credit-overview.index') }}" class="btn btn-default">Credit Overview</a>
     </div>
     @endif
 </div>

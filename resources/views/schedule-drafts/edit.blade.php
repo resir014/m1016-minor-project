@@ -34,7 +34,7 @@
                 <tbody>
                     <tr>
                         <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
-                        <td>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</td>
+                        <td>{{ $scheduleDraft->course_id }} - {{ $scheduleDraft->course->name }}</td>
                         <td>{{ $scheduleDraft->room->id }}</td>
                         <td>{{ $scheduleDraft->day }}</td>
                         <td>{{ $scheduleDraft->shift }}</td>

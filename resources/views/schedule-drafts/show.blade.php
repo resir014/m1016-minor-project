@@ -23,6 +23,7 @@
                 <tr>
                     <th>Lecturer</th>
                     <th>Course</th>
+                    <th>Credits</th>
                     <th>Room</th>
                     <th>Day</th>
                     <th>Shift</th>
@@ -31,7 +32,8 @@
             <tbody>
                 <tr>
                     <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
-                    <td>{{ $scheduleDraft->course->id }} - {{ $scheduleDraft->course->name }}</td>
+                    <td>{{ $scheduleDraft->course_id }} - {{ $scheduleDraft->course->name }}</td>
+                    <td>{{ $scheduleDraft->course->credits }}</td>
                     <td>{{ $scheduleDraft->room->id }}</td>
                     <td>{{ $scheduleDraft->day }}</td>
                     <td>{{ $scheduleDraft->shift }}</td>

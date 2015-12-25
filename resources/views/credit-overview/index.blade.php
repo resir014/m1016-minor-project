@@ -1,7 +1,9 @@
 @extends('app')
 
+@section('title', 'Credit Overview')
+
 @section('breadcrumbs')
-<ol class="breadcrumbs">
+<ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
     <li><a href="{{ url('/schedule-drafts') }}">Schedule Drafts</a></li>
     <li class="active">Credit Overview</li>
@@ -23,12 +25,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>@{{ $lecturer->id }} - @{{ $lecturer->name }}</td>
-                    <td>@{{ $lecturer->self_credit }}</td>
-                    <td>@{{ $lecturer->course_credits }}</td>
-                    <td>@{{ $lecturer->total_credits }}</td>
-                </tr>
+                @foreach($lecturers as $lecturer)
+                    @unless(count($lecturer->scheduleDrafts) == 0)
+                        <?php
+                        $courseCredits = 0;
+
+                        foreach ($lecturer->scheduleDrafts as $scheduleDraft) {
+                            $courseCredits += $scheduleDraft->course->credits;
+                        }
+                        ?>
+                        <?php $totalCredits = $lecturer->self_credit + $courseCredits; ?>
+                        <tr>
+                            <td>{{ $lecturer->id }}@if($lecturer->user) - {{ $lecturer->user->name }}@endif</td>
+                            <td>{{ $lecturer->self_credit }}</td>
+                            <td>{{ $courseCredits }}</td>
+                            @if($totalCredits <= 15)
+                            <td class="success">{{ $totalCredits }}</td>
+                            @else
+                            <td class="warning">{{ $totalCredits }}</td>
+                            @endif
+                        </tr>
+                    @endunless
+                @endforeach
             </tbody>
         </table>
     </div>

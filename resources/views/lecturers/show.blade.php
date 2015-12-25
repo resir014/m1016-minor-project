@@ -6,7 +6,7 @@
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
     <li><a href="{{ url('/lecturers') }}">Lecturers</a></li>
-    <li class="active">{{ $lecturer->id }} - {{ $lecturer->user->name }}</li>
+    <li class="active">{{ $lecturer->id }}@if($lecturer->user) - {{ $lecturer->user->name }}@endif</li>
 </ol>
 @endsection
 
@@ -14,7 +14,7 @@
 <div class="container">
 
     <h1>Viewing Lecturer Details</h1>
-    <p class="lead">{{ $lecturer->id }} - {{ $lecturer->user->name }}</p>
+    <p class="lead">{{ $lecturer->id }}@if($lecturer->user) - {{ $lecturer->user->name }}@endif</p>
 
     <hr>
 
