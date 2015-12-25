@@ -42,7 +42,6 @@
                             <div class="col-md-6">
                                 <select class="form-control" name="userable_type">
                                     <option disabled selected> -- Select an option -- </option>
-                                    <option value="Student">Student</option>
                                     <option value="Lecturer">Lecturer</option>
                                     <option value="Admin">Admin</option>
                                 </select>
