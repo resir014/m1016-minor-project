@@ -58,8 +58,8 @@ return array(
     ),
 
     'properties' => array(
-        'creator'        => 'Maatwebsite',
-        'lastModifiedBy' => 'Maatwebsite',
+        'creator'        => 'SYFEI',
+        'lastModifiedBy' => 'SYFEI',
         'title'          => 'Spreadsheet',
         'description'    => 'Default spreadsheet export',
         'subject'        => 'Spreadsheet export',
@@ -82,7 +82,7 @@ return array(
         |--------------------------------------------------------------------------
         */
         'pageSetup' => array(
-            'orientation'           => 'portrait',
+            'orientation'           => 'landscape',
             'paperSize'             => '9',
             'scale'                 => '100',
             'fitToPage'             => false,

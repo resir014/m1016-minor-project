@@ -40,6 +40,10 @@ Route::group(['middleware' => 'auth'], function () {
         'only' => ['show', 'edit', 'update']
     ]);
 
+    Route::controllers([
+        'export' => 'ExcelExportController',
+    ]);
+
     Route::get('data/lecturers/{query?}', 'SearchController@getLecturers');
     Route::get('data/lecturers-with-approval/{query?}', 'SearchController@getLecturersWithApproval');
     Route::get('data/new-users/{query?}', 'SearchController@getNewUsers');

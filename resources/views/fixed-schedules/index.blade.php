@@ -48,5 +48,8 @@
             </tbody>
         </table>
     </div>
+
+    <hr>
+    <a href="{{ url('/export/fixed-schedules') }}" class="btn btn-info">Export to Excel</a>
 </div>
 @endsection
