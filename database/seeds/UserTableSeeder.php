@@ -17,50 +17,44 @@ class UserTableSeeder extends Seeder
         // Faker is a library to generate dummy data.
         $faker = Faker\Factory::create();
 
-        // Creates a sample Admin userset
-        for ($i = 1; $i <= 2; $i++) {
-            // User
-            $user = new App\User;
+        factory(App\User::class, 'master-admin')->create([
+            'userable_id' => 'A0001',
+        ]);
 
-            $user->name = $faker->name;
-            $user->email = 'test.admin'.$i.'@example.com';
-            $user->password = bcrypt('password');
-            $user->userable_id = 'A'.sprintf("%04d", $i);
-            $user->userable_type = 'Admin';
+        factory(App\Admin::class, 'master-admin')->create([
+            'id' => 'A0001',
+        ]);
 
-            $user->save();
+        for ($i = 0; $i < 3; $i++) {
+            $randomNumberTemp = $faker->unique()->numberBetween(1,9999);
 
-            // Admin
-            $admin = new App\Admin;
+            factory(App\User::class, 'admin')->create([
+                'userable_id' => 'A' . sprintf('%04d', $randomNumberTemp),
+            ]);
 
-            $admin->id = 'A'.sprintf("%04d", $i);
-            $admin->role = 'Admin';
-
-            $admin->save();
+            factory(App\Admin::class, 'admin')->create([
+                'id' => 'A0001' . sprintf('%04d', $randomNumberTemp),
+            ]);
         }
 
-        // Create a sample Lecturer userset
-        for ($i = 1; $i <= 5; $i++) {
-            // User
-            $user = new App\User;
+        factory(App\User::class, 'test-lecturer')->create([
+            'userable_id' => 'D0001',
+        ]);
 
-            $user->name = $faker->name;
-            $user->email = 'test.lecturer'.$i.'@example.com';
-            $user->password = bcrypt('password');
-            $user->userable_id = 'D'.sprintf("%04d", $i);
-            $user->userable_type = 'Lecturer';
+        factory(App\Lecturer::class, 'test-lecturer')->create([
+            'id' => 'D0001',
+        ]);
 
-            $user->save();
+        for ($i = 0; $i < 10; $i++) {
+            $randomNumberTemp = $faker->unique()->numberBetween(1,9999);
 
-            // Admin
-            $lecturer = new App\Lecturer;
+            factory(App\User::class, 'lecturer')->create([
+                'userable_id' => 'D' . sprintf('%04d', $randomNumberTemp),
+            ]);
 
-            $lecturer->id = 'D'.sprintf("%04d", $i);
-            $lecturer->self_credit = 6;
-            $lecturer->role = 'Dosen';
-            $lecturer->field = 'Teknik';
-
-            $lecturer->save();
+            factory(App\Lecturer::class, 'lecturer')->create([
+                'id' => 'A0001' . sprintf('%04d', $randomNumberTemp),
+            ]);
         }
     }
 }
