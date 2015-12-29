@@ -13,6 +13,6 @@ class ScheduleDraftTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        factory(App\ScheduleDraft::class, 'computer', 3)->create();
+        factory(App\ScheduleDraft::class, 'computer', 6)->create();
     }
 }

@@ -14,7 +14,7 @@
 $factory->defineAs(App\User::class, 'master-admin', function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName . ' ' . $faker->lastName,
-        'email' => 'test.admin@example.com',
+        'email' => 'test.admin.0001@example.com',
         'userable_id' => 'A' . '0001',
         'userable_type' => 'Admin',
         'password' => bcrypt('password'),
@@ -48,7 +48,7 @@ $factory->defineAs(App\Admin::class, 'admin', function (Faker\Generator $faker) 
 $factory->defineAs(App\User::class, 'test-lecturer', function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName . ' ' . $faker->lastName,
-        'email' => 'test.lecturer@example.com',
+        'email' => 'test.lecturer.0001@example.com',
         'userable_id' => 'D' . '0001',
         'userable_type' => 'Lecturer',
         'password' => bcrypt('password'),
@@ -79,7 +79,7 @@ $factory->defineAs(App\Lecturer::class, 'lecturer', function (Faker\Generator $f
         'id' => 'D' . '0001',
         'self_credit' => 6,
         'role' => 'Lecturer',
-        'field' => 'COMP',
+        'field' => $faker->randomElement(['COMP', 'ENTR', 'MGMT', 'ENGL']),
     ];
 });
 
@@ -114,6 +114,23 @@ $factory->defineAs(App\Course::class, 'computer', function (Faker\Generator $fak
     ];
 });
 
+$factory->defineAs(App\Course::class, 'entrepreneurship', function (Faker\Generator $faker) {
+    return [
+        'id' => 'ENTR' . sprintf('%04d', $faker->unique()->numberBetween(1,9999)),
+        'name' => $faker->sentence(6),
+        'credits' => $faker->numberBetween(2,4),
+        'active' => false,
+    ];
+});
+
+$factory->defineAs(App\Course::class, 'english', function (Faker\Generator $faker) {
+    return [
+        'id' => 'ENGL' . sprintf('%04d', $faker->unique()->numberBetween(1,9999)),
+        'name' => $faker->sentence(6),
+        'credits' => 2,
+        'active' => false,
+    ];
+});
 
 $factory->defineAs(App\ScheduleDraft::class, 'computer', function (Faker\Generator $faker) {
     $courses = App\Course::all()->lists('id')->toArray();

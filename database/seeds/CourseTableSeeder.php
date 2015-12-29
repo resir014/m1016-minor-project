@@ -17,5 +17,13 @@ class CourseTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         factory(App\Course::class, 'computer', 3)->create();
+        factory(App\Course::class, 'english', 3)->create();
+
+        for ($i=1; $i <= 3; $i++) {
+            factory(App\Course::class, 'entrepreneurship')->create([
+                'id' => 'ENTR' . sprintf('%04d', $i),
+                'name' => 'Entrepreneurship ' . $i,
+            ]);
+        }
     }
 }

@@ -29,6 +29,7 @@ class UserTableSeeder extends Seeder
             $randomNumberTemp = $faker->unique()->numberBetween(1,9999);
 
             factory(App\User::class, 'admin')->create([
+                'email' => 'test.admin.' . sprintf('%04d', $randomNumberTemp) . '@example.com',
                 'userable_id' => 'A' . sprintf('%04d', $randomNumberTemp),
             ]);
 
@@ -45,10 +46,11 @@ class UserTableSeeder extends Seeder
             'id' => 'D0001',
         ]);
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $randomNumberTemp = $faker->unique()->numberBetween(1,9999);
 
             factory(App\User::class, 'lecturer')->create([
+                'email' => 'test.lecturer.' . sprintf('%04d', $randomNumberTemp) . '@example.com',
                 'userable_id' => 'D' . sprintf('%04d', $randomNumberTemp),
             ]);
 
