@@ -27,22 +27,49 @@ class CourseTableSeeder extends Seeder
             $course->save();
         }
 
-        $course1 = new App\Course;
+        $course = new App\Course;
 
-        $course1->id = 'ISYS'.'1446';
-        $course1->name = 'Web Based Programming';
-        $course1->credits = 2;
-        $course1->active = false;
+        $course->id = 'ISYS'.'1446';
+        $course->name = 'Web Based Programming';
+        $course->credits = 2;
+        $course->active = false;
 
-        $course1->save();
+        $course->save();
 
-        $course2 = new App\Course;
+        $course = new App\Course;
 
-        $course2->id = 'COMP'.'1342';
-        $course2->name = 'Networking';
-        $course2->credits = 2;
-        $course2->active = false;
+        $course->id = 'COMP'.'1342';
+        $course->name = 'Networking';
+        $course->credits = 2;
+        $course->active = false;
 
-        $course2->save();
+        $course->save();
+
+        $course = new App\Course;
+
+        $course->id = 'ENGL'.'1412';
+        $course->name = 'English for Business Communications';
+        $course->credits = 2;
+        $course->active = false;
+
+        $course->save();
+
+        $course = new App\Course;
+
+        $course->id = 'COMP'.'1456';
+        $course->name = 'Object Oriented Programming';
+        $course->credits = 4;
+        $course->active = false;
+
+        $course->save();
+
+        $course = new App\Course;
+
+        $course->id = 'COMP'.'0084';
+        $course->name = 'Human and Computer Interaction';
+        $course->credits = 4;
+        $course->active = false;
+
+        $course->save();
     }
 }
