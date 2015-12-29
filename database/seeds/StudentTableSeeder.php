@@ -15,7 +15,7 @@ class StudentTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         // Create a sample Student dataset
-        for ($i = 1; $i <= 15; $i++) {
+        for ($i = 1; $i <= 30; $i++) {
             // Student
             $student = new App\Student;
 
