@@ -53,7 +53,7 @@ class UserTableSeeder extends Seeder
             ]);
 
             factory(App\Lecturer::class, 'lecturer')->create([
-                'id' => 'A0001' . sprintf('%04d', $randomNumberTemp),
+                'id' => 'D' . sprintf('%04d', $randomNumberTemp),
             ]);
         }
     }
