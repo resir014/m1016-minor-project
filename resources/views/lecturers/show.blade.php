@@ -43,7 +43,7 @@
 
     <hr>
 
-    <a href="{{ route('lecturers.index') }}" class="btn btn-info">Back to all lecturers</a>
+    <a href="{{ route('lecturers.index') }}" class="btn btn-default">Back to all lecturers</a>
     <a href="{{ route('lecturers.edit', $lecturer->id) }}" class="btn btn-primary">Edit lecturer</a>
 
     <div class="pull-right">

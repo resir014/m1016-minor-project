@@ -39,15 +39,6 @@
 
     <hr>
 
-    <a href="{{ route('schedule-approvals.index') }}" class="btn btn-info">Back to index</a>
-
-    <!--div class="pull-right">
-        {!! Form::open([
-            'method' => 'DELETE',
-            'route' => ['schedule-approvals.destroy', $scheduleApproval->id]
-        ]) !!}
-            {!! Form::submit('Delete this entry?', ['class' => 'btn btn-danger']) !!}
-        {!! Form::close() !!}
-    </div-->
+    <a href="{{ route('schedule-approvals.index') }}" class="btn btn-default">Back to index</a>
 </div>
 @endsection

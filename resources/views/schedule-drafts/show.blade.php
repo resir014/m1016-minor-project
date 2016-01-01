@@ -45,9 +45,9 @@
 
     <hr>
 
-    <a href="{{ route('schedule-drafts.index') }}" class="btn btn-info">Back to index</a>
-    <a href="{{ route('schedule-drafts.edit', $scheduleDraft->id) }}" class="btn btn-primary">Make revision</a>
-    <a href="{{ url('/fixed-schedules/create', $scheduleDraft->id) }}" class="btn btn-default text-right">Publish Schedule</a>
+    <a href="{{ route('schedule-drafts.index') }}" class="btn btn-default">Back to index</a>
+    <a href="{{ route('schedule-drafts.edit', $scheduleDraft->id) }}" class="btn btn-info">Make revision</a>
+    <a href="{{ url('/fixed-schedules/create', $scheduleDraft->id) }}" class="btn btn-primary text-right">Publish Schedule</a>
 
     <div class="pull-right">
         {!! Form::open([

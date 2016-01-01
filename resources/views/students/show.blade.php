@@ -40,7 +40,7 @@
 
     <hr>
 
-    <a href="{{ route('students.index') }}" class="btn btn-info">Back to all students</a>
+    <a href="{{ route('students.index') }}" class="btn btn-default">Back to all students</a>
     <a href="{{ route('students.edit', $student->id) }}" class="btn btn-primary">Edit student</a>
 
     <div class="pull-right">
