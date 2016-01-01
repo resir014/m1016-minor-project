@@ -16,9 +16,8 @@
 @endsection
 
 @section('content')
-<div class="container">
-
-    @if($errors->any())
+@if($errors->any())
+    <div class="container">
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -27,7 +26,10 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    </div>
+@endif
+
+<div class="container">
 
     <h1>Add Students</h1>
     <p class="lead">Schedule ID: {{ $fixedSchedule->id }}</p>
