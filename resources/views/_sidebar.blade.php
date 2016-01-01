@@ -7,6 +7,7 @@
         <li role="presentation"><a href="{{ URL::route('students.index') }}">Students</a></li>
         <li role="presentation"><a href="{{ URL::route('lecturers.index') }}">Lecturers</a></li>
         <li role="presentation"><a href="{{ URL::route('schedule-drafts.index') }}">Schedule Drafts</a></li>
+        <li role="presentation"><a href="{{ URL::route('fixed-schedules.index') }}">Fixed Schedules</a></li>
         <li role="presentation"><a href="{{ URL::route('schedule-approvals.index') }}">Schedule Requests</a></li>
         <li role="presentation"><a href="{{ url('/attendance-form') }}">Attendance</a></li>
         <li role="presentation"><a href="{{ url('/mockups/perubahan-nilai') }}">Update Grades</a></li>

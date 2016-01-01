@@ -76,24 +76,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>Remove</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>Remove</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>Remove</td>
-                                </tr>
+                                @foreach($fixedSchedule->students as $i => $student)
+                                    <tr>
+                                        <td>{{ $i+1 }}</td>
+                                        <td>{{ $student->id }}</td>
+                                        <td>{{ $student->name }}</td>
+                                        <td>Remove</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -119,7 +109,7 @@
 
                     <div class="form-group" id="bloodhound-students">
                         {!! Form::label('student_id', 'Student ID', ['class' => 'control-label']) !!}
-                        {!! Form::text('student_id', null, ['class' => 'form-control']) !!}
+                        {!! Form::select('student_id', $students, null, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="pull-right">

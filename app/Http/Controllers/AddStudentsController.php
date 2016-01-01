@@ -62,8 +62,9 @@ class AddStudentsController extends Controller
     public function edit($id)
     {
         $fixedSchedule = FixedSchedule::find($id);
+        $students = Student::lists('name', 'id');
 
-        return view('add-students.edit')->with('fixedSchedule', $fixedSchedule);
+        return view('add-students.edit', compact('fixedSchedule', 'students'));
     }
 
     /**
@@ -76,6 +77,7 @@ class AddStudentsController extends Controller
     public function update(Request $request, $id)
     {
         $fixedSchedule = FixedSchedule::find($id);
+        $students = Student::lists('name', 'id');
 
         $input = $request->all();
 

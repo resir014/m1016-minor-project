@@ -48,10 +48,10 @@
 
     <hr>
 
-    <a href="{{ route('fixed-schedules.index') }}" class="btn btn-info">Back to index</a>
+    <a href="{{ route('fixed-schedules.index') }}" class="btn btn-default">Back to index</a>
     <a href="{{ route('fixed-schedules.edit', $fixedSchedule->id) }}" class="btn btn-primary">Update Schedule</a>
     <div class="pull-right">
-        <a class="btn btn-default" href="{{ url('/add-students', $fixedSchedule->id) }}">Add Student</a>
+        <a class="btn btn-info" href="{{ route('add-students.edit', $fixedSchedule->id) }}">Add/Remove Students</a>
     </div>
 </div>
 @endsection
