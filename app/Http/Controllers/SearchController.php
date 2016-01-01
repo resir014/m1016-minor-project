@@ -15,7 +15,7 @@ class SearchController extends Controller
     /**
      * Returns a JSON output of Typeahead query for Lecturers
      *
-     * @param  string $query
+     * @param  string  $query
      * @return \Illuminate\Http\Response
      */
     public function getLecturers($query)
@@ -27,15 +27,13 @@ class SearchController extends Controller
             ->orWhere('name', 'LIKE', '%' . $query . '%')
             ->get();
 
-        // dd($results);
-
         return \Response::json($results);
     }
 
     /**
      * Returns a JSON output of Typeahead query for Lecturers
      *
-     * @param  string $query
+     * @param  string  $query
      * @return \Illuminate\Http\Response
      */
     public function getCourses($query)
@@ -51,7 +49,7 @@ class SearchController extends Controller
     /**
      * Returns a JSON output of Typeahead query for Lecturers
      *
-     * @param  string $query
+     * @param  string  $query
      * @return \Illuminate\Http\Response
      */
     public function getRooms($query)
@@ -67,7 +65,7 @@ class SearchController extends Controller
     /**
      * Returns a JSON output of Typeahead query for New Users
      *
-     * @param  string $query
+     * @param  string  $query
      * @return \Illuminate\Http\Response
      */
     public function getNewUsers($query)
@@ -82,9 +80,10 @@ class SearchController extends Controller
     }
 
     /**
-     * [getLecturersWithApproval description]
-     * @param  [type] $query [description]
-     * @return [type]        [description]
+     * Returns a JSON output of Typeahead query for Lecturers with approval.
+     *
+     * @param  string  $query
+     * @return \Illuminate\Http\Response
      */
     public function getLecturersWithApproval($query)
     {

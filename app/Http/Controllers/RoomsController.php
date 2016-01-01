@@ -62,7 +62,7 @@ class RoomsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,7 +75,7 @@ class RoomsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,7 +89,7 @@ class RoomsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\RoomRequest  $request
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function update(RoomRequest $request, $id)
@@ -108,7 +108,7 @@ class RoomsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
