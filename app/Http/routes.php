@@ -40,9 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
     Route::get('fixed-schedules/create/{id}', 'FixedSchedulesController@create');
     Route::resource('add-students', 'AddStudentsController', [
-        'only' => ['update']
+        'only' => ['edit', 'update']
     ]);
-    Route::get('add-students/{id}', 'AddStudentsController@index');
     Route::resource('course-status', 'CourseStatusController', [
         'only' => ['show', 'edit', 'update']
     ]);

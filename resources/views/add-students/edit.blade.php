@@ -108,7 +108,7 @@
                 <div class="panel-body">
                     {!! Form::model($fixedSchedule, [
                         'method' => 'PATCH',
-                        'route' => ['fixed-schedules.update', $fixedSchedule->id]
+                        'route' => ['add-students.update', $fixedSchedule->id]
                     ]) !!}
 
                     <div class="form-group" id="bloodhound-courses">
