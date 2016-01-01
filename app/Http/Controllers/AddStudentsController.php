@@ -84,7 +84,7 @@ class AddStudentsController extends Controller
         if (!$fixedSchedule->students->contains($request->student_id)) {
             $fixedSchedule->students()->attach($request->student_id);
         } else {
-            return redirect()->back();
+            return redirect()->back()->withErrors(['Student already exists!']);
         }
 
         $request->session()->flash('flash_message', 'Student successfully added!');
