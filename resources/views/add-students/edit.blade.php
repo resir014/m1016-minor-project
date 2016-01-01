@@ -94,8 +94,8 @@
                                         <td>{{ $student->name }}</td>
                                         <td>
                                             {!! Form::open([
-                                                'method' => 'DELETE',
-                                                'route' => ['add-students.destroy', $student->id]
+                                                'method' => 'POST',
+                                                'route' => ['add-students.destroy', $fixedSchedule->id, $student->id]
                                             ]) !!}
                                                 {!! Form::submit('Remove', ['class' => 'btn btn-link btn-xs']) !!}
                                             {!! Form::close() !!}

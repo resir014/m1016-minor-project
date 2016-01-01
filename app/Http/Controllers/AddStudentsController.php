@@ -95,11 +95,19 @@ class AddStudentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $schedule_id
+     * @param  string  $student_id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $schedule_id, $student_id)
     {
-        //
+        $fixedSchedule = FixedSchedule::find($schedule_id);
+
+        $fixedSchedule->students()->detach($student_id);
+
+        $request->session()->flash('flash_message', 'Student successfully removed!');
+
+        return redirect()->back();
     }
 }

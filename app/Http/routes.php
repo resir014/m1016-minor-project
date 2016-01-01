@@ -40,7 +40,11 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
     Route::get('fixed-schedules/create/{id}', 'FixedSchedulesController@create');
     Route::resource('add-students', 'AddStudentsController', [
-        'only' => ['edit', 'update', 'destroy']
+        'only' => ['edit', 'update']
+    ]);
+    Route::post('add-students/{schedule_id}/{student_id}/destroy', [
+        'as' => 'add-students.destroy',
+        'uses' => 'AddStudentsController@destroy'
     ]);
     Route::resource('course-status', 'CourseStatusController', [
         'only' => ['show', 'edit', 'update']
