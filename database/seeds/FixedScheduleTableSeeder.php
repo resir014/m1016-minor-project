@@ -14,17 +14,17 @@ class FixedScheduleTableSeeder extends Seeder
         // Faker is a library to generate dummy data.
         $faker = Faker\Factory::create();
 
-        // List all ScheduleDraft and Student ids
-        $scheduleDrafts = App\ScheduleDraft::all()->lists('id')->toArray();
-        $students = App\Student::all()->lists('id')->toArray();
+        for ($i=1; $i <= 2; $i++) {
+            // List all ScheduleDraft and Student ids
+            $scheduleDrafts = App\ScheduleDraft::all()->lists('id')->toArray();
+            $students = App\Student::all()->lists('id')->toArray();
 
-        // Get a random scheduleDraft index
-        $selectedDraftIndex = $faker->unique()->randomElement($scheduleDrafts);
+            // Get a random scheduleDraft index
+            $selectedDraftIndex = $faker->unique()->randomElement($scheduleDrafts);
 
-        // Load the object of the selected index
-        $scheduleDraft = App\scheduleDraft::find($selectedDraftIndex);
+            // Load the object of the selected index
+            $scheduleDraft = App\scheduleDraft::find($selectedDraftIndex);
 
-        for ($i=1; $i <= 1; $i++) {
             // Create a new FixedSchedule instance
             $fixedSchedule = new App\FixedSchedule;
 
