@@ -22,6 +22,17 @@
     <p class="lead">Schedule ID: {{ $fixedSchedule->id }}</p>
     <hr>
 
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -81,7 +92,14 @@
                                         <td>{{ $i+1 }}</td>
                                         <td>{{ $student->id }}</td>
                                         <td>{{ $student->name }}</td>
-                                        <td>Remove</td>
+                                        <td>
+                                            {!! Form::open([
+                                                'method' => 'DELETE',
+                                                'route' => ['add-students.destroy', $student->id]
+                                            ]) !!}
+                                                {!! Form::submit('Remove', ['class' => 'btn btn-link btn-xs']) !!}
+                                            {!! Form::close() !!}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -109,7 +127,7 @@
 
                     <div class="form-group" id="bloodhound-students">
                         {!! Form::label('student_id', 'Student ID', ['class' => 'control-label']) !!}
-                        {!! Form::select('student_id', $students, null, ['class' => 'form-control']) !!}
+                        {!! Form::text('student_id', null, ['class' => 'form-control']) !!}
                     </div>
 
                     <div class="pull-right">

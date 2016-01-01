@@ -55,4 +55,9 @@ class FixedSchedule extends Model
      {
          return $this->belongsToMany('App\Student');
      }
+
+     public function getStudentListAttribute()
+     {
+         return $this->students->lists('id');
+     }
 }

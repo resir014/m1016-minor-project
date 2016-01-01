@@ -81,9 +81,15 @@ class AddStudentsController extends Controller
 
         $input = $request->all();
 
-        // $fixedSchedule->students()->sync($request->student_id);
+        if (!$fixedSchedule->students->contains($request->student_id)) {
+            $fixedSchedule->students()->attach($request->student_id);
+        } else {
+            return redirect()->back();
+        }
 
-        return $input;
+        $request->session()->flash('flash_message', 'Student successfully added!');
+
+        return redirect()->back();
     }
 
     /**
