@@ -8,6 +8,15 @@ jQuery(document).ready(function($) {
             wildcard: '%QUERY'
         }
     });
+    var studentsTypeahead = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('id'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: '/data/students',
+        remote: {
+            url: '/data/students/%QUERY',
+            wildcard: '%QUERY'
+        }
+    });
     var newUsersTypeahead = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('userable_id'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -57,6 +66,21 @@ jQuery(document).ready(function($) {
         display: 'id',
         limit: 5,
         source: lecturersTypeahead,
+        templates: {
+            empty: [
+                '<div class="tt-empty-message">',
+                'Can\'t find anything.',
+                '</div>'
+            ].join('\n'),
+            suggestion: Handlebars.compile('<div><strong>{{ id }}</strong> - {{ name }}</div>')
+        }
+    });
+
+    $('#bloodhound-students .typeahead').typeahead(null, {
+        name: 'students',
+        display: 'id',
+        limit: 5,
+        source: studentsTypeahead,
         templates: {
             empty: [
                 '<div class="tt-empty-message">',

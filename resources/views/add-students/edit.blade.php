@@ -18,10 +18,6 @@
 @section('content')
 <div class="container">
 
-    <h1>Add Students</h1>
-    <p class="lead">Schedule ID: {{ $fixedSchedule->id }}</p>
-    <hr>
-
     @if($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -32,6 +28,10 @@
             </ul>
         </div>
     @endif
+
+    <h1>Add Students</h1>
+    <p class="lead">Schedule ID: {{ $fixedSchedule->id }}</p>
+    <hr>
 
     <div class="row">
         <div class="col-md-12">
@@ -127,7 +127,7 @@
 
                     <div class="form-group" id="bloodhound-students">
                         {!! Form::label('student_id', 'Student ID', ['class' => 'control-label']) !!}
-                        {!! Form::text('student_id', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('student_id', null, ['class' => 'form-control typeahead']) !!}
                     </div>
 
                     <div class="pull-right">

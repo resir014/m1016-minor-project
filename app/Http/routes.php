@@ -56,6 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('data/lecturers/{query?}', 'SearchController@getLecturers');
     Route::get('data/lecturers-with-approval/{query?}', 'SearchController@getLecturersWithApproval');
+    Route::get('data/students/{query?}', 'SearchController@getStudents');
     Route::get('data/new-users/{query?}', 'SearchController@getNewUsers');
     Route::get('data/courses/{query?}', 'SearchController@getCourses');
     Route::get('data/rooms/{query?}', 'SearchController@getRooms');

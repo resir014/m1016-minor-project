@@ -7,6 +7,7 @@ use App\User;
 use App\Course;
 use App\Room;
 use App\Lecturer;
+use App\Student;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -24,6 +25,22 @@ class SearchController extends Controller
             ->join('users', 'lecturers.id', '=', 'users.userable_id')
             ->select('lecturers.id', 'name')
             ->where('lecturers.id', 'LIKE', '%' . $query . '%')
+            ->orWhere('name', 'LIKE', '%' . $query . '%')
+            ->get();
+
+        return \Response::json($results);
+    }
+
+    /**
+     * Returns a JSON output of Typeahead query for Lecturers
+     *
+     * @param  string  $query
+     * @return \Illuminate\Http\Response
+     */
+    public function getStudents($query)
+    {
+        $results = Student::select('id', 'name')
+            ->where('id', 'LIKE', '%' . $query . '%')
             ->orWhere('name', 'LIKE', '%' . $query . '%')
             ->get();
 
