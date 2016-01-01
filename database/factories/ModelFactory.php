@@ -145,3 +145,19 @@ $factory->defineAs(App\ScheduleDraft::class, 'computer', function (Faker\Generat
         'shift' => $faker->numberBetween(1,4),
     ];
 });
+
+$factory->define(App\FixedSchedule::class, function (Faker\Generator $faker) {
+    $scheduleDrafts = App\ScheduleDraft::all()->lists('id')->toArray();
+
+    $selectedIndex = $faker->unique()->randomElement($scheduleDrafts);
+    $scheduleDraft = App\scheduleDraft::find($selectedIndex);
+
+    return [
+        'schedule_draft_id' => $selectedIndex,
+        'lecturer_id' => $scheduleDraft->lecturer_id,
+        'course_id' => $scheduleDraft->course_id,
+        'rooom_id' => $scheduleDraft->room_id,
+        'day' => $scheduleDraft->day,
+        'shift' => $scheduleDraft->shift,
+    ];
+});
