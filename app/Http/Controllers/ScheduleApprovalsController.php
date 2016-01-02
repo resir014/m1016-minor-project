@@ -56,7 +56,7 @@ class ScheduleApprovalsController extends Controller
             'cleared' => true
         ]);
 
-        $request->session()->flash('flash_message', 'Schedule Approval form successfully created!');
+        $request->session()->flash('flash_message', 'Schedule Request form successfully created!');
 
         return redirect()->back();
     }
@@ -82,7 +82,9 @@ class ScheduleApprovalsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $scheduleApproval = ScheduleApproval::findOrFail($id);
+
+        return view('schedule-approvals.edit')->with('scheduleApproval', $scheduleApproval);
     }
 
     /**
@@ -94,7 +96,15 @@ class ScheduleApprovalsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $scheduleApproval = ScheduleApproval::findOrFail($id);
+
+        $input = $request->all();
+
+        $scheduleApproval->fill($input)->save();
+
+        $request->session()->flash('flash_message', 'Schedule Request form successfully updated!');
+
+        return redirect()->back();
     }
 
     /**
@@ -105,6 +115,12 @@ class ScheduleApprovalsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $scheduleApproval = ScheduleApproval::findOrFail($id);
+
+        $scheduleApproval->delete();
+
+        $request->session()->flash('flash_message', 'Schedule Request form successfully deleted!');
+
+        return redirect()->route('schedule-approvals.index');
     }
 }
