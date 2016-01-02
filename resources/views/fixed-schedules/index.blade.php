@@ -22,8 +22,8 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Fixed Schedule ID</th>
-                    <th>Schedule Draft ID</th>
+                    <th>Schedule ID</th>
+                    <th>Draft ID</th>
                     <th>Lecturer</th>
                     <th>Course</th>
                     <th>Room</th>
