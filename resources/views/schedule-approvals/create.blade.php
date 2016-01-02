@@ -3,8 +3,8 @@
 @section('breadcrumbs')
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
-    <li><a href="{{ url('/schedule-approvals') }}">Schrdule Approvals</a></li>
-    <li class="active">Create Schedule Approval</li>
+    <li><a href="{{ url('/schedule-approvals') }}">Schedule Requests</a></li>
+    <li class="active">Create Schedule Request</li>
 </ol>
 @endsection
 
@@ -14,7 +14,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Create Schedule Approval</h3>
+                    <h3 class="panel-title">Create Schedule Request</h3>
                 </div>
                 <div class="panel-body">
                     {!! Form::open([

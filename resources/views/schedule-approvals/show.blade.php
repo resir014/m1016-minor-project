@@ -5,7 +5,7 @@
 @section('breadcrumbs')
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
-    <li><a href="{{ url('/schedule-approvals') }}">Schedule Approvals</a></li>
+    <li><a href="{{ url('/schedule-approvals') }}">Schedule Requests</a></li>
     <li class="active">Approval ID: {{ $scheduleApproval->id }}</li>
 </ol>
 @endsection
@@ -13,7 +13,7 @@
 @section('content')
 <div class="container">
 
-    <h1>Viewing Schedule Approval</h1>
+    <h1>Viewing Schedule Request</h1>
     <p class="lead">Approval ID: {{ $scheduleApproval->id }}</p>
     <hr>
 
