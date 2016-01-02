@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
             ]);
 
             factory(App\Admin::class, 'admin')->create([
-                'id' => 'A0001' . sprintf('%04d', $i),
+                'id' => 'A' . sprintf('%04d', $i),
             ]);
         }
 
