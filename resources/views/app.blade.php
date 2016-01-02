@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SYFEI - @yield('title')</title>
 
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/stylesheets/app.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
@@ -83,6 +83,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="{{ elixir('js/app.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('assets/javascripts/app.js') }}" charset="utf-8"></script>
 </body>
 </html>

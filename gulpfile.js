@@ -26,7 +26,7 @@ var paths = {
 elixir(function(mix) {
     mix.sass([
         'app.scss'
-    ], 'public/css/app.css');
+    ], 'public/assets/stylesheets/app.css');
     mix.scripts([
         paths.jquery + 'dist/jquery.js',
         //paths.jquery_ui + 'jquery-ui.js',
@@ -34,7 +34,5 @@ elixir(function(mix) {
         paths.typeahead + 'dist/typeahead.bundle.js',
         paths.handlebars + 'handlebars.js',
         paths.js + 'scripts.js'
-    ], 'public/js/app.js');
-
-    mix.version(['public/css/app.css', 'public/js/app.js']);
+    ], 'public/assets/javascripts/app.js');
 });
