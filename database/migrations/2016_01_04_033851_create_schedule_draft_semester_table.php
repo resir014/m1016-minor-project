@@ -12,7 +12,7 @@ class CreateScheduleDraftSemesterTable extends Migration
      */
     public function up()
     {
-        Schema::table('schedule_draft_semester', function (Blueprint $table) {
+        Schema::create('schedule_draft_semester', function (Blueprint $table) {
             $table->integer('schedule_draft_id')->unsigned();
             $table->integer('semester_id')->unsigned();
 
