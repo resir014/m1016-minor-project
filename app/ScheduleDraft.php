@@ -61,6 +61,14 @@ class ScheduleDraft extends Model
     }
 
     /**
+     * Get all semesters that apply to this Draft
+     */
+    public function semesters()
+    {
+        return $this->belongsToMany('App\Semester');
+    }
+
+    /**
      * Get the schedule's room.
      */
     public function room()
