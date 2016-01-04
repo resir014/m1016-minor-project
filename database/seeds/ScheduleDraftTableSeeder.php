@@ -14,5 +14,16 @@ class ScheduleDraftTableSeeder extends Seeder
         $faker = Faker\Factory::create();
 
         factory(App\ScheduleDraft::class, 'computer', 6)->create();
+
+        $scheduleDrafts = App\ScheduleDraft::all()->lists('id')->toArray();
+        $semesters = App\Semester::all()->lists('id')->toArray();
+
+        for ($i=1; $i <= 6; $i++) {
+            $selectedSemesterIndex = $faker->randomElement($semesters);
+
+            $scheduleDraft = App\ScheduleDraft::findOrFail($i);
+
+            $scheduleDraft->semesters()->attach($selectedSemesterIndex);
+        }
     }
 }
