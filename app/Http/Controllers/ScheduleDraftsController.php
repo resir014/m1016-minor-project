@@ -58,9 +58,9 @@ class ScheduleDraftsController extends Controller
     {
         $input = $request->all();
 
-        ScheduleDraft::create($input);
+        $scheduleDraft = ScheduleDraft::create($input);
 
-        // $article->tags()->attach($request->get('semester_list'));
+        $scheduleDraft->semesters()->attach($request->get('semester_list'));
 
         $request->session()->flash('flash_message', 'Schedule draft successfully added!');
 
