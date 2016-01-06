@@ -141,6 +141,7 @@ $factory->defineAs(App\ScheduleDraft::class, 'computer', function (Faker\Generat
         'course_id' => $faker->randomElement($courses),
         'lecturer_id' => $faker->randomElement($lecturers),
         'room_id' => $faker->randomElement($rooms),
+        'class_id' => 'CA' . sprintf('%02d', $faker->unique()->numberBetween(1,99)),
         'day' => $faker->randomElement(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']),
         'shift' => $faker->numberBetween(1,4),
     ];

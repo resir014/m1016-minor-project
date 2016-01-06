@@ -12,7 +12,9 @@
 
 @section('content')
 <div class="container">
-    <h1 class="page-header">Credit Overview</h1>
+    <h1>Credit Overview</h1>
+    <p class="lead">Current semester: {{ \App\Semester::where('current', 1)->first()->name }}</p>
+    <hr>
 
     <div class="table-responsive">
         <table class="table">
@@ -26,26 +28,41 @@
             </thead>
             <tbody>
                 @foreach($lecturers as $lecturer)
-                    @unless(count($lecturer->scheduleDrafts) == 0)
-                        <?php
-                        $courseCredits = 0;
+                    <?php
+                    $courseCredits = 0;
 
-                        foreach ($lecturer->scheduleDrafts as $scheduleDraft) {
+                    foreach ($lecturer->scheduleDrafts->sortByDesc('class_id') as $i => $scheduleDraft) {
+                        if (isset($lecturer->scheduleDrafts->sortByDesc('class_id')[$i-1])) {
+                            $prev = $lecturer->scheduleDrafts->sortByDesc('class_id')[$i-1];
+
+                            if ($lecturer->scheduleDrafts->sortByDesc('class_id')[$i]->class_id != $prev->class_id) {
+                                if ($scheduleDraft->semesters()->first()->current) {
+                                    $courseCredits += $scheduleDraft->course->credits;
+                                } else {
+                                    $courseCredits += 0;
+                                }
+                            }
+                        } else if ($scheduleDraft->semesters()->first()->current) {
                             $courseCredits += $scheduleDraft->course->credits;
+                        } else {
+                            $courseCredits += 0;
                         }
-                        ?>
-                        <?php $totalCredits = $lecturer->self_credit + $courseCredits; ?>
-                        <tr>
-                            <td>{{ $lecturer->id }}@if($lecturer->user) - {{ $lecturer->user->name }}@endif</td>
-                            <td>{{ $lecturer->self_credit }}</td>
-                            <td>{{ $courseCredits }}</td>
-                            @if($totalCredits <= 15)
-                            <td class="success">{{ $totalCredits }}</td>
-                            @else
-                            <td class="warning">{{ $totalCredits }}</td>
-                            @endif
-                        </tr>
-                    @endunless
+                    }
+
+                    $totalCredits = $lecturer->self_credit + $courseCredits;
+                    ?>
+                    @if($scheduleDraft->semesters()->first()->current)
+                    <tr>
+                        <td>{{ $lecturer->id }}@if($lecturer->user) - {{ $lecturer->user->name }}@endif</td>
+                        <td>{{ $lecturer->self_credit }}</td>
+                        <td>{{ $courseCredits }}</td>
+                        @if($totalCredits <= 15)
+                        <td class="success">{{ $totalCredits }}</td>
+                        @else
+                        <td class="warning">{{ $totalCredits }}</td>
+                        @endif
+                    </tr>
+                    @endif
                 @endforeach
             </tbody>
         </table>

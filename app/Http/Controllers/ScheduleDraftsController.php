@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ScheduleDraft;
+use App\Semester;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -27,9 +28,9 @@ class ScheduleDraftsController extends Controller
     public function index()
     {
         if (\Auth::user()->userable_type == 'Admin') {
-            $scheduleDrafts = ScheduleDraft::all();
+            $scheduleDrafts = ScheduleDraft::all()->sortByDesc('semester_list');
         } else {
-            $scheduleDrafts = \Auth::user()->userable->scheduleDrafts->all();
+            $scheduleDrafts = \Auth::user()->userable->scheduleDrafts->all()->sortByDesc('semester_list');
         }
 
         return view('schedule-drafts.index')->with('scheduleDrafts', $scheduleDrafts);
@@ -42,7 +43,9 @@ class ScheduleDraftsController extends Controller
      */
     public function create()
     {
-        return view('schedule-drafts.create');
+        $semesters = Semester::lists('name' , 'id');
+
+        return view('schedule-drafts.create')->with('semesters', $semesters);
     }
 
     /**
@@ -57,9 +60,9 @@ class ScheduleDraftsController extends Controller
 
         ScheduleDraft::create($input);
 
-        $request
-            ->session()
-            ->flash('flash_message', 'Schedule draft successfully added!');
+        // $article->tags()->attach($request->get('semester_list'));
+
+        $request->session()->flash('flash_message', 'Schedule draft successfully added!');
 
         return redirect()->back();
     }
@@ -86,8 +89,9 @@ class ScheduleDraftsController extends Controller
     public function edit($id)
     {
         $scheduleDraft = ScheduleDraft::findOrFail($id);
+        $semesters = Semester::lists('name' , 'id');
 
-        return view('schedule-drafts.edit')->with('scheduleDraft', $scheduleDraft);
+        return view('schedule-drafts.edit', compact('scheduleDraft', 'semesters'));
     }
 
     /**
@@ -100,14 +104,28 @@ class ScheduleDraftsController extends Controller
     public function update(Request $request, $id)
     {
         $scheduleDraft = ScheduleDraft::findOrFail($id);
+        $semesters = Semester::lists('name' , 'id');
 
         $input = $request->all();
 
         $scheduleDraft->fill($input)->save();
 
+        $scheduleDraft->semesters()->sync($request->input('semester_list'));
+
         $request->session()->flash('flash_message', 'Schedule draft successfully updated!');
 
         return redirect()->back();
+    }
+
+    /**
+     * [syncSemesters description]
+     * @param  Semester $semester  [description]
+     * @param  array    $semesters [description]
+     * @return [type]              [description]
+     */
+    public function syncSemesters(Semester $semester, array $semesters)
+    {
+        # code...
     }
 
     /**

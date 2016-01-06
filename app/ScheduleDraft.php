@@ -22,7 +22,7 @@ class ScheduleDraft extends Model
         'course_id',
         'lecturer_id',
         'room_id',
-        'semester',
+        'class_id',
         'day',
         'shift'
     ];
@@ -74,5 +74,18 @@ class ScheduleDraft extends Model
     public function room()
     {
         return $this->belongsTo('App\Room');
+    }
+
+    public function getSemesterListAttribute()
+    {
+        return $this->semesters->lists('id')->toArray();
+    }
+
+    public function getIsCurrentSemesterAttribute() {
+        return $this->semesters->current();
+    }
+
+    public function scopeCurrentSemester($query) {
+        $query->semesters->first()->current;
     }
 }

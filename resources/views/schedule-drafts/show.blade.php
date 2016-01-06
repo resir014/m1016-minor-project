@@ -24,6 +24,7 @@
                     <th>Lecturer</th>
                     <th>Course</th>
                     <th>Credits</th>
+                    <th>Semester</th>
                     <th>Room</th>
                     <th>Day</th>
                     <th>Shift</th>
@@ -34,6 +35,11 @@
                     <td>{{ $scheduleDraft->lecturer->id }} - {{ $scheduleDraft->lecturer->user->name }}</td>
                     <td>{{ $scheduleDraft->course_id }} - {{ $scheduleDraft->course->name }}</td>
                     <td>{{ $scheduleDraft->course->credits }}</td>
+                    @if(!$scheduleDraft->semesters->isEmpty())
+                        <td>{{ $scheduleDraft->semesters()->first()->name }}</td>
+                    @else
+                        <td>N/A</td>
+                    @endif
                     <td>{{ $scheduleDraft->room->id }}</td>
                     <td>{{ $scheduleDraft->day }}</td>
                     <td>{{ $scheduleDraft->shift }}</td>

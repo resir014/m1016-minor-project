@@ -19,6 +19,16 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('semester_list', 'Semester') !!}
+    {!! Form::select('semester_list[]', $semesters, null, ['class' => 'form-control', 'multiple']) !!}
+</div>
+
+<div class="form-group" id="bloodhound-rooms">
+    {!! Form::label('class_id', 'Class', ['class' => 'control-label']) !!}
+    {!! Form::text('class_id', null, ['class' => 'form-control typeahead']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::label('day', 'Day') !!}
     {!! Form::select('day', [
         'Monday' => 'Monday',
