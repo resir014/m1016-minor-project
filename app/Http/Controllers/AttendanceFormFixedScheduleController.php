@@ -100,11 +100,14 @@ class AttendanceFormFixedScheduleController extends Controller
      */
     public function edit($schedule_id, $id)
     {
-        $attendanceForm = AttendanceForm::findOrFail($id);
+        $attendance = AttendanceForm::findOrFail($id);
         $schedule = FixedSchedule::findOrFail($schedule_id);
         $students = Student::lists('name', 'id');
 
-        return $attendanceForm;
+        // Temp variable for checking if student is checked
+        $checkeds = $attendance->students()->lists('id')->toArray();
+
+        return view('fixed-schedules.attendance.edit', compact('attendance', 'schedule', 'students', 'checkeds'));
     }
 
     /**

@@ -44,8 +44,9 @@
 
     <h2>Student List</h2>
 
-    {!! Form::model($attendance, [
-        'route' => 'fixed-schedules.attendance.store'
+    {!! Form::open([
+        'method' => 'PATCH',
+        'route' => ['fixed-schedules.attendance.update', $schedule->id, $attendance->id]
     ]) !!}
     <table class="table">
         <thead>
@@ -57,10 +58,11 @@
         </thead>
         <tbody>
             @foreach($schedule->students as $i => $student)
+            <?php $checked = in_array($student->id, $checkeds) ? true : false; ?>
             <tr>
                 <td>{{ $student->id }}</td>
                 <td>{{ $student->name }}</td>
-                <td>{!! Form::checkbox('student_list[]', null) !!}</td>
+                <td>{!! Form::checkbox('student_list[]', $student->id, $checked) !!}</td>
             </tr>
             @endforeach
         </tbody>
