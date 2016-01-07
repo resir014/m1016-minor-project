@@ -43,9 +43,19 @@ class FixedSchedule extends Model
          return $this->belongsTo('App\Room');
      }
 
+     /**
+      * Get the lecturer associated with this Fixed Schedule.
+      */
      public function lecturer()
      {
          return $this->belongsTo('App\Lecturer');
+     }
+
+     /**
+      * Get all the Attendance Forms associated with this Fixed Schedule.
+      */
+     public function attendanceForms() {
+         return $this->
      }
 
      /**
@@ -56,6 +66,9 @@ class FixedSchedule extends Model
          return $this->belongsToMany('App\Student');
      }
 
+     /**
+      * Returns a list of Student IDs that belong to this Fixed Schedule.
+      */
      public function getStudentListAttribute()
      {
          return $this->students->lists('id');

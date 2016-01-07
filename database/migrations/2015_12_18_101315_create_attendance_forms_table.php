@@ -18,6 +18,7 @@ class CreateAttendanceFormsTable extends Migration
             $table->integer('fixed_schedule_id')->unsigned();
             $table->string('lecturer_id');
             $table->string('course_id');
+            $table->string('day');
             $table->string('shift');
 
             $table->foreign('fixed_schedule_id')->references('id')->on('fixed_schedules');

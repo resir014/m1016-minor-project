@@ -63,4 +63,11 @@ class Student extends Model
     {
         return $this->belongsToMany('App\FixedSchedule');
     }
+
+    /**
+     * Get all the attendance forms the Student is present in.
+     */
+    public function attendanceForms() {
+        return $this->belongsToMany('App\AttendanceForm');
+    }
 }

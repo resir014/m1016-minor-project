@@ -29,20 +29,25 @@
             <tbody>
                 @foreach($lecturers as $lecturer)
                     <?php
+                    // Initial Course Credits value.
                     $courseCredits = 0;
 
                     foreach ($lecturer->scheduleDrafts->sortByDesc('class_id') as $i => $scheduleDraft) {
+                        // This will only trigger if an entry is present before the last one.
                         if (isset($lecturer->scheduleDrafts->sortByDesc('class_id')[$i-1])) {
                             $prev = $lecturer->scheduleDrafts->sortByDesc('class_id')[$i-1];
 
                             if ($lecturer->scheduleDrafts->sortByDesc('class_id')[$i]->class_id != $prev->class_id) {
+                                // Only add to the courseCredits if class isn't a duplicate.
                                 if ($scheduleDraft->semesters()->first()->current) {
+                                    // Add to courseCredits if semester is currently running.
                                     $courseCredits += $scheduleDraft->course->credits;
                                 } else {
                                     $courseCredits += 0;
                                 }
                             }
                         } else if ($scheduleDraft->semesters()->first()->current) {
+                            // Semester is currently running.
                             $courseCredits += $scheduleDraft->course->credits;
                         } else {
                             $courseCredits += 0;
