@@ -13,7 +13,15 @@
 @section('content')
 <div class="container">
     <h1>Credit Overview</h1>
-    <p class="lead">Current semester: {{ \App\Semester::where('current', 1)->first()->name }}</p>
+    <p class="lead">
+        Current semester:
+
+        @if(\App\Semester::where('current', 1)->count() != 0)
+            {{ \App\Semester::where('current', 1)->first()->name }}
+        @else
+            N/A
+        @endif
+    </p>
     <hr>
 
     <div class="table-responsive">
