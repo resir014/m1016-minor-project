@@ -69,7 +69,6 @@
 
     <h2>Student List</h2>
 
-
     <table class="table">
         <thead>
             <tr>
@@ -94,7 +93,7 @@
             Submit
         </button>
     </div>
-    <button type="button" name="button" class="btn btn-default">Back</button>
+    <a href="{{ route('fixed-schedules.attendance.index') }}" class="btn btn-default">Back</a>
 </div>
 
 <!-- Modal -->

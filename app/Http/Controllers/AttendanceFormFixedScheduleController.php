@@ -69,9 +69,7 @@ class AttendanceFormFixedScheduleController extends Controller
             return redirect()->back()->withErrors(['Incorrect student password!']);
         }
 
-        $request
-            ->session()
-            ->flash('flash_message', 'Attendance successfully posted!');
+        $request->session()->flash('flash_message', 'Attendance successfully posted!');
 
         return redirect()->back();
     }
@@ -85,10 +83,14 @@ class AttendanceFormFixedScheduleController extends Controller
      */
     public function show($schedule_id, $id)
     {
-        $attendanceForm = AttendanceForm::findOrFail($id);
+        $attendance = AttendanceForm::findOrFail($id);
         $schedule = FixedSchedule::findOrFail($schedule_id);
+        $students = Student::lists('name', 'id');
 
-        return $attendanceForm;
+        // Temp variable for checking if student is checked
+        $checkeds = $attendance->students()->lists('id')->toArray();
+
+        return view('fixed-schedules.attendance.show', compact('attendance', 'schedule', 'students', 'checkeds'));
     }
 
     /**
@@ -119,7 +121,19 @@ class AttendanceFormFixedScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $attendance = AttendanceForm::findOrFail($id);
+        $students = Student::lists('name', 'id');
+
+        $input = $request->all();
+
+        $attendance->fill($input);
+        $attendance->students()->sync($request->student_list);
+
+        $attendance->save();
+
+        $request->session()->flash('flash_message', 'Attendance successfully updated!');
+
+        return redirect()->back();
     }
 
     /**

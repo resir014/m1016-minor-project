@@ -19,7 +19,7 @@
 @section('content')
 <div class="container">
 
-    <h1>Edit Attendance Form</h1>
+    <h1>View Attendance Form</h1>
     <p class="lead">Schedule ID: {{ $schedule->id }}</p>
     <hr>
 
@@ -44,10 +44,9 @@
 
     <h2>Student List</h2>
 
-    {!! Form::open([
-        'method' => 'PATCH',
-        'route' => ['fixed-schedules.attendance.update', $schedule->id, $attendance->id]
-    ]) !!}
+    <div class="">
+
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -62,17 +61,17 @@
             <tr>
                 <td>{{ $student->id }}</td>
                 <td>{{ $student->name }}</td>
-                <td>{!! Form::checkbox('student_list[]', $student->id, $checked) !!}</td>
+                <td>{!! Form::checkbox('student_list[]', $student->id, $checked, ['class' => 'disabled']) !!}</td>
             </tr>
             @endforeach
         </tbody>
     </table>
 
     <a href="{{ route('fixed-schedules.attendance.index') }}" class="btn btn-default">Back</a>
+    @if (Auth::user()->userable_type === 'Admin')
     <div class="pull-right">
-        {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+        <a href="{{ route('fixed-schedules.attendance.edit', ['schedule_id' => $attendance->fixedSchedule->id, 'id' => $attendance->id]) }}" class="btn btn-primary">Edit Attendance</a>
     </div>
-    {!! Form::close() !!}
-
+    @endif
 </div>
 @endsection
