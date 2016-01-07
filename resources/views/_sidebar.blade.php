@@ -9,7 +9,6 @@
         <li role="presentation"><a href="{{ URL::route('schedule-drafts.index') }}">Schedule Drafts</a></li>
         <li role="presentation"><a href="{{ URL::route('fixed-schedules.index') }}">Fixed Schedules</a></li>
         <li role="presentation"><a href="{{ URL::route('schedule-approvals.index') }}">Schedule Requests</a></li>
-        <li role="presentation"><a href="{{ url('/attendance-form') }}">Attendance</a></li>
         <li role="presentation"><a href="{{ url('/mockups/perubahan-nilai') }}">Update Grades</a></li>
     </ul>
     @elseif(Auth::user()->userable_type === 'Lecturer')
@@ -18,7 +17,6 @@
         <li role="presentation"><a href="{{ URL::route('schedule-drafts.index') }}">Schedule Drafts</a></li>
         <li role="presentation"><a href="{{ URL::route('schedule-approvals.create') }}">Schedule Requests</a></li>
         <li role="presentation"><a href="{{ URL::route('fixed-schedules.index') }}">Fixed Schedules</a></li>
-        <li role="presentation"><a href="{{ url('/attendance-form') }}">Attendance</a></li>
         <li role="presentation"><a href="{{ url('/session-log') }}">Session Log</a></li>
         <li role="presentation"><a href="{{ url('/mockups/input-nilai') }}">Input Grades</a></li>
     </ul>

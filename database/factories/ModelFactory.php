@@ -89,7 +89,7 @@ $factory->define(App\Student::class, function (Faker\Generator $faker) {
         'name' => $faker->firstName . ' ' . $faker->lastName,
         'admission_year' => 2012,
         'birth_date' => $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years')->format('Y-m-d H:i:s'),
-        'password' => bcrypt('password'),
+        'password' => 'password',
         'active' => true,
     ];
 });

@@ -97,7 +97,7 @@
                                         <td>
                                             {!! Form::open([
                                                 'method' => 'POST',
-                                                'route' => ['add-students.destroy', $fixedSchedule->id, $student->id]
+                                                'route' => ['fixed-schedules.add-student.destroy', $fixedSchedule->id, $student->id]
                                             ]) !!}
                                                 {!! Form::submit('Remove', ['class' => 'btn btn-danger btn-xs']) !!}
                                             {!! Form::close() !!}
@@ -117,8 +117,7 @@
                 </div>
                 <div class="panel-body">
                     {!! Form::model($fixedSchedule, [
-                        'method' => 'PATCH',
-                        'route' => ['add-students.update', $fixedSchedule->id]
+                        'route' => ['fixed-schedules.add-student.store', $fixedSchedule->id]
                     ]) !!}
 
                     <div class="form-group" id="bloodhound-courses">

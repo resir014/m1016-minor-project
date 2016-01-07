@@ -6,6 +6,7 @@
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
     <li><a href="{{ url('/students') }}">Students</a></li>
+    <li><a href="{{ route('students.show', $student->id) }}">{{ $student->id }} - {{ $student->name }}</a></li>
     <li class="active">Edit Student</li>
 </ol>
 @endsection
@@ -33,7 +34,48 @@
         'route' => ['students.update', $student->id]
     ]) !!}
 
-    @include('students.partials.form', ['buttonText' => 'Save'])
+    <div class="form-group">
+        {!! Form::label('id', 'Student ID', ['class' => 'control-label']) !!}
+        <p class="form-control-static">{{ $student->id }}</p>
+    </div>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                {!! Form::checkbox('active') !!}
+                Active
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('admission_year', 'Admission Year', ['class' => 'control-label']) !!}
+        {!! Form::text('admission_year', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('birth_date', 'Birth Date', ['class' => 'control-label']) !!}
+        {!! Form::input('date', 'birth_date', $student->birth_date, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('password', 'Verification Password', ['class' => 'control-label']) !!}
+        {!! Form::password('password', ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('password_confirmation', 'Confirm Password', ['class' => 'control-label']) !!}
+        {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}
+    </div>
 
     {!! Form::close() !!}
 </div>

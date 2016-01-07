@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Http\Requests;
-use App\Http\Requests\StudentRequest;
+use App\Http\Requests\CreateStudentRequest;
 use App\Http\Controllers\Controller;
 
 class StudentsController extends Controller
@@ -45,10 +45,10 @@ class StudentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StudentRequest  $request
+     * @param  \App\Http\Requests\CreateStudentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentRequest $request)
+    public function store(CreateStudentRequest $request)
     {
         $input = $request->all();
 
@@ -92,13 +92,26 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StudentRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $student = Student::findOrFail($id);
 
         $input = $request->all();
 
-        $student->fill($input)->save();
+        $student->fill([
+            'name' => $request->name,
+            'admission_year' => $request->admission_year,
+            'birth_date' => $request->birth_date,
+            'active' => $request->active
+        ]);
+
+        if ($request->password != '') {
+            $student->fill([
+                'password' => bcrypt($request->password)
+            ]);
+        }
+
+        $student->save();
 
         $request->session()->flash('flash_message', 'Student successfully updated!');
 

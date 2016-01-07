@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class StudentRequest extends Request
+class CreateStudentRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,9 +29,9 @@ class StudentRequest extends Request
     public function rules()
     {
         return [
-            'id' => 'required|unique:students',
             'admission_year' => 'required|integer',
-            'birth_date' => 'required|date'
+            'birth_date' => 'required|date',
+            'password' => 'confirmed|min:6'
         ];
     }
 
@@ -43,12 +43,12 @@ class StudentRequest extends Request
     public function messages()
     {
         return [
-            'id.required' => 'Please enter a Student ID.',
-            'id.unique:students' => 'That Student ID already exists.',
             'admission_year.required' => 'Please enter the Admission Year.',
             'admission_year.integer' => 'Admission Year is not a valid number.',
             'birth_date.required' => 'Please enter the Birth Date.',
-            'birth_date.date' => 'Birth Year is not a valid year format.'
+            'birth_date.date' => 'Birth Year is not a valid year format.',
+            'password.confirmed' => 'Please confirm your password.',
+            'password.min:6' => 'Password must be at least 6 characters.'
         ];
     }
 }

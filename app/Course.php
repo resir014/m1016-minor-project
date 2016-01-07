@@ -37,10 +37,18 @@ class Course extends Model
     ];
 
     /**
-     * Get the course's available schedule.
+     * Get the course's available schedule drafts.
      */
     public function scheduleDraft()
     {
         return $this->hasOne('App\ScheduleDraft');
+    }
+
+    /**
+     * Get all Schedules linked to this course.
+     */
+    public function fixedSchedules()
+    {
+        return $this->hasMany('App\FixedSchedule');
     }
 }

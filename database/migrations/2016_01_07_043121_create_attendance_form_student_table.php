@@ -12,7 +12,7 @@ class CreateAttendanceFormStudentTable extends Migration
      */
     public function up()
     {
-        Schema::table('attendance_form_student', function (Blueprint $table) {
+        Schema::create('attendance_form_student', function (Blueprint $table) {
             $table->integer('attendance_form_id')->unsigned();
             $table->string('student_id');
 

@@ -16,65 +16,22 @@ class AddStudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
-    }
+        $fixedSchedule = FixedSchedule::find($id);
+        $students = Student::lists('name', 'id');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('fixed-schedules.add-students.index', compact('fixedSchedule', 'students'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $fixedSchedule = FixedSchedule::find($id);
-        $students = Student::lists('name', 'id');
-
-        return view('add-students.edit', compact('fixedSchedule', 'students'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function store(Request $request, $id)
     {
         $fixedSchedule = FixedSchedule::find($id);
         $students = Student::lists('name', 'id');

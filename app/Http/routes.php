@@ -25,27 +25,45 @@ Route::group(['middleware' => 'auth'], function () {
         'only' => ['index', 'edit', 'update']
     ]);
 
+    // Master data
     Route::resource('rooms', 'RoomsController');
     Route::resource('courses', 'CoursesController');
     Route::resource('lecturers', 'LecturersController');
     Route::resource('students', 'StudentsController');
+
+    // Schedule Drafts & Credit Overview
     Route::resource('schedule-drafts', 'ScheduleDraftsController');
     Route::resource('credit-overview', 'CreditOverviewController', [
         'only' => 'index'
     ]);
+
+    // Schedule Request form
     Route::resource('schedule-approvals', 'ScheduleApprovalsController');
-    Route::resource('attendance-form', 'AttendanceFormsController');
+
+    // Fixed Schedules
     Route::resource('fixed-schedules', 'FixedSchedulesController', [
         'except' => ['create']
     ]);
     Route::get('fixed-schedules/create/{id}', 'FixedSchedulesController@create');
-    Route::resource('add-students', 'AddStudentsController', [
-        'only' => ['edit', 'update']
+
+    // Attendance forms
+    Route::resource('fixed-schedules.attendance', 'AttendanceFormFixedScheduleController');
+    Route::post('fixed-schedules/{id}/attendance/verify', 'StudentVerificationController@index');
+
+    // Add Students
+    Route::resource('fixed-schedules.add-student', 'AddStudentsController', [
+        'only' => ['index']
     ]);
-    Route::post('add-students/{schedule_id}/{student_id}/destroy', [
-        'as' => 'add-students.destroy',
+    Route::post('fixed-schedules/{schedule_id}/add-student/store', [
+        'as' => 'fixed-schedules.add-student.store',
+        'uses' => 'AddStudentsController@store'
+    ]);
+    Route::post('fixed-schedules/{schedule_id}/add-student/{student_id}/destroy', [
+        'as' => 'fixed-schedules.add-student.destroy',
         'uses' => 'AddStudentsController@destroy'
     ]);
+
+    // Update Course status
     Route::resource('course-status', 'CourseStatusController', [
         'only' => ['show', 'edit', 'update']
     ]);
@@ -54,6 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
         'export' => 'ExcelExportController',
     ]);
 
+    // API controllers for Typeahead search
     Route::get('data/lecturers/{query?}', 'SearchController@getLecturers');
     Route::get('data/lecturers-with-approval/{query?}', 'SearchController@getLecturersWithApproval');
     Route::get('data/students/{query?}', 'SearchController@getStudents');
@@ -80,20 +99,6 @@ Route::get('mockups/input-nilai', function() {
     return view('mockups.input-nilai');
 });
 
-Route::get('mockups/kesediaan-mengajar', function() {
-    return view('mockups.kesedian-mengajar');
-});
-
 Route::get('mockups/perubahan-nilai', function() {
     return view('mockups.perubahan-nilai');
-});
-Route::get('mockups/pembahasan', function() {
-    return view('mockups.pembahasan');
-});
-Route::get('mockups/update-jadwal-kuliah', function() {
-    return view('mockups.update-jadwal-kuliah');
-});
-
-Route::get('mockups/update-final-jadwal-kuliah', function() {
-    return view('mockups.update-final-jadwal-kuliah');
 });

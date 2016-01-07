@@ -57,6 +57,17 @@ class Student extends Model
     }
 
     /**
+     * Get the birth_date attribute.
+     *
+     * @param  $date
+     * @return string
+     */
+    public function getBirthDateAttribute($date)
+    {
+        return \Carbon\Carbon::parse($date)->format('Y-m-d');
+    }
+
+    /**
      * Get all student's fixed schedules
      */
     public function fixedSchedules()

@@ -28,6 +28,7 @@
                     <th>Name</th>
                     <th>Date of Birth</th>
                     <th>Admission Year</th>
+                    <th>Status</th>
                     <th></th>
                 </tr>
             </thead>
@@ -38,6 +39,11 @@
                     <td>{{ $student->name }}</td>
                     <td>{{ date('d F Y', strtotime($student->birth_date)) }}</td>
                     <td>{{ $student->admission_year }}</td>
+                    @if($student->active)
+                    <td><span class="text-success">Active</span></td>
+                    @else
+                    <td><span class="text-warning">Inactive</span></td>
+                    @endif
                     <td><a href="{{ route('students.show', $student->id) }}">View</a></td>
                 </tr>
                 @endforeach
