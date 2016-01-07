@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'All Attendance Forms')
+@section('title', 'Attendance Forms')
 
 @section('breadcrumbs')
 <ol class="breadcrumb">
@@ -20,7 +20,9 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <h1 class="page-header">All Attendance Forms</h1>
+            <h1>Attendance Forms</h1>
+            <p class="lead">Schedule ID: {{ $schedule->id }}</p>
+            <hr>
 
             @if (Auth::user()->userable_type === 'Lecturer')
             <div>
