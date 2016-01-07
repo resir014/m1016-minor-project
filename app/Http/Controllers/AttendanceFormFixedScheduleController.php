@@ -144,6 +144,12 @@ class AttendanceFormFixedScheduleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $attendance = AttendanceForm::findOrFail($id);
+
+        $attendance->delete();
+
+        \Session::flash('flash_message', 'Attedance Form successfully deleted!');
+
+        return redirect()->route('courses.index');
     }
 }
