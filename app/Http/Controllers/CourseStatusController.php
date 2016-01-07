@@ -23,14 +23,14 @@ class CourseStatusController extends Controller
     {
         $course = Course::findOrFail($id);
 
-        return view('course-status.show')->with('course', $course);
+        return view('course-status.show', compact('course'));
     }
 
     public function edit($id)
     {
         $course = Course::findOrFail($id);
 
-        return view('course-status.edit')->with('course', $course);
+        return view('course-status.edit', compact('course'));
     }
 
     public function update(Request $request, $id)

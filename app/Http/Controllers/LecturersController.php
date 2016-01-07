@@ -28,7 +28,7 @@ class LecturersController extends Controller
     {
         $lecturers = Lecturer::all();
 
-        return view('lecturers.index')->with('lecturers', $lecturers);
+        return view('lecturers.index', compact('lecturers'));
     }
 
     /**
@@ -68,7 +68,7 @@ class LecturersController extends Controller
     {
         $lecturer = Lecturer::findOrFail($id);
 
-        return view('lecturers.show')->with('lecturer', $lecturer);
+        return view('lecturers.show', compact('lecturer'));
     }
 
     /**
@@ -81,7 +81,7 @@ class LecturersController extends Controller
     {
         $lecturer = Lecturer::findOrFail($id);
 
-        return view('lecturers.edit')->with('lecturer', $lecturer);
+        return view('lecturers.edit', compact('lecturer'));
     }
 
     /**

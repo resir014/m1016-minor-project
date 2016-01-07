@@ -26,11 +26,9 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        $data = array(
-            'user' => \Auth::user()
-        );
+        $user = \Auth::user();
 
-        return view('profile.index')->with($data);
+        return view('profile.index', compact('user'));
     }
 
     /**
@@ -43,7 +41,7 @@ class ProfilesController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('profile.edit')->with('user', $user);
+        return view('profile.edit', compact('user'));
     }
 
     /**

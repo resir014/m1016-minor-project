@@ -29,7 +29,7 @@ class RoomsController extends Controller
     {
         $rooms = Room::all();
 
-        return view('rooms.index')->with('rooms', $rooms);
+        return view('rooms.index', compact('rooms'));
     }
 
     /**
@@ -69,7 +69,7 @@ class RoomsController extends Controller
     {
         $room = Room::findOrFail($id);
 
-        return view('rooms.show')->with('room', $room);
+        return view('rooms.show', compact('room'));
     }
 
     /**
@@ -82,7 +82,7 @@ class RoomsController extends Controller
     {
         $room = Room::findOrFail($id);
 
-        return view('rooms.edit')->with('room', $room);
+        return view('rooms.edit', compact('room'));
     }
 
     /**

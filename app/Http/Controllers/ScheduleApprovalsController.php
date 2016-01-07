@@ -28,7 +28,7 @@ class ScheduleApprovalsController extends Controller
     {
         $scheduleApprovals = ScheduleApproval::all();
 
-        return view('schedule-approvals.index')->with('scheduleApprovals', $scheduleApprovals);
+        return view('schedule-approvals.index', compact('scheduleApprovals'));
     }
 
     /**
@@ -71,7 +71,7 @@ class ScheduleApprovalsController extends Controller
     {
         $scheduleApproval = ScheduleApproval::findOrFail($id);
 
-        return view('schedule-approvals.show')->with('scheduleApproval', $scheduleApproval);
+        return view('schedule-approvals.show', compact('scheduleApproval'));
     }
 
     /**
@@ -84,7 +84,7 @@ class ScheduleApprovalsController extends Controller
     {
         $scheduleApproval = ScheduleApproval::findOrFail($id);
 
-        return view('schedule-approvals.edit')->with('scheduleApproval', $scheduleApproval);
+        return view('schedule-approvals.edit', compact('scheduleApproval'));
     }
 
     /**

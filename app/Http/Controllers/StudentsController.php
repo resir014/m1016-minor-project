@@ -29,7 +29,7 @@ class StudentsController extends Controller
     {
         $students = Student::all();
 
-        return view('students.index')->with('students', $students);
+        return view('students.index', compact('students'));
     }
 
     /**
@@ -69,7 +69,7 @@ class StudentsController extends Controller
     {
         $student = Student::findOrFail($id);
 
-        return view('students.show')->with('student', $student);
+        return view('students.show', compact('student'));
     }
 
     /**
@@ -82,7 +82,7 @@ class StudentsController extends Controller
     {
         $student = Student::findOrFail($id);
 
-        return view('students.edit')->with('student', $student);
+        return view('students.edit', compact('student'));
     }
 
     /**

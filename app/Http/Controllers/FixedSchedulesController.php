@@ -29,7 +29,7 @@ class FixedSchedulesController extends Controller
     {
         $fixedSchedules = FixedSchedule::all();
 
-        return view('fixed-schedules.index')->with('fixedSchedules', $fixedSchedules);
+        return view('fixed-schedules.index', compact('fixedSchedules'));
     }
 
     /**
@@ -43,7 +43,7 @@ class FixedSchedulesController extends Controller
 
         // dd($scheduleDraft);
 
-        return view('fixed-schedules.create')->with('scheduleDraft', $scheduleDraft);
+        return view('fixed-schedules.create', compact('scheduleDraft'));
     }
 
     /**
@@ -75,7 +75,7 @@ class FixedSchedulesController extends Controller
     {
         $fixedSchedule = FixedSchedule::findOrFail($id);
 
-        return view('fixed-schedules.show')->with('fixedSchedule', $fixedSchedule);
+        return view('fixed-schedules.show', compact('fixedSchedule'));
     }
 
     /**
@@ -88,7 +88,7 @@ class FixedSchedulesController extends Controller
     {
         $fixedSchedule = FixedSchedule::findOrFail($id);
 
-        return view('fixed-schedules.edit')->with('fixedSchedule', $fixedSchedule);
+        return view('fixed-schedules.edit', compact('fixedSchedule'));
     }
 
     /**

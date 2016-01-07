@@ -28,7 +28,7 @@ class CoursesController extends Controller
     {
         $courses = Course::all();
 
-        return view('courses.index')->with('courses', $courses);
+        return view('courses.index', compact('courses'));
     }
 
     /**
@@ -68,7 +68,7 @@ class CoursesController extends Controller
     {
         $course = Course::findOrFail($id);
 
-        return view('courses.show')->with('course', $course);
+        return view('courses.show', compact('course'));
     }
 
     /**
@@ -81,7 +81,7 @@ class CoursesController extends Controller
     {
         $course = Course::findOrFail($id);
 
-        return view('courses.edit')->with('course', $course);
+        return view('courses.edit', compact('course'));
     }
 
     /**

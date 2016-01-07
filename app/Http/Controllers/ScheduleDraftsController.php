@@ -33,7 +33,7 @@ class ScheduleDraftsController extends Controller
             $scheduleDrafts = \Auth::user()->userable->scheduleDrafts->all()->sortByDesc('semester_list');
         }
 
-        return view('schedule-drafts.index')->with('scheduleDrafts', $scheduleDrafts);
+        return view('schedule-drafts.index', compact('scheduleDrafts'));
     }
 
     /**
@@ -45,7 +45,7 @@ class ScheduleDraftsController extends Controller
     {
         $semesters = Semester::lists('name' , 'id');
 
-        return view('schedule-drafts.create')->with('semesters', $semesters);
+        return view('schedule-drafts.create', compact('semesters'));
     }
 
     /**
@@ -77,7 +77,7 @@ class ScheduleDraftsController extends Controller
     {
         $scheduleDraft = ScheduleDraft::findOrFail($id);
 
-        return view('schedule-drafts.show')->with('scheduleDraft', $scheduleDraft);
+        return view('schedule-drafts.show', compact('scheduleDraft'));
     }
 
     /**
@@ -115,17 +115,6 @@ class ScheduleDraftsController extends Controller
         $request->session()->flash('flash_message', 'Schedule draft successfully updated!');
 
         return redirect()->back();
-    }
-
-    /**
-     * [syncSemesters description]
-     * @param  Semester $semester  [description]
-     * @param  array    $semesters [description]
-     * @return [type]              [description]
-     */
-    public function syncSemesters(Semester $semester, array $semesters)
-    {
-        # code...
     }
 
     /**
