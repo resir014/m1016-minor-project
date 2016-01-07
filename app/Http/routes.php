@@ -48,7 +48,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Attendance forms
     Route::resource('fixed-schedules.attendance', 'AttendanceFormFixedScheduleController');
-    Route::post('fixed-schedules/{id}/attendance/verify', 'StudentVerificationController@index');
 
     // Add Students
     Route::resource('fixed-schedules.add-student', 'AddStudentsController', [
