@@ -29,7 +29,7 @@ class AttendanceFormFixedScheduleController extends Controller
     public function index($id)
     {
         $schedule = FixedSchedule::find($id);
-        $attendanceForms = AttendanceForm::all();
+        $attendanceForms = AttendanceForm::where('fixed_schedule_id', $id)->get();
 
         return view('fixed-schedules.attendance.index', compact('schedule', 'attendanceForms'));
     }

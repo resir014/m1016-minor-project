@@ -17,6 +17,19 @@
 @endsection
 
 @section('content')
+@if($errors->any())
+    <div class="container">
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+@endif
+
 {!! Form::open([
     'route' => ['fixed-schedules.attendance.store', $schedule->id]
 ]) !!}
