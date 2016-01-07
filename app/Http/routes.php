@@ -47,7 +47,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('fixed-schedules/create/{id}', 'FixedSchedulesController@create');
 
     // Attendance forms
-    Route::resource('fixed-schedules.attendance', 'AttendanceFormFixedScheduleController');
+    Route::resource('fixed-schedules.attendance', 'AttendanceFormFixedScheduleController', [
+        'except' => ['destroy']
+    ]);
+
+    // Attendance admin panel
+    Route::resource('attendance', 'AttendanceFormsController', [
+        'only' => ['index']
+    ]);
 
     // Add Students
     Route::resource('fixed-schedules.add-student', 'AddStudentsController', [

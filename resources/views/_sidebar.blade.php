@@ -9,6 +9,7 @@
         <li role="presentation"><a href="{{ route('schedule-drafts.index') }}">Schedule Drafts</a></li>
         <li role="presentation"><a href="{{ route('fixed-schedules.index') }}">Fixed Schedules</a></li>
         <li role="presentation"><a href="{{ route('schedule-approvals.index') }}">Schedule Requests</a></li>
+        <li role="presentation"><a href="{{ route('attendance.index') }}">All Attendance</a></li>
         <li role="presentation"><a href="{{ url('/mockups/perubahan-nilai') }}">Update Grades</a></li>
     </ul>
     @elseif(Auth::user()->userable_type === 'Lecturer')
