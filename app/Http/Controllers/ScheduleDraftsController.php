@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\ScheduleDraft;
 use App\Semester;
+use App\User;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -27,10 +30,14 @@ class ScheduleDraftsController extends Controller
      */
     public function index()
     {
-        if (\Auth::user()->userable_type == 'Admin') {
+        $user = \Auth::user();
+
+        if ($user->userable_type == 'Admin') {
             $scheduleDrafts = ScheduleDraft::all()->sortByDesc('semester_list');
+        } else if ($user->userable_type == 'Lecturer') {
+            $scheduleDrafts = $user->userable->scheduleDrafts->sortByDesc('semester_list');
         } else {
-            $scheduleDrafts = \Auth::user()->userable->scheduleDrafts->all()->sortByDesc('semester_list');
+            abort(401);
         }
 
         return view('schedule-drafts.index', compact('scheduleDrafts'));
