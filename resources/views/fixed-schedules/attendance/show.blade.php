@@ -76,7 +76,7 @@
     @else
         @unless($attendance->sessionLog)
         <div class="pull-right">
-            <a href="{{ action('FixedScheduleSessionLogController@create', ['schedule_id' => $attendance->fixedSchedule->id, 'attendance_id' => $attendance->id]) }}" class="btn btn-primary">Edit Attendance</a>
+            <a href="{{ action('FixedScheduleSessionLogController@create', ['schedule_id' => $attendance->fixedSchedule->id, 'attendance_id' => $attendance->id]) }}" class="btn btn-primary">Post Session Log</a>
         </div>
         @endunless
     @endif
