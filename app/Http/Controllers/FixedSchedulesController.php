@@ -27,7 +27,15 @@ class FixedSchedulesController extends Controller
      */
     public function index()
     {
-        $fixedSchedules = FixedSchedule::all();
+        $user = \Auth::user();
+
+        if ($user->userable_type == 'Admin') {
+            $fixedSchedules = FixedSchedule::all();
+        } else if ($user->userable_type == 'Lecturer') {
+            $fixedSchedules = $user->userable->fixedSchedules;
+        } else {
+            abort(401);
+        }
 
         return view('fixed-schedules.index', compact('fixedSchedules'));
     }
