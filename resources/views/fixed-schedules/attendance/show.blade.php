@@ -68,7 +68,7 @@
         </table>
     </div>
 
-    <a href="{{ route('fixed-schedules.attendance.index') }}" class="btn btn-default">Back</a>
+    <a href="{{ route('fixed-schedules.attendance.index', $schedule->id) }}" class="btn btn-default">Back</a>
     @if (Auth::user()->userable_type === 'Admin')
     <div class="pull-right">
         <a href="{{ route('fixed-schedules.attendance.edit', ['schedule_id' => $attendance->fixedSchedule->id, 'id' => $attendance->id]) }}" class="btn btn-primary">Edit Attendance</a>
