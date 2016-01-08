@@ -1,11 +1,17 @@
 @extends('app')
 
-@section('title', 'All Session Logs')
+@section('title', 'Session Logs')
 
 @section('breadcrumbs')
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
-    <li class="active">All Session Logs</li>
+    <li><a href="{{ route('fixed-schedules.index') }}">Fixed Schedules</a></li>
+    <li>
+        <a href="{{ route('fixed-schedules.show', $schedule->id) }}">
+            Schedule ID: {{ $schedule->id }}
+        </a>
+    </li>
+    <li class="active">Session Logs</li>
 </ol>
 @endsection
 
@@ -14,7 +20,7 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <h1 class="page-header">All Session Logs</h1>
+            <h1 class="page-header">Session Logs</h1>
 
             <div class="table-responsive">
                 <table class="table">
@@ -38,7 +44,7 @@
                             <td>{{ $sessionLog->fixedSchedule->room_id }}</td>
                             <td>{{ $sessionLog->fixedSchedule->day }}</td>
                             <td>{{ $sessionLog->fixedSchedule->shift }}</td>
-                            <td><a href="{{ route('fixed-schedules.session-log.show', ['schedule_id' => $sessionLog->fixedSchedule->id, 'id' => $sessionLog->id]) }}">View</a></td>
+                            <td><a href="{{ route('fixed-schedules.session-log.show', ['schedule_id' => $schedule->id, 'id' => $sessionLog->id]) }}">View</a></td>
                         </tr>
                         @endforeach
                     </tbody>

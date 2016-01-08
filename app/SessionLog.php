@@ -19,6 +19,7 @@ class SessionLog extends Model
      * @var array
      */
     protected $fillable = [
+        'fixed_schedule_id',
         'attendance_form_id',
         'score_form_id',
         'number_of_students_present',
@@ -31,5 +32,10 @@ class SessionLog extends Model
     public function attendanceForm()
     {
         return $this->belongsTo('App\AttendanceForm');
+    }
+
+    public function fixedSchedule()
+    {
+        return $this->belongsTo('App\FixedSchedule');
     }
 }

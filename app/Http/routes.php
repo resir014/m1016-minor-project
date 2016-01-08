@@ -72,8 +72,16 @@ Route::group(['middleware' => 'auth'], function () {
         'only' => ['show', 'edit', 'update']
     ]);
 
-    // Session log
-    Route::resource('session-log', 'SessionLogsController');
+    // Session log lists
+    Route::resource('session-log', 'SessionLogsController', [
+        'only' => ['index']
+    ]);
+
+    // Session Log
+    Route::resource('fixed-schedules.session-log', 'FixedScheduleSessionLogController', [
+        'except' => 'create'
+    ]);
+    Route::get('fixed-schedules/{schedule_id}/session-log/create/{attendance_id}', 'FixedScheduleSessionLogController@create');
 
     // Additional controllers
     Route::controllers([

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\AttendanceForm;
+use App\SessionLog;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -15,17 +19,22 @@ class SessionLogsController extends Controller
      */
     public function index()
     {
-        //
+        $sessionLogs = SessionLog::all();
+
+        return view('session-log.index', compact('sessionLogs'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $attendance = AttendanceForm::findOrFail($id);
+
+        return view('session-log.create', compact('attendance'));
     }
 
     /**
@@ -36,7 +45,9 @@ class SessionLogsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        return $input;
     }
 
     /**
@@ -47,7 +58,9 @@ class SessionLogsController extends Controller
      */
     public function show($id)
     {
-        //
+        $sessionLog = SessionLog::findOrFail($id);
+
+        return $sessionLog;
     }
 
     /**

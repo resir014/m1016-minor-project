@@ -64,6 +64,14 @@ class FixedSchedule extends Model
      }
 
      /**
+      * Get all Session Logs associated with this model.
+      */
+     public function sessionLogs()
+     {
+         return $this->hasMany('App\SessionLog');
+     }
+
+     /**
       * Get all students in this schedule entry.
       */
      public function students()
