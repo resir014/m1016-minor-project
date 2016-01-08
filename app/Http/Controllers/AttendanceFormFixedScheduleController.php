@@ -71,7 +71,7 @@ class AttendanceFormFixedScheduleController extends Controller
 
         $request->session()->flash('flash_message', 'Attendance successfully posted!');
 
-        return redirect()->back();
+        return redirect()->route('fixed-schedules.session-log.create', $fixedSchedule);
     }
 
     /**
