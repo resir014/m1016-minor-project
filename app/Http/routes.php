@@ -72,6 +72,10 @@ Route::group(['middleware' => 'auth'], function () {
         'only' => ['show', 'edit', 'update']
     ]);
 
+    // Session log
+    Route::resource('session-log', 'SessionLogsController');
+
+    // Additional controllers
     Route::controllers([
         'export' => 'ExcelExportController',
     ]);
@@ -85,10 +89,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('data/rooms/{query?}', 'SearchController@getRooms');
 });
 
-Route::get('session-log', function() {
+Route::get('mockups/session-log', function() {
     return view('session-log.index');
 });
-Route::get('session-log/create', function() {
+Route::get('mockups/session-log/create', function() {
     return view('session-log.create');
 });
 
