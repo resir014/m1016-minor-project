@@ -25,47 +25,48 @@
 
     <h2>Course Details</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Schedule ID</th>
-                <th>Course</th>
-                <th>Lecturer</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $schedule->id }}</td>
-                <td>{{ $schedule->course_id }}</td>
-                <td>{{ $schedule->scheduleDraft->lecturer->id }} - {{ $schedule->scheduleDraft->lecturer->user->name }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Schedule ID</th>
+                    <th>Course</th>
+                    <th>Lecturer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ $schedule->id }}</td>
+                    <td>{{ $schedule->course_id }}</td>
+                    <td>{{ $schedule->scheduleDraft->lecturer->id }} - {{ $schedule->scheduleDraft->lecturer->user->name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <h2>Student List</h2>
 
-    <div class="">
-
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Present</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($schedule->students as $i => $student)
+                <?php $checked = in_array($student->id, $checkeds) ? true : false; ?>
+                <tr>
+                    <td>{{ $student->id }}</td>
+                    <td>{{ $student->name }}</td>
+                    <td>{!! Form::checkbox('student_list[]', $student->id, $checked, ['class' => 'disabled']) !!}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Present</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($schedule->students as $i => $student)
-            <?php $checked = in_array($student->id, $checkeds) ? true : false; ?>
-            <tr>
-                <td>{{ $student->id }}</td>
-                <td>{{ $student->name }}</td>
-                <td>{!! Form::checkbox('student_list[]', $student->id, $checked, ['class' => 'disabled']) !!}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
 
     <a href="{{ route('fixed-schedules.attendance.index') }}" class="btn btn-default">Back</a>
     @if (Auth::user()->userable_type === 'Admin')

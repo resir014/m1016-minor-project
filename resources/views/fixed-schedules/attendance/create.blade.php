@@ -41,52 +41,56 @@
 
     <h2>Course Details</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Schedule ID</th>
-                <th>Course</th>
-                <th>Lecturer</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    {!! Form::hidden('fixed_schedule_id', $schedule->id) !!}
-                    {{ $schedule->id }}
-                </td>
-                <td>
-                    {!! Form::hidden('course_id', $schedule->course_id) !!}
-                    {{ $schedule->course_id }}
-                </td>
-                <td>
-                    {!! Form::hidden('lecturer_id', $schedule->scheduleDraft->lecturer->id) !!}
-                    {{ $schedule->scheduleDraft->lecturer->id }} - {{ $schedule->scheduleDraft->lecturer->user->name }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Schedule ID</th>
+                    <th>Course</th>
+                    <th>Lecturer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {!! Form::hidden('fixed_schedule_id', $schedule->id) !!}
+                        {{ $schedule->id }}
+                    </td>
+                    <td>
+                        {!! Form::hidden('course_id', $schedule->course_id) !!}
+                        {{ $schedule->course_id }}
+                    </td>
+                    <td>
+                        {!! Form::hidden('lecturer_id', $schedule->scheduleDraft->lecturer->id) !!}
+                        {{ $schedule->scheduleDraft->lecturer->id }} - {{ $schedule->scheduleDraft->lecturer->user->name }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <h2>Student List</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Present</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($schedule->students as $i => $student)
-            <tr>
-                <td>{{ $student->id }}</td>
-                <td>{{ $student->name }}</td>
-                <td>{!! Form::checkbox('student_list[]', $student->id) !!}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Present</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($schedule->students as $i => $student)
+                <tr>
+                    <td>{{ $student->id }}</td>
+                    <td>{{ $student->name }}</td>
+                    <td>{!! Form::checkbox('student_list[]', $student->id) !!}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
     <div class="pull-right">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verify">

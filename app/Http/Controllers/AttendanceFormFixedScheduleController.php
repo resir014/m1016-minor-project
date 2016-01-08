@@ -51,6 +51,7 @@ class AttendanceFormFixedScheduleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, $id)
@@ -71,7 +72,7 @@ class AttendanceFormFixedScheduleController extends Controller
 
         $request->session()->flash('flash_message', 'Attendance successfully posted!');
 
-        return redirect()->route('fixed-schedules.session-log.create', $fixedSchedule);
+        return redirect()->route('fixed-schedules.session-log.create', $fixedSchedule, $attendance);
     }
 
     /**
