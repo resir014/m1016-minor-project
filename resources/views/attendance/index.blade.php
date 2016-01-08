@@ -26,6 +26,7 @@
                             <th>Class</th>
                             <th>Date</th>
                             <th>Number of Students</th>
+                            <th>Log Posted?</th>
                             @if (Auth::user()->userable_type === 'Admin')
                             <th></th>
                             @endif
@@ -40,6 +41,13 @@
                             <td>{{ $attendance->fixedSchedule->scheduleDraft->class_id }}</td>
                             <td>{{ date('d F Y', strtotime($attendance->created_at)) }}</td>
                             <td>{{ $attendance->students->count() }}/{{ $attendance->fixedSchedule->students->count() }}</td>
+                            <td>
+                                @if($attendance->sessionLog)
+                                    <span class="text-success">Yes</span>
+                                @else
+                                    <span class="text-danger">No</span>
+                                @endif
+                            </td>
                             @if (Auth::user()->userable_type === 'Admin')
                             <td><a href="{{ route('fixed-schedules.attendance.edit', ['schedule_id' => $attendance->fixedSchedule->id, 'id' => $attendance->id]) }}">Edit Attendance</a></td>
                             @endif

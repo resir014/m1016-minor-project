@@ -20,7 +20,7 @@
 <div class="container">
 
     <h1>View Attendance Form</h1>
-    <p class="lead">Schedule ID: {{ $schedule->id }}</p>
+    <p class="lead">Schedule ID: {{ $schedule->id }} | Log Posted: @if($attendance->sessionLog)<span class="text-success">Yes</span>@else<span class="text-danger">No</span>@endif</p>
     <hr>
 
     <h2>Course Details</h2>
@@ -57,12 +57,12 @@
             </thead>
             <tbody>
                 @foreach($schedule->students as $i => $student)
-                <?php $checked = in_array($student->id, $checkeds) ? true : false; ?>
-                <tr>
-                    <td>{{ $student->id }}</td>
-                    <td>{{ $student->name }}</td>
-                    <td>{!! Form::checkbox('student_list[]', $student->id, $checked, ['class' => 'disabled']) !!}</td>
-                </tr>
+                    <?php $checked = in_array($student->id, $checkeds) ? true : false; ?>
+                    <tr>
+                        <td>{{ $student->id }}</td>
+                        <td>{{ $student->name }}</td>
+                        <td>{!! Form::checkbox('student_list[]', $student->id, $checked, ['class' => 'disabled']) !!}</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
@@ -70,9 +70,15 @@
 
     <a href="{{ route('fixed-schedules.attendance.index', $schedule->id) }}" class="btn btn-default">Back</a>
     @if (Auth::user()->userable_type === 'Admin')
-    <div class="pull-right">
-        <a href="{{ route('fixed-schedules.attendance.edit', ['schedule_id' => $attendance->fixedSchedule->id, 'id' => $attendance->id]) }}" class="btn btn-primary">Edit Attendance</a>
-    </div>
+        <div class="pull-right">
+            <a href="{{ route('fixed-schedules.attendance.edit', ['schedule_id' => $attendance->fixedSchedule->id, 'id' => $attendance->id]) }}" class="btn btn-primary">Edit Attendance</a>
+        </div>
+    @else
+        @unless($attendance->sessionLog)
+        <div class="pull-right">
+            <a href="{{ action('FixedScheduleSessionLogController@create', ['schedule_id' => $attendance->fixedSchedule->id, 'attendance_id' => $attendance->id]) }}" class="btn btn-primary">Edit Attendance</a>
+        </div>
+        @endunless
     @endif
 </div>
 @endsection
