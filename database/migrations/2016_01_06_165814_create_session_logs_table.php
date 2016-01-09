@@ -17,8 +17,8 @@ class CreateSessionLogsTable extends Migration
             $table->timestamps();
             $table->integer('fixed_schedule_id')->unsigned();
             $table->integer('attendance_form_id')->unsigned();
-            $table->integer('score_form_id')->unsigned();
-            $table->integer('number_of_students_present');
+            $table->integer('grade_id')->unsigned();
+            $table->integer('students_present');
             $table->text('remarks');
 
             $table->foreign('fixed_schedule_id')->references('id')->on('fixed_schedules')->onDelete('cascade');

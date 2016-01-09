@@ -21,8 +21,8 @@ class SessionLog extends Model
     protected $fillable = [
         'fixed_schedule_id',
         'attendance_form_id',
-        'score_form_id',
-        'number_of_students_present',
+        'grade_id',
+        'students_present',
         'remarks'
     ];
 

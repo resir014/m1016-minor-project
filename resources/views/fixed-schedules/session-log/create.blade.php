@@ -38,6 +38,7 @@
                     <th>Schedule ID</th>
                     <th>Course</th>
                     <th>Lecturer</th>
+                    <th>Students Present</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +54,10 @@
                     <td>
                         {!! Form::hidden('lecturer_id', $schedule->scheduleDraft->lecturer->id) !!}
                         {{ $schedule->scheduleDraft->lecturer->id }} - {{ $schedule->scheduleDraft->lecturer->user->name }}
+                    </td>
+                    <td>
+                        {!! Form::hidden('students_present', $attendance->students->count()) !!}
+                        {{ $attendance->students->count() }}/{{ $attendance->fixedSchedule->students->count() }}
                     </td>
                 </tr>
             </tbody>
