@@ -34,6 +34,9 @@ class SessionLog extends Model
         return $this->belongsTo('App\AttendanceForm');
     }
 
+    /**
+     * Get the schedule associated with this Session Log.
+     */
     public function fixedSchedule()
     {
         return $this->belongsTo('App\FixedSchedule');

@@ -34,6 +34,9 @@ class ScheduleApproval extends Model
         'day' => 'string',
     ];
 
+    /**
+     * Get the lecturer associated with this Schedule Request.
+     */
     public function lecturer()
     {
         return $this->belongsTo('App\Lecturer');

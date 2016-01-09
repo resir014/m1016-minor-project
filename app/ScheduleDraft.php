@@ -76,15 +76,28 @@ class ScheduleDraft extends Model
         return $this->belongsTo('App\Room');
     }
 
+    /**
+     * Returns a list of all semesters available.
+     *
+     * @return array
+     */
     public function getSemesterListAttribute()
     {
         return $this->semesters->lists('id')->toArray();
     }
 
+    /**
+     * Returns true if semester is current.
+     *
+     * @return boolean
+     */
     public function getIsCurrentSemesterAttribute() {
         return $this->semesters->current();
     }
 
+    /**
+     * All current semesters.
+     */
     public function scopeCurrentSemester($query) {
         $query->semesters->first()->current;
     }

@@ -51,6 +51,9 @@ class FixedSchedule extends Model
          return $this->belongsTo('App\Lecturer');
      }
 
+     /**
+      * Get this schedule's course.
+      */
      public function course()
      {
          return $this->belongsTo('App\Course');
