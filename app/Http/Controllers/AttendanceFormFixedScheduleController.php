@@ -56,8 +56,8 @@ class AttendanceFormFixedScheduleController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $fixedSchedule = FixedSchedule::find($id);
-        $students = $fixedSchedule->students->lists('id');
+        $schedule = FixedSchedule::find($id);
+        $students = $schedule->students->lists('id');
 
         $student = Student::find($request->student_id);
 
@@ -70,9 +70,12 @@ class AttendanceFormFixedScheduleController extends Controller
             return redirect()->back()->withErrors(['Incorrect student password!']);
         }
 
+        // Lists all checked students
+        $checkeds = $attendance->students()->lists('id')->toArray();
+
         $request->session()->flash('flash_message', 'Attendance successfully posted!');
 
-        return redirect()->route('fixed-schedules.session-log.create', $fixedSchedule, $attendance);
+        return view('fixed-schedules.session-log.create', compact('schedule', 'attendance', 'checkeds'));
     }
 
     /**
