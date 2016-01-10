@@ -83,6 +83,14 @@ class FixedSchedule extends Model
      }
 
      /**
+      * A Fixed Schedule has many student Grade entries.
+      */
+     public function grades()
+     {
+         return $this->hasMany('App\Grade');
+     }
+
+     /**
       * Returns a list of Student IDs that belong to this Fixed Schedule.
       */
      public function getStudentListAttribute()

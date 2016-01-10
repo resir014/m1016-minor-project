@@ -49,6 +49,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Attendance forms
     Route::resource('fixed-schedules.attendance', 'AttendanceFormFixedScheduleController');
 
+    // Grades
+    Route::resource('fixed-schedules.grades', 'FixedScheduleGradeController');
+
     // Attendance admin panel
     Route::resource('attendance', 'AttendanceFormsController', [
         'only' => ['index']

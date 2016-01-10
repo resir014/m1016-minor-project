@@ -76,6 +76,14 @@ class Student extends Model
     }
 
     /**
+     * Get all the grades this student has.
+     */
+    public function grades()
+    {
+        return $this->hasMany('App\Grade');
+    }
+
+    /**
      * Get all the attendance forms the Student is present in.
      */
     public function attendanceForms() {

@@ -51,4 +51,12 @@ class Course extends Model
     {
         return $this->hasMany('App\FixedSchedule');
     }
+
+    /**
+     * Get all Grade entries associated with this course.
+     */
+    public function grades()
+    {
+        return $this->hasMany('App\Grade');
+    }
 }
