@@ -34,6 +34,17 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($grades as $i => $grade)
+                <tr>
+                    <td>{{ $grade->student->id }}</td>
+                    <td>{{ $grade->student->name }}</td>
+                    <td>{{ $grade->assignment_score }}</td>
+                    <td>{{ $grade->midterm_score }}</td>
+                    <td>{{ $grade->final_score }}</td>
+                    <td>{{ $grade->total_score }}</td>
+                    <td><a href="{{ route('fixed-schedules.grades.edit', ['schedule_id' => $schedule->id, 'student_id' => $grade->student->id, 'id' => $grade->id]) }}">Edit</a></td>
+                </tr>
+            @endforeach
             @foreach($schedule->students as $i => $student)
                 @if($student->grades->count() == 0)
                     <tr>
@@ -46,17 +57,6 @@
                         <td><a href="{{ route('fixed-schedules.grades.create', ['schedule_id' => $schedule->id, 'student_id' => $student->id]) }}">Add Grades</a></td>
                     </tr>
                 @endif
-            @endforeach
-            @foreach($grades as $i => $grade)
-                <tr>
-                    <td>{{ $grade->student->id }}</td>
-                    <td>{{ $grade->student->name }}</td>
-                    <td>{{ $grade->assignment_score }}</td>
-                    <td>{{ $grade->midterm_score }}</td>
-                    <td>{{ $grade->final_score }}</td>
-                    <td>{{ $grade->total_score }}</td>
-                    <td><a href="{{ route('fixed-schedules.grades.edit', ['schedule_id' => $schedule->id, 'student_id' => $grade->student->id, 'id' => $grade->id]) }}">Edit</a></td>
-                </tr>
             @endforeach
         </tbody>
     </table>

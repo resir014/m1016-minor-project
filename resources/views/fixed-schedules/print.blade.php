@@ -21,14 +21,14 @@
 <body>
 
     <div class="container">
-        <h1>Class Realisation Form</h1>
-        <p class="lead">Right-click on this page and select "Print", or press <kbd>Ctrl</kbd> + <kbd>P</kbd> on Chrome.</p>
+        <h2>Printable Form</h2>
+        <p class="text-info">Right-click on this page and select "Print", or press <kbd>Ctrl</kbd> + <kbd>P</kbd> on Chrome.</p>
 
         <hr>
 
-        <h2>Schedule Details</h2>
+        <h3>Schedule Details</h3>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -51,14 +51,15 @@
             </tbody>
         </table>
 
-        <h2>Students</h2>
+        <h3>Students</h3>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Student ID</th>
                     <th>Student Name</th>
+                    <th>Attendance (No. of Present/Total Sessions)</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,14 +68,15 @@
                         <td>{{ $i+1 }}</td>
                         <td>{{ $student->id }}</td>
                         <td>{{ $student->name }}</td>
+                        <td>@{{ $student->fixedSchedules->attendance->count() }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
 
-        <h2>Attendance</h2>
+        <h3>Attendance</h3>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
                     <th>No.</th>
@@ -82,7 +84,7 @@
                     <th>Lecturer</th>
                     <th>Class</th>
                     <th>Date</th>
-                    <th>Number of Students</th>
+                    <th>Attendance</th>
                     <th>Log Posted?</th>
                 </tr>
             </thead>
@@ -107,9 +109,9 @@
             </tbody>
         </table>
 
-        <h2>Grades</h2>
+        <h3>Grades</h3>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered table-condensed">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -121,6 +123,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($grades as $i => $grade)
+                    <tr>
+                        <td>{{ $grade->student->id }}</td>
+                        <td>{{ $grade->student->name }}</td>
+                        <td>{{ $grade->assignment_score }}</td>
+                        <td>{{ $grade->midterm_score }}</td>
+                        <td>{{ $grade->final_score }}</td>
+                        <td>{{ $grade->total_score }}</td>
+                    </tr>
+                @endforeach
                 @foreach($students as $i => $student)
                     @if($student->grades->count() == 0)
                         <tr>
@@ -132,16 +144,6 @@
                             <td>N/A</td>
                         </tr>
                     @endif
-                @endforeach
-                @foreach($grades as $i => $grade)
-                    <tr>
-                        <td>{{ $grade->student->id }}</td>
-                        <td>{{ $grade->student->name }}</td>
-                        <td>{{ $grade->assignment_score }}</td>
-                        <td>{{ $grade->midterm_score }}</td>
-                        <td>{{ $grade->final_score }}</td>
-                        <td>{{ $grade->total_score }}</td>
-                    </tr>
                 @endforeach
             </tbody>
         </table>
