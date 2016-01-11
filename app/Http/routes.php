@@ -50,7 +50,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('fixed-schedules.attendance', 'AttendanceFormFixedScheduleController');
 
     // Grades
-    Route::resource('fixed-schedules.grades', 'FixedScheduleGradeController');
+    Route::resource('fixed-schedules.grades', 'FixedScheduleGradeController', [
+        'except' => ['create', 'edit']
+    ]);
+    Route::get('fixed-schedules/{schedule_id}/grades/{student_id}/create', [
+        'as' => 'fixed-schedules.grades.create',
+        'uses' => 'FixedScheduleGradeController@create'
+    ]);
+
+    Route::get('fixed-schedules/{schedule_id}/grades/{student_id}/{id}/edit', [
+        'as' => 'fixed-schedules.grades.edit',
+        'uses' => 'FixedScheduleGradeController@edit'
+    ]);
 
     // Attendance admin panel
     Route::resource('attendance', 'AttendanceFormsController', [

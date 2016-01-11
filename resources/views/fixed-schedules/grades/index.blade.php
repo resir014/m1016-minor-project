@@ -43,7 +43,7 @@
                         <td>N/A</td>
                         <td>N/A</td>
                         <td>N/A</td>
-                        <td>Add Grades</td>
+                        <td><a href="{{ route('fixed-schedules.grades.create', ['schedule_id' => $schedule->id, 'student_id' => $student->id]) }}">Add Grades</a></td>
                     </tr>
                 @endif
             @endforeach
@@ -55,7 +55,7 @@
                     <td>{{ $grade->midterm_score }}</td>
                     <td>{{ $grade->final_score }}</td>
                     <td>{{ $grade->total_score }}</td>
-                    <td>Edit</td>
+                    <td><a href="{{ route('fixed-schedules.grades.edit', ['schedule_id' => $schedule->id, 'student_id' => $grade->student->id, 'id' => $grade->id]) }}">Edit</a></td>
                 </tr>
             @endforeach
         </tbody>

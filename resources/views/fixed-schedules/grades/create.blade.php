@@ -22,13 +22,18 @@
 
 @section('content')
 <div class="container">
-    <h1 class="page-header">Add Student Grade</h1>
+    <h1>Add Student Grade</h1>
+    <p class="lead">Schedule ID: {{ $schedule->id }} | Student ID: {{ $student->id }} | Course ID: {{ $schedule->course->id }}</p>
 
     {!! Form::open([
-        'route' => 'fixed-schedules.grades.store'
+        'route' => ['fixed-schedules.grades.store', $schedule->id]
     ]) !!}
 
-    @include('courses.partials.form')
+    {!! Form::hidden('fixed_schedule_id', $schedule->id) !!}
+    {!! Form::hidden('student_id', $student->id) !!}
+    {!! Form::hidden('course_id', $schedule->course->id) !!}
+
+    @include('fixed-schedules.grades.partials.form')
 
     <div class="form-group">
         {!! Form::submit('Save', ['class' => 'btn btn-primary form-control']) !!}

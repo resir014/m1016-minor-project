@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\FixedSchedule;
 use App\Grade;
+use App\Student;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -32,11 +33,12 @@ class FixedScheduleGradeController extends Controller
      * @param  int  $schedule_id
      * @return \Illuminate\Http\Response
      */
-    public function create($schedule_id)
+    public function create($schedule_id, $student_id)
     {
         $schedule = FixedSchedule::findOrFail($schedule_id);
+        $student = Student::findOrFail($student_id);
 
-        return view('fixed-schedules.grades.create', compact('schedule'));
+        return view('fixed-schedules.grades.create', compact('schedule', 'student'));
     }
 
     /**
@@ -53,7 +55,11 @@ class FixedScheduleGradeController extends Controller
 
         $input = $request->all();
 
-        dd($input);
+        Grade::create($input);
+
+        $request->session()->flash('flash_message', 'Grade successfully added!');
+
+        return redirect()->route('fixed-schedules.grades.index', compact('schedule'));
     }
 
     /**
@@ -78,12 +84,13 @@ class FixedScheduleGradeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($schedule_id, $id)
+    public function edit($schedule_id, $student_id, $id)
     {
         $schedule = FixedSchedule::findOrFail($schedule_id);
-        $grade = Grades::findOrFail($id);
+        $student = Student::findOrFail($student_id);
+        $grade = Grade::findOrFail($id);
 
-        return view('fixed-schedules.grades.edit', compact('schedule', 'grade'));
+        return view('fixed-schedules.grades.edit', compact('schedule', 'student', 'grade'));
     }
 
     /**
@@ -97,11 +104,15 @@ class FixedScheduleGradeController extends Controller
     public function update(Request $request, $schedule_id, $id)
     {
         $schedule = FixedSchedule::findOrFail($schedule_id);
-        $grade = Grades::findOrFail($id);
+        $grade = Grade::findOrFail($id);
 
         $input = $request->all();
 
-        dd($input);
+        $grade->fill($input)->save();
+
+        $request->session()->flash('flash_message', 'Grade successfully updated!');
+
+        return redirect()->route('fixed-schedules.grades.index', compact('schedule'));
     }
 
     /**
@@ -114,7 +125,7 @@ class FixedScheduleGradeController extends Controller
     public function destroy($schedule_id, $id)
     {
         $schedule = FixedSchedule::findOrFail($schedule_id);
-        $grade = Grades::findOrFail($id);
+        $grade = Grade::findOrFail($id);
 
         dd($schedule);
     }
