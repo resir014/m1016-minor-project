@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SYFEI - Print Page</title>
 
-    <link href="{{ asset('assets/stylesheets/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/stylesheets/print.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
@@ -22,7 +22,7 @@
 
     <div class="container">
         <h1>Class Realisation Form</h1>
-        <p class="lead"><strong>Right-click on this page and select "Print", or press <kbd>Ctrl</kbd> + <kbd>P</kbd> on Chrome.</strong></p>
+        <p class="lead">Right-click on this page and select "Print", or press <kbd>Ctrl</kbd> + <kbd>P</kbd> on Chrome.</p>
 
         <hr>
 

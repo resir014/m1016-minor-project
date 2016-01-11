@@ -27,6 +27,9 @@ elixir(function(mix) {
     mix.sass([
         'app.scss'
     ], 'public/assets/stylesheets/app.css');
+    mix.sass([
+        'print.scss'
+    ], 'public/assets/stylesheets/print.css');
     mix.scripts([
         paths.jquery + 'dist/jquery.js',
         //paths.jquery_ui + 'jquery-ui.js',
