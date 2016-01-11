@@ -72,7 +72,7 @@
         </table>
     </div>
 
-    <a href="{{ route('fixed-schedules.attendance.index') }}" class="btn btn-default">Back</a>
+    <a href="{{ route('fixed-schedules.attendance.index', $schedule->id) }}" class="btn btn-default">Back</a>
     <div class="pull-right">
         {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
     </div>
