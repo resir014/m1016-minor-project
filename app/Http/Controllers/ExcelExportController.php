@@ -22,7 +22,7 @@ class ExcelExportController extends Controller
         })->download('xlsx');
     }
 
-    public function getClassRealisation() {
+    public function getClassRealisation($schedule_id) {
         $excel = \App::make('excel');
 
         \Excel::create('Filename', function ($excel) {

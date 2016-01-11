@@ -131,4 +131,13 @@ class FixedSchedulesController extends Controller
 
         // return redirect()->route('fixed-schedules.index');
     }
+
+    public function printPage($id) {
+        $fixedSchedule = FixedSchedule::findOrFail($id);
+        $students = $fixedSchedule->students;
+        $attendances = $fixedSchedule->attendanceForms;
+        $grades = $fixedSchedule->grades;
+
+        return view('fixed-schedules.print', compact('fixedSchedule', 'students', 'attendances', 'grades'));
+    }
 }

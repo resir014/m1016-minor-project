@@ -44,6 +44,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('fixed-schedules', 'FixedSchedulesController', [
         'except' => ['create']
     ]);
+    Route::get('fixed-schedules/{id}/print', [
+        'as' => 'fixed-schedules.print',
+        'uses' => 'FixedSchedulesController@printPage'
+    ]);
     Route::get('fixed-schedules/create/{id}', 'FixedSchedulesController@create');
 
     // Attendance forms
@@ -98,9 +102,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('fixed-schedules/{schedule_id}/session-log/create/{attendance_id}', 'FixedScheduleSessionLogController@create');
 
     // Additional controllers
-    Route::controllers([
-        'export' => 'ExcelExportController',
-    ]);
+    Route::get('export/fixed-schedules', 'ExcelExportController@getFixedSchedules');
+    Route::get('export/class-realisation/{schedule_id}', 'ExcelExportController@getClassRealisation');
 
     // API controllers for Typeahead search
     Route::get('data/lecturers/{query?}', 'SearchController@getLecturers');
