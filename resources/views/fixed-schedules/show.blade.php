@@ -51,7 +51,7 @@
     <a href="{{ route('fixed-schedules.index') }}" class="btn btn-default">Back to index</a>
     <a href="{{ route('fixed-schedules.edit', $fixedSchedule->id) }}" class="btn btn-primary">Update Schedule</a>
     <div class="pull-right">
-        <a class="btn btn-info" href="{{ route('fixed-schedules.print', $fixedSchedule->id) }}" target="">Print Class Realisation</a>
+        <a class="btn btn-info" href="{{ route('fixed-schedules.print', $fixedSchedule->id) }}" target="_blank">Print Class Realisation</a>
         <a class="btn btn-info" href="{{ route('fixed-schedules.attendance.index', $fixedSchedule->id) }}">View Attendance</a>
         <a class="btn btn-info" href="{{ route('fixed-schedules.grades.index', $fixedSchedule->id) }}">View Grades</a>
         <a class="btn btn-info" href="{{ route('fixed-schedules.add-student.index', $fixedSchedule->id) }}">Add/Remove Students</a>
