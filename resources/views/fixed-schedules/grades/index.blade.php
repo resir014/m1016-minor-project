@@ -42,7 +42,11 @@
                     <td>{{ $grade->midterm_score }}</td>
                     <td>{{ $grade->final_score }}</td>
                     <td>{{ $grade->total_score }}</td>
-                    <td><a href="{{ route('fixed-schedules.grades.edit', ['schedule_id' => $schedule->id, 'student_id' => $grade->student->id, 'id' => $grade->id]) }}">Edit</a></td>
+                    <td>
+                        @if(Auth::user()->userable_type == 'Admin')
+                        <a href="{{ route('fixed-schedules.grades.edit', ['schedule_id' => $schedule->id, 'student_id' => $grade->student->id, 'id' => $grade->id]) }}">Edit</a>
+                        @endif
+                    </td>
                 </tr>
             @endforeach
             @foreach($schedule->students as $i => $student)
