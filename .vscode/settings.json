@@ -5,5 +5,13 @@
     "editor.renderWhitespace": true,
     "files.encoding": "utf8",
     "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "search.exclude": {
+        "node_modules/**": true,
+        "bower_components/**": true,
+        ".sass-cache/**": true,
+        ".vagrant": true,
+        "storage/**": true,
+        "vendor/**": true
+    }
 }
