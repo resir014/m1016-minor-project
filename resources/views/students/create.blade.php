@@ -30,7 +30,7 @@
         'route' => 'students.store'
     ]) !!}
 
-    <div class="form-group" id="bloodhound-new-students">
+    <div class="form-group" id="bloodhound-new-users">
         {!! Form::label('id', 'Student ID', ['class' => 'control-label']) !!}
         {!! Form::text('id', null, ['class' => 'form-control']) !!}
     </div>
