@@ -97,7 +97,7 @@ class AttendanceFormFixedScheduleController extends Controller
     {
         $attendance = AttendanceForm::findOrFail($id);
         $schedule = FixedSchedule::findOrFail($schedule_id);
-        $students = Student::lists('name', 'id');
+        $students = Student::lists('id');
 
         // Temp variable for checking if student is checked
         $checkeds = $attendance->students()->lists('id')->toArray();
@@ -116,7 +116,7 @@ class AttendanceFormFixedScheduleController extends Controller
     {
         $attendance = AttendanceForm::findOrFail($id);
         $schedule = FixedSchedule::findOrFail($schedule_id);
-        $students = Student::lists('name', 'id');
+        $students = Student::lists('id');
 
         // Temp variable for checking if student is checked
         $checkeds = $attendance->students()->lists('id')->toArray();
@@ -134,7 +134,7 @@ class AttendanceFormFixedScheduleController extends Controller
     public function update(Request $request, $id)
     {
         $attendance = AttendanceForm::findOrFail($id);
-        $students = Student::lists('name', 'id');
+        $students = Student::lists('id');
 
         $input = $request->all();
 
