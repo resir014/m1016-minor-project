@@ -61,9 +61,14 @@ class FixedScheduleSessionLogController extends Controller
 
         $input = $request->all();
 
+        // The hard stuff goes here - verifying student password
+
         if (\Hash::check($request->student_password, $student->user->password)) {
+            // Password hashes match
             if ($request->student_agreed) {
+                // Student has checked the 'I agree' button
                 if (in_array($request->student_id, $students->toArray())) {
+                    // If student exists, write down the session log.
                     $sessionLog = SessionLog::create($input);
                 } else {
                     return redirect()->back()->withErrors(['That student doesn\'t exist in this class!']);

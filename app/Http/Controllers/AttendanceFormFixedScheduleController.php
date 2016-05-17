@@ -63,9 +63,14 @@ class AttendanceFormFixedScheduleController extends Controller
 
         $input = $request->all();
 
+        // The hard stuff goes here - verifying student password
+
         if (\Hash::check($request->student_password, $student->user->password)) {
+            // Password hashes match
             if ($request->student_agreed) {
+                // Student has checked the 'I agree' button
                 if (in_array($request->student_id, $students->toArray())) {
+                    // If student exists, write down the form.
                     $attendance = AttendanceForm::create($input);
                     $attendance->students()->attach($request->student_list);
                 } else {
