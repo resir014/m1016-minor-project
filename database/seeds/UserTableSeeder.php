@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder
         // Faker is a library to generate dummy data.
         $faker = Faker\Factory::create();
 
+        // Seeds for test admins.
         for ($i = 1; $i <= 3; $i++) {
             factory(App\User::class, 'admin')->create([
                 'email' => 'test.admin.' . sprintf('%04d', $i) . '@example.com',
@@ -28,6 +29,7 @@ class UserTableSeeder extends Seeder
             ]);
         }
 
+        // Seeds for test lecturers.
         for ($i = 1; $i <= 5; $i++) {
             factory(App\User::class, 'test-lecturer')->create([
                 'email' => 'test.lecturer.' . sprintf('%04d', $i) . '@example.com',
@@ -39,6 +41,7 @@ class UserTableSeeder extends Seeder
             ]);
         }
 
+        // Seeds for random lecturers.
         for ($i = 0; $i < 15; $i++) {
             $randomNumberTemp = $faker->unique()->numberBetween(6,9999);
 
@@ -49,6 +52,32 @@ class UserTableSeeder extends Seeder
 
             factory(App\Lecturer::class, 'lecturer')->create([
                 'id' => 'D' . sprintf('%04d', $randomNumberTemp),
+            ]);
+        }
+
+        // Seeds for test students.
+        for ($i = 1; $i <= 5; $i++) {
+            factory(App\User::class, 'test-student')->create([
+                'email' => 'test.student.' . sprintf('%04d', $i) . '@example.com',
+                'userable_id' => 'S' . sprintf('%04d', $i),
+            ]);
+
+            factory(App\Lecturer::class, 'test-student')->create([
+                'id' => 'S' . sprintf('%04d', $i),
+            ]);
+        }
+
+        // Seeds for random students.
+        for ($i = 0; $i < 50; $i++) {
+            $randomNumberTemp = $faker->unique()->numberBetween(6,9999);
+
+            factory(App\User::class, 'student')->create([
+                'email' => 'test.student.' . sprintf('%04d', $randomNumberTemp) . '@example.com',
+                'userable_id' => 'S' . sprintf('%04d', $randomNumberTemp),
+            ]);
+
+            factory(App\Lecturer::class, 'student')->create([
+                'id' => 'S' . sprintf('%04d', $randomNumberTemp),
             ]);
         }
     }

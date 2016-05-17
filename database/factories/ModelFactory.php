@@ -83,13 +83,40 @@ $factory->defineAs(App\Lecturer::class, 'lecturer', function (Faker\Generator $f
     ];
 });
 
-$factory->define(App\Student::class, function (Faker\Generator $faker) {
+$factory->defineAs(App\User::class, 'test-student', function (Faker\Generator $faker) {
     return [
-        'id' => 'S' . sprintf('%04d', $faker->unique()->numberBetween(1,9999)),
         'name' => $faker->firstName . ' ' . $faker->lastName,
+        'email' => $faker->email,
+        'userable_id' => 'S' . '0001',
+        'userable_type' => 'Student',
+        'password' => bcrypt('password'),
+    ];
+});
+
+$factory->defineAs(App\Student::class, 'test-student', function (Faker\Generator $faker) {
+    return [
+        'id' => 'S' . '0001',
         'admission_year' => 2012,
         'birth_date' => $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years')->format('Y-m-d H:i:s'),
-        'password' => 'password',
+        'active' => true,
+    ];
+});
+
+$factory->defineAs(App\User::class, 'student', function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName . ' ' . $faker->lastName,
+        'email' => $faker->email,
+        'userable_id' => 'S' . '0001',
+        'userable_type' => 'Student',
+        'password' => bcrypt('password'),
+    ];
+});
+
+$factory->defineAs(App\Student::class, 'student', function (Faker\Generator $faker) {
+    return [
+        'id' => 'S' . '0001',
+        'admission_year' => 2012,
+        'birth_date' => $faker->dateTimeBetween($startDate = '-21 years', $endDate = '-20 years')->format('Y-m-d H:i:s'),
         'active' => true,
     ];
 });
