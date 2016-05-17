@@ -65,7 +65,7 @@ class AttendanceFormFixedScheduleController extends Controller
 
         if (\Hash::check($request->student_password, $student->user->password)) {
             if ($request->student_agreed) {
-                if (in_array($request->student_id, $students)) {
+                if (in_array($request->student_id, $students->toArray())) {
                     $attendance = AttendanceForm::create($input);
                     $attendance->students()->attach($request->student_list);
                 } else {
