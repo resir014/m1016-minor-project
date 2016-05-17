@@ -17,6 +17,19 @@
 @endsection
 
 @section('content')
+@if($errors->any())
+    <div class="container">
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+@endif
+
 {!! Form::open([
     'route' => ['fixed-schedules.session-log.store', $schedule->id]
 ]) !!}
@@ -131,7 +144,7 @@
                       <div class="form-group">
                           <div class="checkbox">
                               <label>
-                                  <input type="checkbox" name="agreement"> I agree that the information entered were correct.
+                                  <input type="checkbox" name="student_agreement"> I agree that the information entered were correct.
                               </label>
                           </div>
                       </div>

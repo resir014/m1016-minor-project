@@ -61,13 +61,21 @@ class FixedScheduleSessionLogController extends Controller
 
         $input = $request->all();
 
-        if ($request->student_password == $student->password) {
-            $sessionLog = SessionLog::create($input);
+        if (\Hash::check($request->student_password, $student->user->password)) {
+            if ($request->student_agreement) {
+                if (in_array($request->student_id, $students->toArray())) {
+                    $sessionLog = SessionLog::create($input);
+                } else {
+                    return redirect()->back()->withErrors(['That student doesn\'t exist in this class!']);
+                }
+            } else {
+                return redirect()->back()->withErrors(['You haven\'t agreed yet!']);
+            }
         } else {
             return redirect()->back()->withErrors(['Incorrect student password!']);
         }
 
-        $request->session()->flash('flash_message', 'Attendance successfully posted!');
+        $request->session()->flash('flash_message', 'Session Log successfully posted!');
 
         return redirect()->back();
     }
