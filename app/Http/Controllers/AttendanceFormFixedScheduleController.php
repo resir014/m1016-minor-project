@@ -42,7 +42,7 @@ class AttendanceFormFixedScheduleController extends Controller
     public function create($id)
     {
         $schedule = FixedSchedule::find($id);
-        $students = Student::lists('name', 'id');
+        $students = Student::lists('id');
 
         return view('fixed-schedules.attendance.create', compact('schedule', 'students'));
     }
@@ -63,9 +63,17 @@ class AttendanceFormFixedScheduleController extends Controller
 
         $input = $request->all();
 
-        if ($request->student_password == $student->password) {
-            $attendance = AttendanceForm::create($input);
-            $attendance->students()->attach($request->student_list);
+        if (\Hash::check($request->student_password, $student->user->password)) {
+            if ($request->student_agreed) {
+                if (in_array($request->student_id, $students)) {
+                    $attendance = AttendanceForm::create($input);
+                    $attendance->students()->attach($request->student_list);
+                } else {
+                    return redirect()->back()->withErrors(['That student doesn\'t exist in this class!']);
+                }
+            } else {
+                return redirect()->back()->withErrors(['You haven\'t agreed yet!']);
+            }
         } else {
             return redirect()->back()->withErrors(['Incorrect student password!']);
         }

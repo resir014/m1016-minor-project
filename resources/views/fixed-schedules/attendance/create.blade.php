@@ -84,7 +84,7 @@
                 @foreach($schedule->students as $i => $student)
                 <tr>
                     <td>{{ $student->id }}</td>
-                    <td>{{ $student->name }}</td>
+                    <td>{{ $student->user->name }}</td>
                     <td>{!! Form::checkbox('student_list[]', $student->id) !!}</td>
                 </tr>
                 @endforeach
@@ -120,7 +120,7 @@
                 <div class="form-group">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> I agree that the information entered were correct.
+                            <input type="checkbox" name="student_agreed"> I agree that the information entered were correct.
                         </label>
                     </div>
                 </div>
