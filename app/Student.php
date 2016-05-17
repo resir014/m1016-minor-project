@@ -14,6 +14,13 @@ class Student extends Model
     protected $table = 'students';
 
     /**
+     * The class name to be used in polymorphic relations.
+     *
+     * @var string
+     */
+    protected $morphClass = 'Student';
+
+    /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool
@@ -65,6 +72,14 @@ class Student extends Model
     public function getBirthDateAttribute($date)
     {
         return \Carbon\Carbon::parse($date)->format('Y-m-d');
+    }
+
+    /**
+     * Get the user that this model is related to.
+     */
+    public function user()
+    {
+        return $this->morphOne('App\User', 'userable');
     }
 
     /**
