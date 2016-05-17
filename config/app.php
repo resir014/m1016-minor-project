@@ -199,8 +199,7 @@ return [
         'Html'      => Illuminate\Html\HtmlFacade::class,
         'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
 
-        // Custom aliases
-
+        // Model aliases
         'User'              => App\User::class,
         'Admin'             => App\Admin::class,
         'Lecturer'          => App\Lecturer::class,
@@ -210,6 +209,10 @@ return [
         'ScheduleDraft'     => App\ScheduleDraft::class,
         'FixedSchedule'     => App\FixedSchedule::class,
         'ScheduleApproval'  => App\ScheduleApproval::class,
+        'Grade'             => App\Grade::class,
+        'Semester'          => App\Semester::class,
+        'AttendanceForm'    => App\AttendanceForm::class,
+        'SessionLog'        => App\SessionLog::class,
 
     ],
 
