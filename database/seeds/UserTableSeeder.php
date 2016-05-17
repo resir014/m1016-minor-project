@@ -62,7 +62,7 @@ class UserTableSeeder extends Seeder
                 'userable_id' => 'S' . sprintf('%04d', $i),
             ]);
 
-            factory(App\Lecturer::class, 'test-student')->create([
+            factory(App\Student::class, 'test-student')->create([
                 'id' => 'S' . sprintf('%04d', $i),
             ]);
         }
@@ -76,7 +76,7 @@ class UserTableSeeder extends Seeder
                 'userable_id' => 'S' . sprintf('%04d', $randomNumberTemp),
             ]);
 
-            factory(App\Lecturer::class, 'student')->create([
+            factory(App\Student::class, 'student')->create([
                 'id' => 'S' . sprintf('%04d', $randomNumberTemp),
             ]);
         }
