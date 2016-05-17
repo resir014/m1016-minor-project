@@ -93,7 +93,7 @@
                                     <tr>
                                         <td>{{ $i+1 }}</td>
                                         <td>{{ $student->id }}</td>
-                                        <td>{{ $student->name }}</td>
+                                        <td>{{ $student->user->name }}</td>
                                         <td>
                                             {!! Form::open([
                                                 'method' => 'POST',

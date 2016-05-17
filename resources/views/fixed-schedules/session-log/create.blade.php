@@ -93,7 +93,7 @@
                 <?php $checked = in_array($student->id, $checkeds) ? true : false; ?>
                 <tr>
                     <td>{{ $student->id }}</td>
-                    <td>{{ $student->name }}</td>
+                    <td>{{ $student->user->name }}</td>
                     <td>{!! Form::checkbox('student_list[]', $student->id, $checked) !!}</td>
                 </tr>
                 @endforeach

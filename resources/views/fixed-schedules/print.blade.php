@@ -67,7 +67,7 @@
                     <tr>
                         <td>{{ $i+1 }}</td>
                         <td>{{ $student->id }}</td>
-                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->user->name }}</td>
                         <td>@{{ $student->fixedSchedules->attendance->count() }}</td>
                     </tr>
                 @endforeach
@@ -137,7 +137,7 @@
                     @if($student->grades->count() == 0)
                         <tr>
                             <td>{{ $student->id }}</td>
-                            <td>{{ $student->name }}</td>
+                            <td>{{ $student->user->name }}</td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td>N/A</td>

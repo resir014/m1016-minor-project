@@ -53,7 +53,7 @@
                 @if($student->grades->count() == 0)
                     <tr>
                         <td>{{ $student->id }}</td>
-                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->user->name }}</td>
                         <td>N/A</td>
                         <td>N/A</td>
                         <td>N/A</td>
