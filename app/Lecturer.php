@@ -14,6 +14,13 @@ class Lecturer extends Model
     protected $table = 'lecturers';
 
     /**
+     * The class name to be used in polymorphic relations.
+     *
+     * @var string
+     */
+    protected $morphClass = 'Lecturer';
+
+    /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool

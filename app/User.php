@@ -24,6 +24,13 @@ class User extends Model implements AuthenticatableContract,
     protected $table = 'users';
 
     /**
+     * The class name to be used in polymorphic relations.
+     *
+     * @var string
+     */
+    protected $morphClass = 'User';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -50,7 +57,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @param  string  $value
      * @return string
-     */
+     *
     public function setUserableTypeAttribute($value)
     {
         $this->attributes['userable_type'] = 'App\\' . $value;
@@ -58,9 +65,10 @@ class User extends Model implements AuthenticatableContract,
 
      /**
       * Strips the 'App\' out of the userable_type attribute when calling it
-      */
+      *
      public function getUserableTypeAttribute($value)
      {
          return substr($value, 4);
      }
+     */
 }

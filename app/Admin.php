@@ -14,6 +14,13 @@ class Admin extends Model
     protected $table = 'admins';
 
     /**
+     * The class name to be used in polymorphic relations.
+     *
+     * @var string
+     */
+    protected $morphClass = 'Admin';
+
+    /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool
