@@ -62,7 +62,7 @@ class FixedScheduleSessionLogController extends Controller
         $input = $request->all();
 
         if (\Hash::check($request->student_password, $student->user->password)) {
-            if ($request->student_agreement) {
+            if ($request->student_agreed) {
                 if (in_array($request->student_id, $students->toArray())) {
                     $sessionLog = SessionLog::create($input);
                 } else {

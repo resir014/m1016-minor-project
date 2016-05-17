@@ -144,7 +144,7 @@
                       <div class="form-group">
                           <div class="checkbox">
                               <label>
-                                  <input type="checkbox" name="student_agreement"> I agree that the information entered were correct.
+                                  <input type="checkbox" name="student_agreed"> I agree that the information entered were correct.
                               </label>
                           </div>
                       </div>
