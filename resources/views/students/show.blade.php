@@ -6,14 +6,14 @@
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
     <li><a href="{{ url('/students') }}">Students</a></li>
-    <li class="active">{{ $student->id }} - {{ $student->name }}</li>
+    <li class="active">{{ $student->id }} - {{ $student->user->name }}</li>
 </ol>
 @endsection
 
 @section('content')
 <div class="container">
     <h1>Viewing Student Profile</h1>
-    <p class="lead">{{ $student->id }} - {{ $student->name }}</p>
+    <p class="lead">{{ $student->id }} - {{ $student->user->name }}</p>
 
     <hr>
 
@@ -30,7 +30,7 @@
             <tbody>
                 <tr>
                     <td>{{ $student->id }}</td>
-                    <td>{{ $student->name }}</td>
+                    <td>{{ $student->user->name }}</td>
                     <td>{{ date('d F Y', strtotime($student->birth_date)) }}</td>
                     <td>{{ $student->admission_year }}</td>
                 </tr>

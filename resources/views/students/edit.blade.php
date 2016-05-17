@@ -6,7 +6,7 @@
 <ol class="breadcrumb">
     <li><a href="{{ url('/home') }}">Home</a></li>
     <li><a href="{{ url('/students') }}">Students</a></li>
-    <li><a href="{{ route('students.show', $student->id) }}">{{ $student->id }} - {{ $student->name }}</a></li>
+    <li><a href="{{ route('students.show', $student->id) }}">{{ $student->id }} - {{ $student->user->name }}</a></li>
     <li class="active">Edit Student</li>
 </ol>
 @endsection
@@ -15,7 +15,7 @@
 <div class="container">
 
     <h1>Edit Student</h1>
-    <p class="lead">{{ $student->id }} - {{ $student->name }}</p>
+    <p class="lead">{{ $student->id }} - {{ $student->user->name }}</p>
     <hr>
 
     @if($errors->any())
@@ -49,8 +49,14 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
-        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+    {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+        <p class="form-control-static">
+            @if ($student->user)
+                {{ $student->user->name }}
+            @else
+                N/A
+            @endif
+        </p>
     </div>
 
     <div class="form-group">
@@ -61,16 +67,6 @@
     <div class="form-group">
         {!! Form::label('birth_date', 'Birth Date', ['class' => 'control-label']) !!}
         {!! Form::input('date', 'birth_date', $student->birth_date, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('password', 'Verification Password', ['class' => 'control-label']) !!}
-        {!! Form::password('password', ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('password_confirmation', 'Confirm Password', ['class' => 'control-label']) !!}
-        {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">

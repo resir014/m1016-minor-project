@@ -30,14 +30,9 @@
         'route' => 'students.store'
     ]) !!}
 
-    <div class="form-group">
+    <div class="form-group" id="bloodhound-new-students">
         {!! Form::label('id', 'Student ID', ['class' => 'control-label']) !!}
         {!! Form::text('id', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
-        {!! Form::text('name', null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
@@ -48,16 +43,6 @@
     <div class="form-group">
         {!! Form::label('birth_date', 'Birth Date', ['class' => 'control-label']) !!}
         {!! Form::input('date', 'birth_date', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('password', 'Verification Password', ['class' => 'control-label']) !!}
-        {!! Form::password('password', ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('password_confirmation', 'Confirm Password', ['class' => 'control-label']) !!}
-        {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">

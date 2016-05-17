@@ -36,7 +36,7 @@
                 @foreach($students as $student)
                 <tr>
                     <td>{{ $student->id }}</td>
-                    <td>{{ $student->name }}</td>
+                    <td>{{ $student->user->name }}</td>
                     <td>{{ date('d F Y', strtotime($student->birth_date)) }}</td>
                     <td>{{ $student->admission_year }}</td>
                     @if($student->active)
