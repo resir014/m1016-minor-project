@@ -6,7 +6,8 @@
 
 ### Requirements
 
-* Latest version of [XAMPP](https://www.apachefriends.org/).
+* Latest version of [XAMPP](https://www.apachefriends.org/) (on Windows).
+* A working LAMP stack (on Linux).
 * Latest version of [Composer](https://getcomposer.org/).
 
 For now, this guide is mostly compatible for Windows only.
@@ -14,9 +15,14 @@ For now, this guide is mostly compatible for Windows only.
 * Install XAMPP, prefereably in `C:\xampp`.
 * Download the Windows installer for Composer, install it. Make sure to point to the `php.exe` located in the XAMPP installation directory when prompted.
 
-Now, check if you have both `php` and `composer` on the command line.
+Now, check if you have both `php` and `composer` on the command prompt.
 
-**Optional:**
+```
+> php -v
+> composer -v
+```
+
+### Optional requirements
 
 * [node.js (v4.x)](https://nodejs.org/)
 
@@ -26,16 +32,13 @@ After installing Node.js, install the following from the command line:
 
 ## Setting up our development environment
 
-### On Windows
+After both XAMPP and Composer are installed, clone this repository.
 
-After both XAMPP and Composer are installed, clone this repository to the XAMPP `htdocs` directory.
-
-```
-C:\Users\user> cd C:\xampp\htdocs
-C:\xampp\htdocs> git clone https://github.com/resir014/m1016-minor-project.git
+```bash
+$ git clone https://github.com/resir014/m1016-minor-project.git
 ```
 
-First, make a copy of `.env.example` and rename it to `.env`, then edit these lines on the `.env` file to the following:
+First, make a copy of `.env.example` and rename it to `.env`, then make sure you have your database settings set up properly:
 
 ```
 DB_CONNECTION=mysql
@@ -45,34 +48,65 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-The `DB_DATABASE` variable should be set to the database you created for the app in phpMyAdmin.
+The `DB_DATABASE` variable should be set to the database you created for the app, and the `DB_USERNAME` and `DB_PASSWORD` variable should be set to the username and password you use to log in to MySQL.
 
 Next, navigate to the working directory and run Composer to install the dependencies required for this project.
 
-```
-C:\xampp\htdocs> cd m1016-minor-project
-C:\xampp\htdocs\m1016-minor-project> composer install
+```bash
+$ composer install
 ```
 
 Finally, create an application key using the following command:
 
+```bash
+$ php artisan key:generate
 ```
-> php artisan key:generate
+
+### Optional tasks
+
+If you've installed Node.js, you will have to install the required Node packages as well.
+
+```bash
+$ npm install
 ```
 
 To update the dependencies at any time, run this command:
 
-```
-> composer update
-```
-
-**Optional:** If you've installed Node.js, you will have to install the required Node packages as well.
-
-```
-> npm install
+```bash
+$ composer update
 ```
 
-### Vagrant (with Homestead)
+## Development
+
+### Running locally
+
+Make sure you have MySQL and Apache activated (On Windows, you can use the XAMPP Control Panel). Then, open a command prompt and `cd` to the project directory, and run the following command:
+
+```bash
+$ php artisan serve
+```
+
+Then, navigate to `http://localhost:8000` to load the page.
+
+### Compiling CSS and JS
+
+We use Gulp and `laravel-elixir` to compile our CSS and JS files. `cd` to `C:\xampp\htdocs\m1016-laravel-test` and run the following command:
+
+```bash
+$ npm install
+```
+
+Then use the following command to build the SCSS and JS files:
+
+```bash
+$ gulp
+```
+
+### Working with database
+
+Coming soon!
+
+## Vagrant (with Homestead)
 
 You can also use Vagrant for easy setup of your development environment through a VM.
 
@@ -130,54 +164,6 @@ $ vagrant up
 
 Then go to `192.168.10.10` on your browser, and voila!
 
-**Note:** Don't forget to run `vagrant halt` to shutdown the VM.
-
-## Development
-
-### Compiling CSS and JS
-
-We use Gulp and `laravel-elixir` to compile our CSS and JS files. `cd` to `C:\xampp\htdocs\m1016-laravel-test` and run the following command:
-
-```
-> npm install
-```
-
-Then use the following command to build the SCSS and JS files:
-
-```
-> gulp
-```
-
-### Working with database
-
-Coming soon!
-
-## Running locally
-
-### Through XAMPP
-
-Open the XAMPP Control Panel and activate both Apache and MySQL, then navigate to `http://localhost/m1016-laravel-test/public`.
-
-### Through PHP
-
-Open the XAMPP Control Panel and activate MySQL. Then, open a command prompt and `cd` to the project directory, and run the following command:
-
-```
-> php -S localhost:8888 -t public
-```
-
-Then, navigate to `http://localhost:8888` to load the page.
-
-### Vagrant
-
-To start the VM:
-
-```bash
-$ vagrant up
-```
-
-After the VM start-up process is complete, go to 192.168.10.10 to access your website.
-
 To access the VM's command line:
 
 ```bash
@@ -189,6 +175,8 @@ To shutdown the VM:
 ```bash
 $ vagrant halt
 ```
+
+**Note:** Don't forget to run `vagrant halt` to shutdown the VM after you've finished working on the project.
 
 ## Contributing
 
