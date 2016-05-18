@@ -19,7 +19,7 @@ class AddStudentsController extends Controller
     public function index($id)
     {
         $fixedSchedule = FixedSchedule::find($id);
-        $students = Student::lists('name', 'id');
+        $students = Student::lists('id');
 
         return view('fixed-schedules.add-students.index', compact('fixedSchedule', 'students'));
     }
@@ -34,7 +34,7 @@ class AddStudentsController extends Controller
     public function store(Request $request, $id)
     {
         $fixedSchedule = FixedSchedule::find($id);
-        $students = Student::lists('name', 'id');
+        $students = Student::lists('id');
 
         $input = $request->all();
 
