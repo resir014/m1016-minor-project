@@ -51,24 +51,4 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->morphTo();
     }
-
-    /**
-     * Sets the default values for the userable_type attribute
-     *
-     * @param  string  $value
-     * @return string
-     *
-    public function setUserableTypeAttribute($value)
-    {
-        $this->attributes['userable_type'] = 'App\\' . $value;
-    }
-
-     /**
-      * Strips the 'App\' out of the userable_type attribute when calling it
-      *
-     public function getUserableTypeAttribute($value)
-     {
-         return substr($value, 4);
-     }
-     */
 }
