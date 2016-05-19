@@ -132,6 +132,11 @@ class FixedSchedulesController extends Controller
         // return redirect()->route('fixed-schedules.index');
     }
 
+    /**
+     * Generates a printable page for the resource.
+     *
+     * @param  int  $id
+     */
     public function printPage($id) {
         $fixedSchedule = FixedSchedule::findOrFail($id);
         $students = $fixedSchedule->students;

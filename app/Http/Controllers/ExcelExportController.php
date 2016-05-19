@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 
 class ExcelExportController extends Controller
 {
+
+    /**
+     * Exports the Fixed Schedules into an Excel file.
+     */
     public function getFixedSchedules()
     {
         $excel = \App::make('excel');
@@ -22,6 +26,11 @@ class ExcelExportController extends Controller
         })->download('xlsx');
     }
 
+    /**
+     * Generates a Class Realisation form and generates an Excel file.
+     *
+     * @param  int  $schedule_id
+     */
     public function getClassRealisation($schedule_id) {
         $excel = \App::make('excel');
 
