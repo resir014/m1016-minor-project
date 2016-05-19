@@ -103,6 +103,7 @@ class SearchController extends Controller
      *
      * @param  string  $query
      * @return \Illuminate\Http\Response
+     * @deprecated
      */
     public function getLecturersWithApproval($query)
     {

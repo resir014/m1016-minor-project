@@ -107,7 +107,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // API controllers for Typeahead search
     Route::get('data/lecturers/{query?}', 'SearchController@getLecturers');
-    Route::get('data/lecturers-with-approval/{query?}', 'SearchController@getLecturersWithApproval');
+    Route::get('data/lecturers-with-approval/{query?}', 'SearchController@getLecturersWithApproval'); // deprecated
     Route::get('data/students/{query?}', 'SearchController@getStudents');
     Route::get('data/new-users/{query?}', 'SearchController@getNewUsers');
     Route::get('data/courses/{query?}', 'SearchController@getCourses');
