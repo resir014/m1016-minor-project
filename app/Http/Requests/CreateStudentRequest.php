@@ -31,7 +31,6 @@ class CreateStudentRequest extends Request
         return [
             'admission_year' => 'required|integer',
             'birth_date' => 'required|date',
-            'password' => 'confirmed|min:6'
         ];
     }
 
@@ -47,8 +46,6 @@ class CreateStudentRequest extends Request
             'admission_year.integer' => 'Admission Year is not a valid number.',
             'birth_date.required' => 'Please enter the Birth Date.',
             'birth_date.date' => 'Birth Year is not a valid year format.',
-            'password.confirmed' => 'Please confirm your password.',
-            'password.min:6' => 'Password must be at least 6 characters.'
         ];
     }
 }
