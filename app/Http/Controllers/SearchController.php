@@ -32,15 +32,17 @@ class SearchController extends Controller
     }
 
     /**
-     * Returns a JSON output of Typeahead query for Lecturers
+     * Returns a JSON output of Typeahead query for Students
      *
      * @param  string  $query
      * @return \Illuminate\Http\Response
      */
     public function getStudents($query)
     {
-        $results = Student::select('id', 'name')
-            ->where('id', 'LIKE', '%' . $query . '%')
+        $results = \DB::table('students')
+            ->join('users', 'students.id', '=', 'users.userable_id')
+            ->select('students.id', 'name')
+            ->where('students.id', 'LIKE', '%' . $query . '%')
             ->orWhere('name', 'LIKE', '%' . $query . '%')
             ->get();
 
@@ -48,7 +50,7 @@ class SearchController extends Controller
     }
 
     /**
-     * Returns a JSON output of Typeahead query for Lecturers
+     * Returns a JSON output of Typeahead query for Courses
      *
      * @param  string  $query
      * @return \Illuminate\Http\Response
@@ -64,7 +66,7 @@ class SearchController extends Controller
     }
 
     /**
-     * Returns a JSON output of Typeahead query for Lecturers
+     * Returns a JSON output of Typeahead query for Rooms
      *
      * @param  string  $query
      * @return \Illuminate\Http\Response
