@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
+use App\Http\Requests\ProfileRequest;
 use App\Http\Controllers\Controller;
 
 class ProfilesController extends Controller
@@ -55,11 +56,12 @@ class ProfilesController extends Controller
     {
         $user = \Auth::user();
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-
-        $user->save();
+        if (\Hash::check($request->old_password, $user->password)) {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        } else {
+            return redirect()->back()->withErrors(['Your current password is incorrect. Please reenter the correct password.']);
+        }
 
         $request->session()->flash('flash_message', 'Profile successfully updated!');
 

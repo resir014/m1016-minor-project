@@ -33,6 +33,8 @@
         'route' => ['profile.update', $user->id]
     ]) !!}
 
+    <h2>Profile Details</h2>
+
     <div class="form-group">
         {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
         {!! Form::hidden('name', Auth::user()->name) !!}
@@ -41,7 +43,8 @@
 
     <div class="form-group">
         {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
-        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+        {!! Form::hidden('name', Auth::user()->email) !!}
+        <p class="form-control-static">{{ Auth::user()->email }}</p>
     </div>
 
     <div class="form-group">
@@ -52,6 +55,15 @@
     <div class="form-group">
         {!! Form::label('password_confirmation', 'Confirm New Password', ['class' => 'control-label']) !!}
         {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+    </div>
+
+    <hr>
+
+    <h2>Verify Current Password</h2>
+
+    <div class="form-group">
+        {!! Form::label('old_password', 'Current Password', ['class' => 'control-label']) !!}
+        {!! Form::password('old_password', ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">
