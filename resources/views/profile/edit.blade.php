@@ -28,24 +28,31 @@
         </div>
     @endif
 
+    <h2>Profile Details</h2>
+
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>{{ Auth::user()->userable_id }}</td>
+                <td>{{ Auth::user()->name }}</td>
+                <td>{{ Auth::user()->email }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
     {!! Form::model($user, [
         'method' => 'PATCH',
         'route' => ['profile.update', $user->id]
     ]) !!}
 
-    <h2>Profile Details</h2>
-
-    <div class="form-group">
-        {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
-        {!! Form::hidden('name', Auth::user()->name) !!}
-        <p class="form-control-static">{{ Auth::user()->name }}</p>
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
-        {!! Form::hidden('name', Auth::user()->email) !!}
-        <p class="form-control-static">{{ Auth::user()->email }}</p>
-    </div>
+    <h2>Change Password</h2>
 
     <div class="form-group">
         {!! Form::label('password', 'New Password', ['class' => 'control-label']) !!}
